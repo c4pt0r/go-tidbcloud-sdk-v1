@@ -11,7 +11,7 @@ Codegen:
 
 1. Register TiDB Cloud (free & easy)
 2. Create an API Key, follow the document here: https://docs.pingcap.com/tidbcloud/api/v1beta#section/Get-Started
-3. See `example/main.go` for more detail usage
+3. See [example/main.go](https://github.com/c4pt0r/go-tidbcloud-sdk-v1/blob/master/example/main.go) for more detail usage
 
 Enjoy it! 😉
 
