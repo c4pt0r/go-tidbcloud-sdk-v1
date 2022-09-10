@@ -8,14 +8,15 @@ import (
 	"os"
 	"time"
 
+	"github.com/briandowns/spinner"
 	apiclient "github.com/c4pt0r/go-tidbcloud-sdk-v1/client"
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/cluster"
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/project"
+	"github.com/fatih/color"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/manifoldco/promptui"
-
 	"github.com/icholy/digest"
+	"github.com/manifoldco/promptui"
 )
 
 var (
@@ -174,22 +175,39 @@ func main() {
 		os.Exit(1)
 	}
 	newClusterID := *createClusterResult.GetPayload().ID
-	fmt.Printf("Cluster created, ID: %s, waiting for it to be ready...\n", newClusterID)
+	fmt.Printf("Cluster created, ID: %s\n", newClusterID)
 
-	for {
-		time.Sleep(5 * time.Second)
-		clusterResult, err := client.Cluster.GetCluster(cluster.NewGetClusterParams().
-			WithClusterID(newClusterID).
-			WithProjectID(projectIDs[i]))
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
+	exit := make(chan *cluster.GetClusterOK)
+	go func() {
+		var clusterResult *cluster.GetClusterOK
+		var err error
+		for {
+			clusterResult, err = client.Cluster.GetCluster(cluster.NewGetClusterParams().
+				WithClusterID(newClusterID).
+				WithProjectID(projectIDs[i]))
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			s := clusterResult.GetPayload().Status.ClusterStatus
+			if s == "AVAILABLE" {
+				break
+			}
+			time.Sleep(5 * time.Second)
 		}
-		clusterStatus := clusterResult.GetPayload().Status.ClusterStatus
-		fmt.Printf("Cluster status: %s\n", clusterStatus)
-		if clusterStatus == "AVAILABLE" {
-			break
-		}
-	}
+		exit <- clusterResult
+	}()
 
+	go func() {
+		// show process bar
+		s := spinner.New(spinner.CharSets[9], 100*time.Millisecond)
+		s.Suffix = fmt.Sprintf(" Waiting for cluster to be ready...normally it takes 5-10 minutes")
+		s.Start()
+	}()
+
+	clusterResult := <-exit
+
+	fmt.Println(color.GreenString("\nCluster is ready, details:"))
+	b, _ := json.MarshalIndent(clusterResult.GetPayload(), "", "  ")
+	fmt.Println(string(b))
 }

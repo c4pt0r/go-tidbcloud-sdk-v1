@@ -3,6 +3,8 @@ module github.com/c4pt0r/go-tidbcloud-sdk-v1
 go 1.18
 
 require (
+	github.com/briandowns/spinner v1.19.0
+	github.com/fatih/color v1.7.0
 	github.com/go-openapi/errors v0.20.3
 	github.com/go-openapi/runtime v0.24.1
 	github.com/go-openapi/strfmt v0.21.3
@@ -25,6 +27,8 @@ require (
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/mattn/go-colorable v0.1.2 // indirect
+	github.com/mattn/go-isatty v0.0.8 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
