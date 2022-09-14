@@ -1,6 +1,6 @@
 # go-tidbcloud-sdk-v1
 
-Unofficial Go wrapper for TiDB Cloud [OpenAPI v1beta](https://docs.pingcap.com/tidbcloud/api/v1beta)
+<del>Unofficial</del> Go wrapper for [TiDB Cloud OpenAPI v1beta](https://docs.pingcap.com/tidbcloud/api/v1beta)
 
 Most generated code are from offical OpenAPI specification(Swagger 2.0, JSON): https://download.pingcap.org/tidbcloud-oas.json
 
