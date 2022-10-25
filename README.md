@@ -15,3 +15,8 @@ Codegen:
 
 Enjoy it! 😉
 
+
+## Related Projects
+
+- Python SDK: [tidbcloudy](https://github.com/Oreoxmt/tidbcloudy) by [@Oreoxmt](https://github.com/Oreoxmt)
+- Official code samples in Go and Python: [tidbcloud-api-samples](https://github.com/tidbcloud/tidbcloud-api-samples)
