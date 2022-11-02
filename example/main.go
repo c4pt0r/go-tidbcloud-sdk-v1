@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -22,6 +23,12 @@ import (
 var (
 	publicKey  string
 	privateKey string
+)
+
+var (
+	// cluster name
+	clusterName = flag.String("cluster-name", "", "cluster name")
+	verbose     = flag.Bool("v", false, "verbose")
 )
 
 func init() {
@@ -46,20 +53,22 @@ func main() {
 		httptransport.NewWithClient("api.tidbcloud.com", "/", []string{"https"}, httpclient),
 		strfmt.Default)
 
-	// Get list of artifacts
-	artifacts, err := client.Cluster.ListProviderRegions(nil)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+	if *verbose {
+		// Get list of artifacts
+		artifacts, err := client.Cluster.ListProviderRegions(nil)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+		// Print the list of clusters
+		payload := artifacts.GetPayload()
+		fmt.Println("Artifacts:")
+		for _, item := range payload.Items {
+			b, _ := json.MarshalIndent(item, "", "  ")
+			fmt.Println(string(b))
+		}
+		fmt.Println("------------")
 	}
-	// Print the list of clusters
-	payload := artifacts.GetPayload()
-	fmt.Println("Artifacts:")
-	for _, item := range payload.Items {
-		b, _ := json.MarshalIndent(item, "", "  ")
-		fmt.Println(string(b))
-	}
-	fmt.Println("------------")
 
 	// Get list of projects, and print the clusters in each project
 	projects, err := client.Project.ListProjects(project.NewListProjectsParams())
@@ -75,29 +84,33 @@ func main() {
 	fmt.Println("Projects:")
 	for _, item := range prjsPayload.Items {
 		b, _ := json.MarshalIndent(item, "", "  ")
-		fmt.Println(string(b))
+		if *verbose {
+			fmt.Println(string(b))
+		}
 		projectIDs = append(projectIDs, item.ID)
 		projectNames = append(projectNames, item.Name)
 	}
 
-	// Get list of clusters
-	for i, projectID := range projectIDs {
-		clusters, err := client.Cluster.ListClustersOfProject(cluster.NewListClustersOfProjectParams().
-			WithProjectID(projectID))
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
+	if *verbose {
+		// Get list of clusters
+		for i, projectID := range projectIDs {
+			clusters, err := client.Cluster.ListClustersOfProject(cluster.NewListClustersOfProjectParams().
+				WithProjectID(projectID))
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			// Print the list of clusters
+			clustersPayload := clusters.GetPayload()
+			fmt.Printf("Clusters of [%s]:\n", projectNames[i])
+			for _, item := range clustersPayload.Items {
+				b, _ := json.MarshalIndent(item, "", "  ")
+				fmt.Println(string(b))
+			}
 		}
-		// Print the list of clusters
-		clustersPayload := clusters.GetPayload()
-		fmt.Printf("Clusters of [%s]:\n", projectNames[i])
-		for _, item := range clustersPayload.Items {
-			b, _ := json.MarshalIndent(item, "", "  ")
-			fmt.Println(string(b))
-		}
+		fmt.Println("------------")
+		fmt.Println()
 	}
-	fmt.Println("------------")
-	fmt.Println()
 
 	// create a developer-tier free cluster
 	fmt.Println("Creating a developer-tier cluster")
@@ -113,7 +126,7 @@ func main() {
 	fmt.Printf("You choose [%s] ProjectID: %s\n", result, projectIDs[i])
 
 	// choose cluster name
-	clusterName := "go-tidbcloud-sdk-v1-example"
+	clusterName := "tidb-serverless-cluster-1"
 	clusterNamePrompt := promptui.Prompt{
 		Label: fmt.Sprintf("Cluster name [default:%s]", clusterName),
 	}
@@ -198,16 +211,24 @@ func main() {
 		exit <- clusterResult
 	}()
 
+	s := spinner.New(spinner.CharSets[9], 100*time.Millisecond)
 	go func() {
 		// show process bar
-		s := spinner.New(spinner.CharSets[9], 100*time.Millisecond)
-		s.Suffix = fmt.Sprintf(" Waiting for cluster to be ready...normally it takes 5-10 minutes")
+		s.Suffix = fmt.Sprintf(" Waiting for cluster to be ready...normally it takes less than 30s")
 		s.Start()
 	}()
 
 	clusterResult := <-exit
+	s.Stop()
 
 	fmt.Println(color.GreenString("\nCluster is ready, details:"))
 	b, _ := json.MarshalIndent(clusterResult.GetPayload(), "", "  ")
 	fmt.Println(string(b))
+
+	body := clusterResult.GetPayload()
+
+	// output connect string for mysql client
+	fmt.Println(color.GreenString("\nTry it:"))
+	fmt.Printf("mysql --ssl-verify-server-cert -h %s -P %d -u %s -p\n", body.Status.ConnectionStrings.Standard.Host, body.Status.ConnectionStrings.Standard.Port, body.Status.ConnectionStrings.DefaultUser)
+
 }
