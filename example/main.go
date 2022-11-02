@@ -27,8 +27,8 @@ var (
 
 var (
 	// cluster name
-	clusterName = flag.String("cluster-name", "", "cluster name")
-	verbose     = flag.Bool("v", false, "verbose")
+	newClusterName = flag.String("cluster-name", "", "cluster name")
+	verbose        = flag.Bool("v", false, "verbose")
 )
 
 func init() {
@@ -41,6 +41,7 @@ func main() {
 		fmt.Println("Please set TIDBCLOUD_PUBLIC_KEY and TIDBCLOUD_PRIVATE_KEY")
 		os.Exit(1)
 	}
+	flag.Parse()
 
 	httpclient := &http.Client{
 		Transport: &digest.Transport{
@@ -126,17 +127,23 @@ func main() {
 	fmt.Printf("You choose [%s] ProjectID: %s\n", result, projectIDs[i])
 
 	// choose cluster name
-	clusterName := "tidb-serverless-cluster-1"
-	clusterNamePrompt := promptui.Prompt{
-		Label: fmt.Sprintf("Cluster name [default:%s]", clusterName),
-	}
-	result, err = clusterNamePrompt.Run()
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return
-	}
-	if result != "" {
-		clusterName = result
+	var clusterName string
+	if *newClusterName == "" {
+		clusterName := "tidb-serverless-cluster-1"
+		clusterNamePrompt := promptui.Prompt{
+			Label: fmt.Sprintf("Cluster name [default:%s]", clusterName),
+		}
+		result, err = clusterNamePrompt.Run()
+		if err != nil {
+			fmt.Printf("Prompt failed %v\n", err)
+			return
+		}
+
+		if result != "" {
+			clusterName = result
+		}
+	} else {
+		clusterName = *newClusterName
 	}
 	fmt.Printf("Cluster name: %s\n", clusterName)
 
@@ -188,12 +195,14 @@ func main() {
 		os.Exit(1)
 	}
 	newClusterID := *createClusterResult.GetPayload().ID
-	fmt.Printf("Cluster created, ID: %s\n", newClusterID)
-
+	if *verbose {
+		fmt.Printf("📋 Cluster created, ID: %s\n", newClusterID)
+	}
 	exit := make(chan *cluster.GetClusterOK)
 	go func() {
 		var clusterResult *cluster.GetClusterOK
 		var err error
+		startTimer := time.Now()
 		for {
 			clusterResult, err = client.Cluster.GetCluster(cluster.NewGetClusterParams().
 				WithClusterID(newClusterID).
@@ -206,8 +215,9 @@ func main() {
 			if s == "AVAILABLE" {
 				break
 			}
-			time.Sleep(5 * time.Second)
+			time.Sleep(1 * time.Second)
 		}
+		fmt.Printf(color.GreenString("\n🎉 Cluster is ready, took %s\n", time.Since(startTimer)))
 		exit <- clusterResult
 	}()
 
@@ -217,18 +227,22 @@ func main() {
 		s.Suffix = fmt.Sprintf(" Waiting for cluster to be ready...normally it takes less than 30s")
 		s.Start()
 	}()
-
 	clusterResult := <-exit
 	s.Stop()
 
-	fmt.Println(color.GreenString("\nCluster is ready, details:"))
-	b, _ := json.MarshalIndent(clusterResult.GetPayload(), "", "  ")
-	fmt.Println(string(b))
+	fmt.Println(color.GreenString("📦 Cluster details:"))
+	if *verbose {
+		b, _ := json.MarshalIndent(clusterResult.GetPayload(), "", "  ")
+		fmt.Println(string(b))
+	}
+	fmt.Printf("Go to https://tidbcloud.com/console/clusters/%s for more details\n", *clusterResult.GetPayload().ID)
 
 	body := clusterResult.GetPayload()
-
 	// output connect string for mysql client
-	fmt.Println(color.GreenString("\nTry it:"))
-	fmt.Printf("mysql --ssl-verify-server-cert -h %s -P %d -u %s -p\n", body.Status.ConnectionStrings.Standard.Host, body.Status.ConnectionStrings.Standard.Port, body.Status.ConnectionStrings.DefaultUser)
+	fmt.Println(color.GreenString("💻 Try it via MySQL CLI:"))
+	fmt.Printf("mysql --ssl-verify-server-cert -h %s -P %d -u %s -p\n",
+		body.Status.ConnectionStrings.Standard.Host,
+		body.Status.ConnectionStrings.Standard.Port,
+		body.Status.ConnectionStrings.DefaultUser)
 
 }
