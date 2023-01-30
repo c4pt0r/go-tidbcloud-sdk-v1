@@ -659,7 +659,7 @@ type CreateClusterBody struct {
 	CloudProvider *string `json:"cloud_provider"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: create a [Developer Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#developer-tier) cluster
+	// - `"DEVELOPER"`: create a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
 	// - `"DEDICATED"`: create a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster. Before creating a Dedicated Tier cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
 	// Example: DEDICATED
 	// Required: true
@@ -1264,7 +1264,7 @@ type CreateClusterParamsBodyConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -1459,8 +1459,8 @@ CreateClusterParamsBodyConfigComponents The components of the cluster.
 //
 // **Limitations**:
 // - For a Dedicated Tier cluster, the `components` parameter is **required**.
-// - For a Developer Tier cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
-// Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C64G","storage_size_gib":1024}}
+// - For a Serverless Tier cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model CreateClusterParamsBodyConfigComponents
 */
 type CreateClusterParamsBodyConfigComponents struct {
@@ -1665,7 +1665,7 @@ type CreateClusterParamsBodyConfigComponentsTidb struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiDB of an existing cluster.
+	// - You cannot decrease `node_size` for TiDB.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1752,7 +1752,7 @@ type CreateClusterParamsBodyConfigComponentsTiflash struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiFlash of an existing cluster.
+	// - You cannot decrease `node_size` for TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1858,7 +1858,7 @@ type CreateClusterParamsBodyConfigComponentsTikv struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiKV of an existing cluster.
+	// - You cannot decrease `node_size` for TiKV
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

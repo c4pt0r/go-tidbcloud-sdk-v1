@@ -947,7 +947,7 @@ swagger:model ListProviderRegionsOKBody
 type ListProviderRegionsOKBody struct {
 
 	// Items of provider regions.
-	// Example: [{"cloud_provider":"AWS","cluster_type":"DEDICATED","region":"us-west-2","tidb":[{"node_quantity_range":{"min":1,"step":1},"node_size":"8C16G"}],"tiflash":[{"node_quantity_range":{"min":0,"step":1},"node_size":"8C64G","storage_size_gib_range":{"max":2048,"min":500}}],"tikv":[{"node_quantity_range":{"min":3,"step":3},"node_size":"8C64G","storage_size_gib_range":{"max":4096,"min":500}}]},{"cloud_provider":"AWS","cluster_type":"DEVELOPER","region":"us-west-2","tidb":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0"}],"tiflash":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0","storage_size_gib_range":{"max":1,"min":1}}],"tikv":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0","storage_size_gib_range":{"max":1,"min":1}}]}]
+	// Example: [{"cloud_provider":"AWS","cluster_type":"DEDICATED","region":"us-west-2","tidb":[{"node_quantity_range":{"min":1,"step":1},"node_size":"8C16G"}],"tiflash":[{"node_quantity_range":{"min":0,"step":1},"node_size":"8C64G","storage_size_gib_range":{"max":2048,"min":500}}],"tikv":[{"node_quantity_range":{"min":3,"step":3},"node_size":"8C32G","storage_size_gib_range":{"max":4096,"min":500}}]},{"cloud_provider":"AWS","cluster_type":"DEVELOPER","region":"us-west-2","tidb":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0"}],"tiflash":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0","storage_size_gib_range":{"max":1,"min":1}}],"tikv":[{"node_quantity_range":{"min":1,"step":1},"node_size":"Shared0","storage_size_gib_range":{"max":1,"min":1}}]}]
 	Items []*ListProviderRegionsOKBodyItemsItems0 `json:"items"`
 }
 
@@ -1059,8 +1059,10 @@ type ListProviderRegionsOKBodyItemsItems0 struct {
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: a [Developer Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#developer-tier) cluster
+	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
 	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	//
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
 	// Example: DEDICATED
 	// Enum: [DEDICATED DEVELOPER]
 	ClusterType string `json:"cluster_type,omitempty"`
@@ -1744,7 +1746,7 @@ type ListProviderRegionsOKBodyItemsItems0TikvItems0 struct {
 	NodeQuantityRange *ListProviderRegionsOKBodyItemsItems0TikvItems0NodeQuantityRange `json:"node_quantity_range,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// storage size gib range

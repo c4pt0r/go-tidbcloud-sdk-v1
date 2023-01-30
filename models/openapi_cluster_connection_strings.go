@@ -168,7 +168,7 @@ type OpenapiClusterConnectionStringsStandard struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -242,7 +242,7 @@ type OpenapiClusterConnectionStringsVpcPeering struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024

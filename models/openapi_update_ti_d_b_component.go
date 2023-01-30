@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // OpenapiUpdateTiDBComponent openapi update ti d b component
@@ -21,30 +19,23 @@ type OpenapiUpdateTiDBComponent struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3
-	// Required: true
-	NodeQuantity *int32 `json:"node_quantity"`
+	NodeQuantity int32 `json:"node_quantity,omitempty"`
+
+	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
+	//
+	// **Additional combination rules**:
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	//
+	// **Limitations**:
+	// - You cannot decrease node size for TiDB.
+	// - For other limitations, see [Increase node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#increase-node-size).
+	// Example: 16C32G
+	NodeSize string `json:"node_size,omitempty"`
 }
 
 // Validate validates this openapi update ti d b component
 func (m *OpenapiUpdateTiDBComponent) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateNodeQuantity(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *OpenapiUpdateTiDBComponent) validateNodeQuantity(formats strfmt.Registry) error {
-
-	if err := validate.Required("node_quantity", "body", m.NodeQuantity); err != nil {
-		return err
-	}
-
 	return nil
 }
 

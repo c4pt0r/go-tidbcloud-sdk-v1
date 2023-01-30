@@ -1078,8 +1078,10 @@ type ListClustersOfProjectOKBodyItemsItems0 struct {
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type:
-	// - `"DEVELOPER"`: a [Developer Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#developer-tier) cluster
-	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster.
+	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
+	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	//
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
 	// Example: DEDICATED
 	// Enum: [DEDICATED DEVELOPER]
 	ClusterType string `json:"cluster_type,omitempty"`
@@ -1374,7 +1376,7 @@ func (o *ListClustersOfProjectOKBodyItemsItems0) UnmarshalBinary(b []byte) error
 
 /*
 ListClustersOfProjectOKBodyItemsItems0Config The configuration of the cluster.
-// Example: {"components":{"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C64G","storage_size_gib":1024}},"port":4000}
+// Example: {"components":{"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}},"port":4000}
 swagger:model ListClustersOfProjectOKBodyItemsItems0Config
 */
 type ListClustersOfProjectOKBodyItemsItems0Config struct {
@@ -1492,7 +1494,7 @@ func (o *ListClustersOfProjectOKBodyItemsItems0Config) UnmarshalBinary(b []byte)
 
 /*
 ListClustersOfProjectOKBodyItemsItems0ConfigComponents The components of the cluster.
-// Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C64G","storage_size_gib":1024}}
+// Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model ListClustersOfProjectOKBodyItemsItems0ConfigComponents
 */
 type ListClustersOfProjectOKBodyItemsItems0ConfigComponents struct {
@@ -1697,7 +1699,7 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTidb struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiDB of an existing cluster.
+	// - You cannot decrease `node_size` for TiDB.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1784,7 +1786,7 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiFlash of an existing cluster.
+	// - You cannot decrease `node_size` for TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1890,7 +1892,7 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTikv struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiKV of an existing cluster.
+	// - You cannot decrease `node_size` for TiKV
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -2338,7 +2340,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsStandard struc
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2413,7 +2415,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsVpcPeering str
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2489,7 +2491,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMap struct {
 	Tiflash []*ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTiflashItems0 `json:"tiflash"`
 
 	// TiKV node map.
-	// Example: [{"availability_zone":"us-west-2a","node_name":"tikv-0","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2b","node_name":"tikv-1","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2c","node_name":"tikv-2","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8}]
+	// Example: [{"availability_zone":"us-west-2a","node_name":"tikv-0","node_size":"8C32G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2b","node_name":"tikv-1","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2c","node_name":"tikv-2","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8}]
 	// Required: true
 	Tikv []*ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTikvItems0 `json:"tikv"`
 }
@@ -2949,7 +2951,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTikvItems0 struct {
 	NodeName string `json:"node_name,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// The RAM size of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `ram_bytes` is always 0.
