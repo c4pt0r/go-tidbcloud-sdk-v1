@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // OpenapiUpdateClusterConfig UpdateClusterComponents
@@ -302,30 +301,23 @@ type OpenapiUpdateClusterConfigComponentsTidb struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3
-	// Required: true
-	NodeQuantity *int32 `json:"node_quantity"`
+	NodeQuantity int32 `json:"node_quantity,omitempty"`
+
+	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
+	//
+	// **Additional combination rules**:
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	//
+	// **Limitations**:
+	// - You cannot decrease node size for TiDB.
+	// - For other limitations, see [Increase node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#increase-node-size).
+	// Example: 16C32G
+	NodeSize string `json:"node_size,omitempty"`
 }
 
 // Validate validates this openapi update cluster config components tidb
 func (m *OpenapiUpdateClusterConfigComponentsTidb) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateNodeQuantity(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *OpenapiUpdateClusterConfigComponentsTidb) validateNodeQuantity(formats strfmt.Registry) error {
-
-	if err := validate.Required("components"+"."+"tidb"+"."+"node_quantity", "body", m.NodeQuantity); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -373,8 +365,9 @@ type OpenapiUpdateClusterConfigComponentsTiflash struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiFlash of an existing cluster.
-	// Example: 8C64G
+	// - You cannot decrease node size for TiFlash.
+	// - For other limitations, see [Increase node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#increase-node-size).
+	// Example: 16C128G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// The storage size of a node in the cluster. You can get the minimum and maximum of storage size from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
@@ -382,7 +375,7 @@ type OpenapiUpdateClusterConfigComponentsTiflash struct {
 	// **Limitations**:
 	// - You cannot decrease storage size for TiFlash.
 	// - If your TiDB cluster is hosted by AWS, after changing the storage size of TiFlash, you must wait at least six hours before you can change it again.
-	// Example: 1024
+	// Example: 2048
 	StorageSizeGib int32 `json:"storage_size_gib,omitempty"`
 }
 
@@ -427,12 +420,24 @@ type OpenapiUpdateClusterConfigComponentsTikv struct {
 	// Example: 6
 	NodeQuantity int32 `json:"node_quantity,omitempty"`
 
+	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
+	//
+	// **Additional combination rules**:
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	//
+	// **Limitations**:
+	// - You cannot decrease node size for TiKV.
+	// - For other limitations, see [Increase node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#increase-node-size).
+	// Example: 16C64G
+	NodeSize string `json:"node_size,omitempty"`
+
 	// The storage size of a node in the cluster. You can get the minimum and maximum of storage size from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Limitations**:
 	// - You cannot decrease storage size for TiKV.
 	// - If your TiDB cluster is hosted by AWS, after changing the storage size of TiKV, you must wait at least six hours before you can change it again.
-	// Example: 1024
+	// Example: 2048
 	StorageSizeGib int32 `json:"storage_size_gib,omitempty"`
 }
 

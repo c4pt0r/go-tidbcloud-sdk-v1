@@ -22,7 +22,7 @@ type OpenapiTiKVProfile struct {
 	NodeQuantityRange *OpenapiTiKVProfileNodeQuantityRange `json:"node_quantity_range,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// storage size gib range

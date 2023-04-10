@@ -29,7 +29,7 @@ type OpenapiTiKVNodeMap struct {
 	NodeName string `json:"node_name,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// The RAM size of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `ram_bytes` is always 0.

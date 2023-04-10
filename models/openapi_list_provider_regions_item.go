@@ -31,8 +31,10 @@ type OpenapiListProviderRegionsItem struct {
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: a [Developer Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#developer-tier) cluster
+	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
 	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	//
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
 	// Example: DEDICATED
 	// Enum: [DEDICATED DEVELOPER]
 	ClusterType string `json:"cluster_type,omitempty"`
@@ -710,7 +712,7 @@ type OpenapiListProviderRegionsItemTikvItems0 struct {
 	NodeQuantityRange *OpenapiListProviderRegionsItemTikvItems0NodeQuantityRange `json:"node_quantity_range,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// storage size gib range

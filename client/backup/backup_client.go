@@ -44,7 +44,7 @@ type ClientService interface {
 
 	- For Dedicated Tier clusters, you can create as many manual backups as you need.
 
-- For Developer Tier clusters, you cannot create backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+- For Serverless Tier clusters, you cannot create backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) CreateBackup(params *CreateBackupParams, opts ...ClientOption) (*CreateBackupOK, error) {
 	// TODO: Validate the params before sending
@@ -83,7 +83,7 @@ func (a *Client) CreateBackup(params *CreateBackupParams, opts ...ClientOption) 
 /*
 DeleteBackup deletes a backup for a cluster
 
-For Developer Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For Serverless Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) DeleteBackup(params *DeleteBackupParams, opts ...ClientOption) (*DeleteBackupOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) DeleteBackup(params *DeleteBackupParams, opts ...ClientOption) 
 /*
 GetBackupOfCluster gets a backup for a cluster
 
-For Developer Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For Serverless Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) GetBackupOfCluster(params *GetBackupOfClusterParams, opts ...ClientOption) (*GetBackupOfClusterOK, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +161,7 @@ func (a *Client) GetBackupOfCluster(params *GetBackupOfClusterParams, opts ...Cl
 /*
 ListBackUpOfCluster lists all backups for a cluster
 
-For Developer Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For Serverless Tier clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) ListBackUpOfCluster(params *ListBackUpOfClusterParams, opts ...ClientOption) (*ListBackUpOfClusterOK, error) {
 	// TODO: Validate the params before sending

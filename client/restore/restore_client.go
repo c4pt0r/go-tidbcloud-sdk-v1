@@ -46,9 +46,9 @@ type ClientService interface {
 
 - For Dedicated Tier, you can only restore data from a smaller node size to a larger node size.
 
-- You cannot restore data from a Dedicated Tier cluster to a Developer Tier cluster.
+- You cannot restore data from a Dedicated Tier cluster to a Serverless Tier cluster.
 
-For Developer Tier clusters, you cannot create restore tasks via API.
+For Serverless Tier clusters, you cannot create restore tasks via API.
 */
 func (a *Client) CreateRestoreTask(params *CreateRestoreTaskParams, opts ...ClientOption) (*CreateRestoreTaskOK, error) {
 	// TODO: Validate the params before sending
@@ -87,7 +87,7 @@ func (a *Client) CreateRestoreTask(params *CreateRestoreTaskParams, opts ...Clie
 /*
 	GetRestoreTask gets a restore task
 
-For Developer Tier clusters, you cannot manage restore tasks via API.
+For Serverless Tier clusters, you cannot manage restore tasks via API.
 */
 func (a *Client) GetRestoreTask(params *GetRestoreTaskParams, opts ...ClientOption) (*GetRestoreTaskOK, error) {
 	// TODO: Validate the params before sending
@@ -126,7 +126,7 @@ func (a *Client) GetRestoreTask(params *GetRestoreTaskParams, opts ...ClientOpti
 /*
 	ListRestoreTasks lists the restore tasks in a project
 
-For Developer Tier clusters, you cannot create or manage restore tasks via API.
+For Serverless Tier clusters, you cannot create or manage restore tasks via API.
 */
 func (a *Client) ListRestoreTasks(params *ListRestoreTasksParams, opts ...ClientOption) (*ListRestoreTasksOK, error) {
 	// TODO: Validate the params before sending

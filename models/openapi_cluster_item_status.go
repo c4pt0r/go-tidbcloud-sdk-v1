@@ -378,7 +378,7 @@ type OpenapiClusterItemStatusConnectionStringsStandard struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -452,7 +452,7 @@ type OpenapiClusterItemStatusConnectionStringsVpcPeering struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Developer Tier cluster, only port `4000` is available.
+	// - For a Serverless Tier cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -527,7 +527,7 @@ type OpenapiClusterItemStatusNodeMap struct {
 	Tiflash []*OpenapiClusterItemStatusNodeMapTiflashItems0 `json:"tiflash"`
 
 	// TiKV node map.
-	// Example: [{"availability_zone":"us-west-2a","node_name":"tikv-0","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2b","node_name":"tikv-1","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2c","node_name":"tikv-2","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8}]
+	// Example: [{"availability_zone":"us-west-2a","node_name":"tikv-0","node_size":"8C32G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2b","node_name":"tikv-1","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8},{"availability_zone":"us-west-2c","node_name":"tikv-2","node_size":"8C64G","ram_bytes":"68719476736","status":"NODE_STATUS_AVAILABLE","storage_size_gib":1024,"vcpu_num":8}]
 	// Required: true
 	Tikv []*OpenapiClusterItemStatusNodeMapTikvItems0 `json:"tikv"`
 }
@@ -984,7 +984,7 @@ type OpenapiClusterItemStatusNodeMapTikvItems0 struct {
 	NodeName string `json:"node_name,omitempty"`
 
 	// The size of the TiKV component in the cluster.
-	// Example: 8C64G
+	// Example: 8C32G
 	NodeSize string `json:"node_size,omitempty"`
 
 	// The RAM size of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `ram_bytes` is always 0.

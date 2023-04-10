@@ -218,7 +218,7 @@ type OpenapiClusterComponentsTidb struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiDB of an existing cluster.
+	// - You cannot decrease `node_size` for TiDB.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -304,7 +304,7 @@ type OpenapiClusterComponentsTiflash struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiFlash of an existing cluster.
+	// - You cannot decrease `node_size` for TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -409,7 +409,7 @@ type OpenapiClusterComponentsTikv struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiKV of an existing cluster.
+	// - You cannot decrease `node_size` for TiKV
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

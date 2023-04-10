@@ -35,7 +35,7 @@ type OpenapiTiKVComponent struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot modify `node_size` for TiKV of an existing cluster.
+	// - You cannot decrease `node_size` for TiKV
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
