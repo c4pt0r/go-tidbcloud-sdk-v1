@@ -1697,9 +1697,6 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTidb struct {
 	// **Additional combination rules**:
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiDB.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1771,10 +1768,6 @@ swagger:model ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash
 type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
-	//
-	// **Limitations**:
-	// - You cannot decrease node quantity for TiFlash.
-	//
 	// Example: 1
 	// Required: true
 	NodeQuantity *int32 `json:"node_quantity"`
@@ -1784,9 +1777,6 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash struct {
 	// **Additional combination rules**:
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1879,7 +1869,6 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTikv struct {
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Limitations**:
-	// - You cannot decrease node quantity for TiKV.
 	// - The `node_quantity` of TiKV must be a multiple of 3.
 	// Example: 3
 	// Required: true
@@ -1890,9 +1879,6 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTikv struct {
 	// **Additional combination rules**:
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiKV
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

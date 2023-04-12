@@ -28,8 +28,7 @@ type OpenapiUpdateTiDBComponent struct {
 	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
-	// - You cannot decrease node size for TiDB.
-	// - For other limitations, see [Increase node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#increase-node-size).
+	// - See [Change node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#change-node-size).
 	// Example: 16C32G
 	NodeSize string `json:"node_size,omitempty"`
 }

@@ -12,6 +12,7 @@ import (
 
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/backup"
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/cluster"
+	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/import_operations"
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/project"
 	"github.com/c4pt0r/go-tidbcloud-sdk-v1/client/restore"
 )
@@ -60,6 +61,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *GoTidbclou
 	cli.Transport = transport
 	cli.Backup = backup.New(transport, formats)
 	cli.Cluster = cluster.New(transport, formats)
+	cli.ImportOperations = import_operations.New(transport, formats)
 	cli.Project = project.New(transport, formats)
 	cli.Restore = restore.New(transport, formats)
 	return cli
@@ -110,6 +112,8 @@ type GoTidbcloud struct {
 
 	Cluster cluster.ClientService
 
+	ImportOperations import_operations.ClientService
+
 	Project project.ClientService
 
 	Restore restore.ClientService
@@ -122,6 +126,7 @@ func (c *GoTidbcloud) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Backup.SetTransport(transport)
 	c.Cluster.SetTransport(transport)
+	c.ImportOperations.SetTransport(transport)
 	c.Project.SetTransport(transport)
 	c.Restore.SetTransport(transport)
 }

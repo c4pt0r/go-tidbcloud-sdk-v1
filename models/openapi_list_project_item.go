@@ -19,6 +19,12 @@ import (
 // swagger:model openapiListProjectItem
 type OpenapiListProjectItem struct {
 
+	// Flag that indicates whether to enable AWS Customer-Managed Encryption Keys (CMEK). For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
+	//
+	// **Note:** Currently, this feature is only available upon request. If you need to try out this feature, contact [support](https://docs.pingcap.com/tidbcloud/tidb-cloud-support).
+	// Example: false
+	AwsCmekEnabled *bool `json:"aws_cmek_enabled,omitempty"`
+
 	// The number of TiDB Cloud clusters deployed in the project.
 	// Example: 4
 	ClusterCount int64 `json:"cluster_count,omitempty"`
