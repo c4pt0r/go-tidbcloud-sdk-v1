@@ -28,11 +28,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateAwsCmek(params *CreateAwsCmekParams, opts ...ClientOption) (*CreateAwsCmekOK, error)
+
 	CreateCluster(params *CreateClusterParams, opts ...ClientOption) (*CreateClusterOK, error)
 
 	DeleteCluster(params *DeleteClusterParams, opts ...ClientOption) (*DeleteClusterOK, error)
 
 	GetCluster(params *GetClusterParams, opts ...ClientOption) (*GetClusterOK, error)
+
+	ListAwsCmek(params *ListAwsCmekParams, opts ...ClientOption) (*ListAwsCmekOK, error)
 
 	ListClustersOfProject(params *ListClustersOfProjectParams, opts ...ClientOption) (*ListClustersOfProjectOK, error)
 
@@ -41,6 +45,47 @@ type ClientService interface {
 	UpdateCluster(params *UpdateClusterParams, opts ...ClientOption) (*UpdateClusterOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+	CreateAwsCmek configures a w s customer managed encryption keys for a project
+
+	Before using this API, make sure that the `aws_cmek_enabled` field is set to `true` when creating the project using the [Create a Project](#tag/Project/operation/CreateProject) endpoint. For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
+
+Currently, this feature is only available upon request. If you need to try out this feature, contact [support](https://docs.pingcap.com/tidbcloud/tidb-cloud-support).
+*/
+func (a *Client) CreateAwsCmek(params *CreateAwsCmekParams, opts ...ClientOption) (*CreateAwsCmekOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateAwsCmekParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateAwsCmek",
+		Method:             "POST",
+		PathPattern:        "/api/v1beta/projects/{project_id}/aws-cmek",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateAwsCmekReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateAwsCmekOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateAwsCmekDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -153,6 +198,47 @@ func (a *Client) GetCluster(params *GetClusterParams, opts ...ClientOption) (*Ge
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetClusterDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+	ListAwsCmek lists a w s customer managed encryption keys for a project
+
+	Customer-Managed Encryption Keys (CMEK) lets you protect your static data in a TiDB Cloud Dedicated Tier using a cryptographic key that is completely controlled by you. To create a project with CMEK enabled, use the [Create a project](#tag/Project/operation/CreateProject) endpoint and configure `aws_cmek_enabled` to `true`.
+
+For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
+*/
+func (a *Client) ListAwsCmek(params *ListAwsCmekParams, opts ...ClientOption) (*ListAwsCmekOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListAwsCmekParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListAwsCmek",
+		Method:             "GET",
+		PathPattern:        "/api/v1beta/projects/{project_id}/aws-cmek",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListAwsCmekReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListAwsCmekOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ListAwsCmekDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
