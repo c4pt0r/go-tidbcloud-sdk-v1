@@ -19,4 +19,5 @@ Enjoy it! 😉
 ## Related Projects
 
 - Python SDK: [tidbcloudy](https://github.com/Oreoxmt/tidbcloudy) by [@Oreoxmt](https://github.com/Oreoxmt)
+- Official TiDB Cloud CLI: [tidbcloud-cli](https://github.com/tidbcloud/tidbcloud-cli)
 - Official code samples in Go and Python: [tidbcloud-api-samples](https://github.com/tidbcloud/tidbcloud-api-samples)
