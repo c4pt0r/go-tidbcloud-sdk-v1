@@ -120,6 +120,11 @@ func (o *ListProviderRegionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list provider regions o k response
+func (o *ListProviderRegionsOK) Code() int {
+	return 200
+}
+
 func (o *ListProviderRegionsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *ListProviderRegionsBadRequest) IsServerError() bool {
 // IsCode returns true when this list provider regions bad request response a status code equal to that given
 func (o *ListProviderRegionsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the list provider regions bad request response
+func (o *ListProviderRegionsBadRequest) Code() int {
+	return 400
 }
 
 func (o *ListProviderRegionsBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *ListProviderRegionsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list provider regions unauthorized response
+func (o *ListProviderRegionsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListProviderRegionsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *ListProviderRegionsForbidden) IsServerError() bool {
 // IsCode returns true when this list provider regions forbidden response a status code equal to that given
 func (o *ListProviderRegionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list provider regions forbidden response
+func (o *ListProviderRegionsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListProviderRegionsForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *ListProviderRegionsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list provider regions not found response
+func (o *ListProviderRegionsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProviderRegionsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *ListProviderRegionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this list provider regions too many requests response a status code equal to that given
 func (o *ListProviderRegionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list provider regions too many requests response
+func (o *ListProviderRegionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListProviderRegionsTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *ListProviderRegionsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list provider regions internal server error response
+func (o *ListProviderRegionsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListProviderRegionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type ListProviderRegionsDefault struct {
 	Payload *ListProviderRegionsDefaultBody
 }
 
-// Code gets the status code for the list provider regions default response
-func (o *ListProviderRegionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list provider regions default response has a 2xx status code
 func (o *ListProviderRegionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *ListProviderRegionsDefault) IsServerError() bool {
 // IsCode returns true when this list provider regions default response a status code equal to that given
 func (o *ListProviderRegionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list provider regions default response
+func (o *ListProviderRegionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListProviderRegionsDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *ListProviderRegionsDefaultBody) contextValidateDetails(ctx context.Cont
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListProviderRegions default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1010,6 +1050,11 @@ func (o *ListProviderRegionsOKBody) contextValidateItems(ctx context.Context, fo
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listProviderRegionsOK" + "." + "items" + "." + strconv.Itoa(i))
@@ -1053,16 +1098,16 @@ type ListProviderRegionsOKBodyItemsItems0 struct {
 
 	// The cloud provider on which your TiDB cluster is hosted.
 	// - `"AWS"`: the Amazon Web Services cloud provider
-	// - `"GCP"`: the Google Cloud Platform cloud provider
+	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
 	// Enum: [AWS GCP]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
-	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Serverless clusters.
 	// Example: DEDICATED
 	// Enum: [DEDICATED DEVELOPER]
 	ClusterType string `json:"cluster_type,omitempty"`
@@ -1304,6 +1349,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0) contextValidateTidb(ctx context.C
 	for i := 0; i < len(o.Tidb); i++ {
 
 		if o.Tidb[i] != nil {
+
+			if swag.IsZero(o.Tidb[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tidb[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tidb" + "." + strconv.Itoa(i))
@@ -1324,6 +1374,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0) contextValidateTiflash(ctx contex
 	for i := 0; i < len(o.Tiflash); i++ {
 
 		if o.Tiflash[i] != nil {
+
+			if swag.IsZero(o.Tiflash[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tiflash[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tiflash" + "." + strconv.Itoa(i))
@@ -1344,6 +1399,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0) contextValidateTikv(ctx context.C
 	for i := 0; i < len(o.Tikv); i++ {
 
 		if o.Tikv[i] != nil {
+
+			if swag.IsZero(o.Tikv[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tikv[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tikv" + "." + strconv.Itoa(i))
@@ -1441,6 +1501,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0TidbItems0) ContextValidate(ctx con
 func (o *ListProviderRegionsOKBodyItemsItems0TidbItems0) contextValidateNodeQuantityRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NodeQuantityRange != nil {
+
+		if swag.IsZero(o.NodeQuantityRange) { // not required
+			return nil
+		}
+
 		if err := o.NodeQuantityRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_quantity_range")
@@ -1607,6 +1672,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0TiflashItems0) ContextValidate(ctx 
 func (o *ListProviderRegionsOKBodyItemsItems0TiflashItems0) contextValidateNodeQuantityRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NodeQuantityRange != nil {
+
+		if swag.IsZero(o.NodeQuantityRange) { // not required
+			return nil
+		}
+
 		if err := o.NodeQuantityRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_quantity_range")
@@ -1623,6 +1693,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0TiflashItems0) contextValidateNodeQ
 func (o *ListProviderRegionsOKBodyItemsItems0TiflashItems0) contextValidateStorageSizeGibRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.StorageSizeGibRange != nil {
+
+		if swag.IsZero(o.StorageSizeGibRange) { // not required
+			return nil
+		}
+
 		if err := o.StorageSizeGibRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("storage_size_gib_range")
@@ -1830,6 +1905,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0TikvItems0) ContextValidate(ctx con
 func (o *ListProviderRegionsOKBodyItemsItems0TikvItems0) contextValidateNodeQuantityRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NodeQuantityRange != nil {
+
+		if swag.IsZero(o.NodeQuantityRange) { // not required
+			return nil
+		}
+
 		if err := o.NodeQuantityRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_quantity_range")
@@ -1846,6 +1926,11 @@ func (o *ListProviderRegionsOKBodyItemsItems0TikvItems0) contextValidateNodeQuan
 func (o *ListProviderRegionsOKBodyItemsItems0TikvItems0) contextValidateStorageSizeGibRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.StorageSizeGibRange != nil {
+
+		if swag.IsZero(o.StorageSizeGibRange) { // not required
+			return nil
+		}
+
 		if err := o.StorageSizeGibRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("storage_size_gib_range")

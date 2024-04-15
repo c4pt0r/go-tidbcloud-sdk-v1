@@ -118,6 +118,11 @@ func (o *DeleteBackupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete backup o k response
+func (o *DeleteBackupOK) Code() int {
+	return 200
+}
+
 func (o *DeleteBackupOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] deleteBackupOK  %+v", 200, o.Payload)
 }
@@ -177,6 +182,11 @@ func (o *DeleteBackupBadRequest) IsServerError() bool {
 // IsCode returns true when this delete backup bad request response a status code equal to that given
 func (o *DeleteBackupBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete backup bad request response
+func (o *DeleteBackupBadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteBackupBadRequest) Error() string {
@@ -242,6 +252,11 @@ func (o *DeleteBackupUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the delete backup unauthorized response
+func (o *DeleteBackupUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DeleteBackupUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] deleteBackupUnauthorized  %+v", 401, o.Payload)
 }
@@ -301,6 +316,11 @@ func (o *DeleteBackupForbidden) IsServerError() bool {
 // IsCode returns true when this delete backup forbidden response a status code equal to that given
 func (o *DeleteBackupForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete backup forbidden response
+func (o *DeleteBackupForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteBackupForbidden) Error() string {
@@ -366,6 +386,11 @@ func (o *DeleteBackupNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete backup not found response
+func (o *DeleteBackupNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteBackupNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] deleteBackupNotFound  %+v", 404, o.Payload)
 }
@@ -427,6 +452,11 @@ func (o *DeleteBackupTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete backup too many requests response a status code equal to that given
 func (o *DeleteBackupTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete backup too many requests response
+func (o *DeleteBackupTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteBackupTooManyRequests) Error() string {
@@ -492,6 +522,11 @@ func (o *DeleteBackupInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete backup internal server error response
+func (o *DeleteBackupInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteBackupInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] deleteBackupInternalServerError  %+v", 500, o.Payload)
 }
@@ -534,11 +569,6 @@ type DeleteBackupDefault struct {
 	Payload *DeleteBackupDefaultBody
 }
 
-// Code gets the status code for the delete backup default response
-func (o *DeleteBackupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete backup default response has a 2xx status code
 func (o *DeleteBackupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -562,6 +592,11 @@ func (o *DeleteBackupDefault) IsServerError() bool {
 // IsCode returns true when this delete backup default response a status code equal to that given
 func (o *DeleteBackupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete backup default response
+func (o *DeleteBackupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteBackupDefault) Error() string {
@@ -713,6 +748,11 @@ func (o *DeleteBackupDefaultBody) contextValidateDetails(ctx context.Context, fo
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("DeleteBackup default" + "." + "details" + "." + strconv.Itoa(i))

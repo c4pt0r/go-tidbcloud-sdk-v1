@@ -61,7 +61,10 @@ CreateProjectParams contains all the parameters to send to the API endpoint
 */
 type CreateProjectParams struct {
 
-	// Body.
+	/* Body.
+
+	   CreateProjectReq is the request for creating project.
+	*/
 	Body CreateProjectBody
 
 	timeout    time.Duration

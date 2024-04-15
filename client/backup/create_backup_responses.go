@@ -119,6 +119,11 @@ func (o *CreateBackupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create backup o k response
+func (o *CreateBackupOK) Code() int {
+	return 200
+}
+
 func (o *CreateBackupOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *CreateBackupBadRequest) IsServerError() bool {
 // IsCode returns true when this create backup bad request response a status code equal to that given
 func (o *CreateBackupBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create backup bad request response
+func (o *CreateBackupBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateBackupBadRequest) Error() string {
@@ -245,6 +255,11 @@ func (o *CreateBackupUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create backup unauthorized response
+func (o *CreateBackupUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateBackupUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *CreateBackupForbidden) IsServerError() bool {
 // IsCode returns true when this create backup forbidden response a status code equal to that given
 func (o *CreateBackupForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create backup forbidden response
+func (o *CreateBackupForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateBackupForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *CreateBackupNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create backup not found response
+func (o *CreateBackupNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateBackupNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *CreateBackupTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create backup too many requests response a status code equal to that given
 func (o *CreateBackupTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create backup too many requests response
+func (o *CreateBackupTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateBackupTooManyRequests) Error() string {
@@ -495,6 +525,11 @@ func (o *CreateBackupInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create backup internal server error response
+func (o *CreateBackupInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateBackupInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError  %+v", 500, o.Payload)
 }
@@ -537,11 +572,6 @@ type CreateBackupDefault struct {
 	Payload *CreateBackupDefaultBody
 }
 
-// Code gets the status code for the create backup default response
-func (o *CreateBackupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create backup default response has a 2xx status code
 func (o *CreateBackupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *CreateBackupDefault) IsServerError() bool {
 // IsCode returns true when this create backup default response a status code equal to that given
 func (o *CreateBackupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create backup default response
+func (o *CreateBackupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateBackupDefault) Error() string {
@@ -651,7 +686,7 @@ type CreateBackupBody struct {
 
 	// The description of the backup. It helps you add additional information to the backup. Allows up to 256 characters.
 	// Example: backup-1
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Specify the name for a manual backup. It is recommended that you use a unique name, so that it is easy to distinguish the backup when you query the backups.
 	// Example: backup-1
@@ -780,6 +815,11 @@ func (o *CreateBackupDefaultBody) contextValidateDetails(ctx context.Context, fo
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateBackup default" + "." + "details" + "." + strconv.Itoa(i))

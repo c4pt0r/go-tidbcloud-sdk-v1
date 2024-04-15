@@ -165,6 +165,11 @@ func (m *OpenapiClusterNodeMap) contextValidateTidb(ctx context.Context, formats
 	for i := 0; i < len(m.Tidb); i++ {
 
 		if m.Tidb[i] != nil {
+
+			if swag.IsZero(m.Tidb[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tidb[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tidb" + "." + strconv.Itoa(i))
@@ -185,6 +190,11 @@ func (m *OpenapiClusterNodeMap) contextValidateTiflash(ctx context.Context, form
 	for i := 0; i < len(m.Tiflash); i++ {
 
 		if m.Tiflash[i] != nil {
+
+			if swag.IsZero(m.Tiflash[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tiflash[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tiflash" + "." + strconv.Itoa(i))
@@ -205,6 +215,11 @@ func (m *OpenapiClusterNodeMap) contextValidateTikv(ctx context.Context, formats
 	for i := 0; i < len(m.Tikv); i++ {
 
 		if m.Tikv[i] != nil {
+
+			if swag.IsZero(m.Tikv[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tikv[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tikv" + "." + strconv.Itoa(i))

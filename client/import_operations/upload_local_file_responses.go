@@ -119,6 +119,11 @@ func (o *UploadLocalFileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the upload local file o k response
+func (o *UploadLocalFileOK) Code() int {
+	return 200
+}
+
 func (o *UploadLocalFileOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *UploadLocalFileBadRequest) IsServerError() bool {
 // IsCode returns true when this upload local file bad request response a status code equal to that given
 func (o *UploadLocalFileBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the upload local file bad request response
+func (o *UploadLocalFileBadRequest) Code() int {
+	return 400
 }
 
 func (o *UploadLocalFileBadRequest) Error() string {
@@ -245,6 +255,11 @@ func (o *UploadLocalFileUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the upload local file unauthorized response
+func (o *UploadLocalFileUnauthorized) Code() int {
+	return 401
+}
+
 func (o *UploadLocalFileUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *UploadLocalFileForbidden) IsServerError() bool {
 // IsCode returns true when this upload local file forbidden response a status code equal to that given
 func (o *UploadLocalFileForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the upload local file forbidden response
+func (o *UploadLocalFileForbidden) Code() int {
+	return 403
 }
 
 func (o *UploadLocalFileForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *UploadLocalFileNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the upload local file not found response
+func (o *UploadLocalFileNotFound) Code() int {
+	return 404
+}
+
 func (o *UploadLocalFileNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *UploadLocalFileTooManyRequests) IsServerError() bool {
 // IsCode returns true when this upload local file too many requests response a status code equal to that given
 func (o *UploadLocalFileTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the upload local file too many requests response
+func (o *UploadLocalFileTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UploadLocalFileTooManyRequests) Error() string {
@@ -495,6 +525,11 @@ func (o *UploadLocalFileInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the upload local file internal server error response
+func (o *UploadLocalFileInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UploadLocalFileInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileInternalServerError  %+v", 500, o.Payload)
 }
@@ -537,11 +572,6 @@ type UploadLocalFileDefault struct {
 	Payload *UploadLocalFileDefaultBody
 }
 
-// Code gets the status code for the upload local file default response
-func (o *UploadLocalFileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this upload local file default response has a 2xx status code
 func (o *UploadLocalFileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *UploadLocalFileDefault) IsServerError() bool {
 // IsCode returns true when this upload local file default response a status code equal to that given
 func (o *UploadLocalFileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the upload local file default response
+func (o *UploadLocalFileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UploadLocalFileDefault) Error() string {
@@ -732,6 +767,7 @@ func (o *UploadLocalFileBody) ContextValidate(ctx context.Context, formats strfm
 func (o *UploadLocalFileBody) contextValidatePayload(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Payload != nil {
+
 		if err := o.Payload.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "payload")
@@ -838,6 +874,11 @@ func (o *UploadLocalFileDefaultBody) contextValidateDetails(ctx context.Context,
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("UploadLocalFile default" + "." + "details" + "." + strconv.Itoa(i))

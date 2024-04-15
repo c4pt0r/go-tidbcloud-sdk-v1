@@ -90,6 +90,11 @@ func (m *OpenapiListRestoreOfProjectResp) contextValidateItems(ctx context.Conte
 	for i := 0; i < len(m.Items); i++ {
 
 		if m.Items[i] != nil {
+
+			if swag.IsZero(m.Items[i]) { // not required
+				return nil
+			}
+
 			if err := m.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("items" + "." + strconv.Itoa(i))
@@ -280,6 +285,11 @@ func (m *OpenapiListRestoreOfProjectRespItemsItems0) ContextValidate(ctx context
 func (m *OpenapiListRestoreOfProjectRespItemsItems0) contextValidateCluster(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cluster != nil {
+
+		if swag.IsZero(m.Cluster) { // not required
+			return nil
+		}
+
 		if err := m.Cluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cluster")

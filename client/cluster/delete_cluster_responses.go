@@ -118,6 +118,11 @@ func (o *DeleteClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete cluster o k response
+func (o *DeleteClusterOK) Code() int {
+	return 200
+}
+
 func (o *DeleteClusterOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterOK  %+v", 200, o.Payload)
 }
@@ -177,6 +182,11 @@ func (o *DeleteClusterBadRequest) IsServerError() bool {
 // IsCode returns true when this delete cluster bad request response a status code equal to that given
 func (o *DeleteClusterBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete cluster bad request response
+func (o *DeleteClusterBadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteClusterBadRequest) Error() string {
@@ -242,6 +252,11 @@ func (o *DeleteClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the delete cluster unauthorized response
+func (o *DeleteClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DeleteClusterUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterUnauthorized  %+v", 401, o.Payload)
 }
@@ -301,6 +316,11 @@ func (o *DeleteClusterForbidden) IsServerError() bool {
 // IsCode returns true when this delete cluster forbidden response a status code equal to that given
 func (o *DeleteClusterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete cluster forbidden response
+func (o *DeleteClusterForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteClusterForbidden) Error() string {
@@ -366,6 +386,11 @@ func (o *DeleteClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete cluster not found response
+func (o *DeleteClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteClusterNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterNotFound  %+v", 404, o.Payload)
 }
@@ -427,6 +452,11 @@ func (o *DeleteClusterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete cluster too many requests response a status code equal to that given
 func (o *DeleteClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete cluster too many requests response
+func (o *DeleteClusterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteClusterTooManyRequests) Error() string {
@@ -492,6 +522,11 @@ func (o *DeleteClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete cluster internal server error response
+func (o *DeleteClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteClusterInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterInternalServerError  %+v", 500, o.Payload)
 }
@@ -534,11 +569,6 @@ type DeleteClusterDefault struct {
 	Payload *DeleteClusterDefaultBody
 }
 
-// Code gets the status code for the delete cluster default response
-func (o *DeleteClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete cluster default response has a 2xx status code
 func (o *DeleteClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -562,6 +592,11 @@ func (o *DeleteClusterDefault) IsServerError() bool {
 // IsCode returns true when this delete cluster default response a status code equal to that given
 func (o *DeleteClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete cluster default response
+func (o *DeleteClusterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteClusterDefault) Error() string {
@@ -713,6 +748,11 @@ func (o *DeleteClusterDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("DeleteCluster default" + "." + "details" + "." + strconv.Itoa(i))

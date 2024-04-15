@@ -120,6 +120,11 @@ func (o *GetRestoreTaskOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get restore task o k response
+func (o *GetRestoreTaskOK) Code() int {
+	return 200
+}
+
 func (o *GetRestoreTaskOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *GetRestoreTaskBadRequest) IsServerError() bool {
 // IsCode returns true when this get restore task bad request response a status code equal to that given
 func (o *GetRestoreTaskBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get restore task bad request response
+func (o *GetRestoreTaskBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetRestoreTaskBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *GetRestoreTaskUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get restore task unauthorized response
+func (o *GetRestoreTaskUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetRestoreTaskUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *GetRestoreTaskForbidden) IsServerError() bool {
 // IsCode returns true when this get restore task forbidden response a status code equal to that given
 func (o *GetRestoreTaskForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get restore task forbidden response
+func (o *GetRestoreTaskForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRestoreTaskForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *GetRestoreTaskNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get restore task not found response
+func (o *GetRestoreTaskNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRestoreTaskNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *GetRestoreTaskTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get restore task too many requests response a status code equal to that given
 func (o *GetRestoreTaskTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get restore task too many requests response
+func (o *GetRestoreTaskTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRestoreTaskTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *GetRestoreTaskInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get restore task internal server error response
+func (o *GetRestoreTaskInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetRestoreTaskInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type GetRestoreTaskDefault struct {
 	Payload *GetRestoreTaskDefaultBody
 }
 
-// Code gets the status code for the get restore task default response
-func (o *GetRestoreTaskDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get restore task default response has a 2xx status code
 func (o *GetRestoreTaskDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *GetRestoreTaskDefault) IsServerError() bool {
 // IsCode returns true when this get restore task default response a status code equal to that given
 func (o *GetRestoreTaskDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get restore task default response
+func (o *GetRestoreTaskDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRestoreTaskDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *GetRestoreTaskDefaultBody) contextValidateDetails(ctx context.Context, 
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("GetRestoreTask default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1096,6 +1136,11 @@ func (o *GetRestoreTaskOKBody) ContextValidate(ctx context.Context, formats strf
 func (o *GetRestoreTaskOKBody) contextValidateCluster(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Cluster != nil {
+
+		if swag.IsZero(o.Cluster) { // not required
+			return nil
+		}
+
 		if err := o.Cluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getRestoreTaskOK" + "." + "cluster")

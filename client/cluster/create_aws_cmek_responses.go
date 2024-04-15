@@ -119,6 +119,11 @@ func (o *CreateAwsCmekOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create aws cmek o k response
+func (o *CreateAwsCmekOK) Code() int {
+	return 200
+}
+
 func (o *CreateAwsCmekOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *CreateAwsCmekBadRequest) IsServerError() bool {
 // IsCode returns true when this create aws cmek bad request response a status code equal to that given
 func (o *CreateAwsCmekBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create aws cmek bad request response
+func (o *CreateAwsCmekBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateAwsCmekBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *CreateAwsCmekUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create aws cmek unauthorized response
+func (o *CreateAwsCmekUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateAwsCmekUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekUnauthorized  %+v", 401, o.Payload)
 }
@@ -302,6 +317,11 @@ func (o *CreateAwsCmekForbidden) IsServerError() bool {
 // IsCode returns true when this create aws cmek forbidden response a status code equal to that given
 func (o *CreateAwsCmekForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create aws cmek forbidden response
+func (o *CreateAwsCmekForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateAwsCmekForbidden) Error() string {
@@ -367,6 +387,11 @@ func (o *CreateAwsCmekNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create aws cmek not found response
+func (o *CreateAwsCmekNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateAwsCmekNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekNotFound  %+v", 404, o.Payload)
 }
@@ -428,6 +453,11 @@ func (o *CreateAwsCmekTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create aws cmek too many requests response a status code equal to that given
 func (o *CreateAwsCmekTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create aws cmek too many requests response
+func (o *CreateAwsCmekTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateAwsCmekTooManyRequests) Error() string {
@@ -493,6 +523,11 @@ func (o *CreateAwsCmekInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create aws cmek internal server error response
+func (o *CreateAwsCmekInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateAwsCmekInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekInternalServerError  %+v", 500, o.Payload)
 }
@@ -535,11 +570,6 @@ type CreateAwsCmekDefault struct {
 	Payload *CreateAwsCmekDefaultBody
 }
 
-// Code gets the status code for the create aws cmek default response
-func (o *CreateAwsCmekDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create aws cmek default response has a 2xx status code
 func (o *CreateAwsCmekDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -563,6 +593,11 @@ func (o *CreateAwsCmekDefault) IsServerError() bool {
 // IsCode returns true when this create aws cmek default response a status code equal to that given
 func (o *CreateAwsCmekDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create aws cmek default response
+func (o *CreateAwsCmekDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateAwsCmekDefault) Error() string {
@@ -714,6 +749,11 @@ func (o *CreateAwsCmekBody) contextValidateSpecs(ctx context.Context, formats st
 	for i := 0; i < len(o.Specs); i++ {
 
 		if o.Specs[i] != nil {
+
+			if swag.IsZero(o.Specs[i]) { // not required
+				return nil
+			}
+
 			if err := o.Specs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "specs" + "." + strconv.Itoa(i))
@@ -822,6 +862,11 @@ func (o *CreateAwsCmekDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateAwsCmek default" + "." + "details" + "." + strconv.Itoa(i))

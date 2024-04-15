@@ -19,18 +19,18 @@ type OpenapiUpdateTiDBComponent struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3
-	NodeQuantity int32 `json:"node_quantity,omitempty"`
+	NodeQuantity *int32 `json:"node_quantity,omitempty"`
 
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
 	// - See [Change node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#change-node-size).
 	// Example: 16C32G
-	NodeSize string `json:"node_size,omitempty"`
+	NodeSize *string `json:"node_size,omitempty"`
 }
 
 // Validate validates this openapi update ti d b component

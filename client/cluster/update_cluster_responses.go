@@ -119,6 +119,11 @@ func (o *UpdateClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update cluster o k response
+func (o *UpdateClusterOK) Code() int {
+	return 200
+}
+
 func (o *UpdateClusterOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *UpdateClusterBadRequest) IsServerError() bool {
 // IsCode returns true when this update cluster bad request response a status code equal to that given
 func (o *UpdateClusterBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update cluster bad request response
+func (o *UpdateClusterBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateClusterBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *UpdateClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the update cluster unauthorized response
+func (o *UpdateClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *UpdateClusterUnauthorized) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterUnauthorized  %+v", 401, o.Payload)
 }
@@ -302,6 +317,11 @@ func (o *UpdateClusterForbidden) IsServerError() bool {
 // IsCode returns true when this update cluster forbidden response a status code equal to that given
 func (o *UpdateClusterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update cluster forbidden response
+func (o *UpdateClusterForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateClusterForbidden) Error() string {
@@ -367,6 +387,11 @@ func (o *UpdateClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update cluster not found response
+func (o *UpdateClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateClusterNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterNotFound  %+v", 404, o.Payload)
 }
@@ -428,6 +453,11 @@ func (o *UpdateClusterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update cluster too many requests response a status code equal to that given
 func (o *UpdateClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update cluster too many requests response
+func (o *UpdateClusterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateClusterTooManyRequests) Error() string {
@@ -493,6 +523,11 @@ func (o *UpdateClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update cluster internal server error response
+func (o *UpdateClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateClusterInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterInternalServerError  %+v", 500, o.Payload)
 }
@@ -535,11 +570,6 @@ type UpdateClusterDefault struct {
 	Payload *UpdateClusterDefaultBody
 }
 
-// Code gets the status code for the update cluster default response
-func (o *UpdateClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update cluster default response has a 2xx status code
 func (o *UpdateClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -563,6 +593,11 @@ func (o *UpdateClusterDefault) IsServerError() bool {
 // IsCode returns true when this update cluster default response a status code equal to that given
 func (o *UpdateClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update cluster default response
+func (o *UpdateClusterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateClusterDefault) Error() string {
@@ -703,6 +738,7 @@ func (o *UpdateClusterBody) ContextValidate(ctx context.Context, formats strfmt.
 func (o *UpdateClusterBody) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Config != nil {
+
 		if err := o.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config")
@@ -809,6 +845,11 @@ func (o *UpdateClusterDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("UpdateCluster default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1049,7 +1090,7 @@ type UpdateClusterParamsBodyConfig struct {
 	// **Limitations:**
 	//  - The cluster can be paused only when the `cluster_status` is `"AVAILABLE"`.
 	// - The cluster can be resumed only when the `cluster_status` is `"PAUSED"`.
-	Paused bool `json:"paused,omitempty"`
+	Paused *bool `json:"paused,omitempty"`
 }
 
 // Validate validates this update cluster params body config
@@ -1102,6 +1143,11 @@ func (o *UpdateClusterParamsBodyConfig) ContextValidate(ctx context.Context, for
 func (o *UpdateClusterParamsBodyConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Components != nil {
+
+		if swag.IsZero(o.Components) { // not required
+			return nil
+		}
+
 		if err := o.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components")
@@ -1253,6 +1299,11 @@ func (o *UpdateClusterParamsBodyConfigComponents) ContextValidate(ctx context.Co
 func (o *UpdateClusterParamsBodyConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tidb != nil {
+
+		if swag.IsZero(o.Tidb) { // not required
+			return nil
+		}
+
 		if err := o.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tidb")
@@ -1269,6 +1320,11 @@ func (o *UpdateClusterParamsBodyConfigComponents) contextValidateTidb(ctx contex
 func (o *UpdateClusterParamsBodyConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tiflash != nil {
+
+		if swag.IsZero(o.Tiflash) { // not required
+			return nil
+		}
+
 		if err := o.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tiflash")
@@ -1285,6 +1341,11 @@ func (o *UpdateClusterParamsBodyConfigComponents) contextValidateTiflash(ctx con
 func (o *UpdateClusterParamsBodyConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tikv != nil {
+
+		if swag.IsZero(o.Tikv) { // not required
+			return nil
+		}
+
 		if err := o.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tikv")
@@ -1324,18 +1385,18 @@ type UpdateClusterParamsBodyConfigComponentsTidb struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3
-	NodeQuantity int32 `json:"node_quantity,omitempty"`
+	NodeQuantity *int32 `json:"node_quantity,omitempty"`
 
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
 	// - See [Change node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#change-node-size).
 	// Example: 16C32G
-	NodeSize string `json:"node_size,omitempty"`
+	NodeSize *string `json:"node_size,omitempty"`
 }
 
 // Validate validates this update cluster params body config components tidb
@@ -1376,18 +1437,18 @@ type UpdateClusterParamsBodyConfigComponentsTiflash struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 2
-	NodeQuantity int32 `json:"node_quantity,omitempty"`
+	NodeQuantity *int32 `json:"node_quantity,omitempty"`
 
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
 	// - See [Change node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#change-node-size).
 	// Example: 16C128G
-	NodeSize string `json:"node_size,omitempty"`
+	NodeSize *string `json:"node_size,omitempty"`
 
 	// The storage size of a node in the cluster. You can get the minimum and maximum of storage size from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
@@ -1395,7 +1456,7 @@ type UpdateClusterParamsBodyConfigComponentsTiflash struct {
 	// - You cannot decrease storage size for TiFlash.
 	// - If your TiDB cluster is hosted by AWS, after changing the storage size of TiFlash, you must wait at least six hours before you can change it again.
 	// Example: 2048
-	StorageSizeGib int32 `json:"storage_size_gib,omitempty"`
+	StorageSizeGib *int32 `json:"storage_size_gib,omitempty"`
 }
 
 // Validate validates this update cluster params body config components tiflash
@@ -1437,18 +1498,18 @@ type UpdateClusterParamsBodyConfigComponentsTikv struct {
 	// **Limitations**:
 	// - The `node_quantity` of TiKV must be a multiple of 3.
 	// Example: 6
-	NodeQuantity int32 `json:"node_quantity,omitempty"`
+	NodeQuantity *int32 `json:"node_quantity,omitempty"`
 
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	//
 	// **Limitations**:
 	// - See [Change node size](https://docs.pingcap.com/tidbcloud/scale-tidb-cluster#change-node-size).
 	// Example: 16C64G
-	NodeSize string `json:"node_size,omitempty"`
+	NodeSize *string `json:"node_size,omitempty"`
 
 	// The storage size of a node in the cluster. You can get the minimum and maximum of storage size from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
@@ -1456,7 +1517,7 @@ type UpdateClusterParamsBodyConfigComponentsTikv struct {
 	// - You cannot decrease storage size for TiKV.
 	// - If your TiDB cluster is hosted by AWS, after changing the storage size of TiKV, you must wait at least six hours before you can change it again.
 	// Example: 2048
-	StorageSizeGib int32 `json:"storage_size_gib,omitempty"`
+	StorageSizeGib *int32 `json:"storage_size_gib,omitempty"`
 }
 
 // Validate validates this update cluster params body config components tikv

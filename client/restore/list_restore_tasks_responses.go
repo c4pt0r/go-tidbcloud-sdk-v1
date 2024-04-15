@@ -120,6 +120,11 @@ func (o *ListRestoreTasksOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list restore tasks o k response
+func (o *ListRestoreTasksOK) Code() int {
+	return 200
+}
+
 func (o *ListRestoreTasksOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *ListRestoreTasksBadRequest) IsServerError() bool {
 // IsCode returns true when this list restore tasks bad request response a status code equal to that given
 func (o *ListRestoreTasksBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the list restore tasks bad request response
+func (o *ListRestoreTasksBadRequest) Code() int {
+	return 400
 }
 
 func (o *ListRestoreTasksBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *ListRestoreTasksUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list restore tasks unauthorized response
+func (o *ListRestoreTasksUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListRestoreTasksUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *ListRestoreTasksForbidden) IsServerError() bool {
 // IsCode returns true when this list restore tasks forbidden response a status code equal to that given
 func (o *ListRestoreTasksForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list restore tasks forbidden response
+func (o *ListRestoreTasksForbidden) Code() int {
+	return 403
 }
 
 func (o *ListRestoreTasksForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *ListRestoreTasksNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list restore tasks not found response
+func (o *ListRestoreTasksNotFound) Code() int {
+	return 404
+}
+
 func (o *ListRestoreTasksNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *ListRestoreTasksTooManyRequests) IsServerError() bool {
 // IsCode returns true when this list restore tasks too many requests response a status code equal to that given
 func (o *ListRestoreTasksTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list restore tasks too many requests response
+func (o *ListRestoreTasksTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListRestoreTasksTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *ListRestoreTasksInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list restore tasks internal server error response
+func (o *ListRestoreTasksInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListRestoreTasksInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type ListRestoreTasksDefault struct {
 	Payload *ListRestoreTasksDefaultBody
 }
 
-// Code gets the status code for the list restore tasks default response
-func (o *ListRestoreTasksDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list restore tasks default response has a 2xx status code
 func (o *ListRestoreTasksDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *ListRestoreTasksDefault) IsServerError() bool {
 // IsCode returns true when this list restore tasks default response a status code equal to that given
 func (o *ListRestoreTasksDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list restore tasks default response
+func (o *ListRestoreTasksDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListRestoreTasksDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *ListRestoreTasksDefaultBody) contextValidateDetails(ctx context.Context
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListRestoreTasks default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1013,6 +1053,11 @@ func (o *ListRestoreTasksOKBody) contextValidateItems(ctx context.Context, forma
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listRestoreTasksOK" + "." + "items" + "." + strconv.Itoa(i))
@@ -1204,6 +1249,11 @@ func (o *ListRestoreTasksOKBodyItemsItems0) ContextValidate(ctx context.Context,
 func (o *ListRestoreTasksOKBodyItemsItems0) contextValidateCluster(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Cluster != nil {
+
+		if swag.IsZero(o.Cluster) { // not required
+			return nil
+		}
+
 		if err := o.Cluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cluster")

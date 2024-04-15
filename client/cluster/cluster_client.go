@@ -32,13 +32,25 @@ type ClientService interface {
 
 	CreateCluster(params *CreateClusterParams, opts ...ClientOption) (*CreateClusterOK, error)
 
+	CreatePrivateEndpoint(params *CreatePrivateEndpointParams, opts ...ClientOption) (*CreatePrivateEndpointOK, error)
+
+	CreatePrivateEndpointService(params *CreatePrivateEndpointServiceParams, opts ...ClientOption) (*CreatePrivateEndpointServiceOK, error)
+
 	DeleteCluster(params *DeleteClusterParams, opts ...ClientOption) (*DeleteClusterOK, error)
 
+	DeletePrivateEndpoint(params *DeletePrivateEndpointParams, opts ...ClientOption) (*DeletePrivateEndpointOK, error)
+
 	GetCluster(params *GetClusterParams, opts ...ClientOption) (*GetClusterOK, error)
+
+	GetPrivateEndpointService(params *GetPrivateEndpointServiceParams, opts ...ClientOption) (*GetPrivateEndpointServiceOK, error)
 
 	ListAwsCmek(params *ListAwsCmekParams, opts ...ClientOption) (*ListAwsCmekOK, error)
 
 	ListClustersOfProject(params *ListClustersOfProjectParams, opts ...ClientOption) (*ListClustersOfProjectOK, error)
+
+	ListPrivateEndpoints(params *ListPrivateEndpointsParams, opts ...ClientOption) (*ListPrivateEndpointsOK, error)
+
+	ListPrivateEndpointsOfProject(params *ListPrivateEndpointsOfProjectParams, opts ...ClientOption) (*ListPrivateEndpointsOfProjectOK, error)
 
 	ListProviderRegions(params *ListProviderRegionsParams, opts ...ClientOption) (*ListProviderRegionsOK, error)
 
@@ -91,7 +103,7 @@ func (a *Client) CreateAwsCmek(params *CreateAwsCmekParams, opts ...ClientOption
 /*
 CreateCluster creates a cluster
 
-Before creating a Dedicated Tier cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
+Before creating a TiDB Dedicated cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
 */
 func (a *Client) CreateCluster(params *CreateClusterParams, opts ...ClientOption) (*CreateClusterOK, error) {
 	// TODO: Validate the params before sending
@@ -124,6 +136,89 @@ func (a *Client) CreateCluster(params *CreateClusterParams, opts ...ClientOption
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*CreateClusterDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+	CreatePrivateEndpoint creates a private endpoint for a cluster
+
+	When creating a private endpoint, only the `endpoint_name` is required.
+
+- For TiDB Dedicated clusters, you can create a private endpoint resource in TiDB Cloud after you create the [AWS PrivateLink](https://aws.amazon.com/privatelink/?privatelink-blogs.sort-by=item.additionalFields.createdDate&privatelink-blogs.sort-order=desc) or [Google Cloud Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect) endpoint depending on where your cluster is hosted. In this way, TiDB Cloud accepts connection requests from your endpoint.
+- For TiDB Serverless clusters, you cannot create or manage private endpoint via API.
+*/
+func (a *Client) CreatePrivateEndpoint(params *CreatePrivateEndpointParams, opts ...ClientOption) (*CreatePrivateEndpointOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreatePrivateEndpointParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreatePrivateEndpoint",
+		Method:             "POST",
+		PathPattern:        "/api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreatePrivateEndpointReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreatePrivateEndpointOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreatePrivateEndpointDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+	CreatePrivateEndpointService creates a private endpoint service for a cluster
+
+	- For TiDB Dedicated clusters, you can create the [AWS PrivateLink](https://aws.amazon.com/privatelink/?privatelink-blogs.sort-by=item.additionalFields.createdDate&privatelink-blogs.sort-order=desc) or [Google Cloud Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect) service depending on where your cluster is hosted.
+
+- For TiDB Serverless clusters, you cannot create or manage private endpoint service via API.
+*/
+func (a *Client) CreatePrivateEndpointService(params *CreatePrivateEndpointServiceParams, opts ...ClientOption) (*CreatePrivateEndpointServiceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreatePrivateEndpointServiceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreatePrivateEndpointService",
+		Method:             "POST",
+		PathPattern:        "/api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoint_service",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreatePrivateEndpointServiceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreatePrivateEndpointServiceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreatePrivateEndpointServiceDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -165,6 +260,47 @@ func (a *Client) DeleteCluster(params *DeleteClusterParams, opts ...ClientOption
 }
 
 /*
+	DeletePrivateEndpoint deletes a private endpoint for a cluster
+
+	- For TiDB Dedicated clusters, you can delete a private endpoint for a cluster.
+
+- For TiDB Serverless clusters, you cannot create or manage private endpoint via API.
+*/
+func (a *Client) DeletePrivateEndpoint(params *DeletePrivateEndpointParams, opts ...ClientOption) (*DeletePrivateEndpointOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeletePrivateEndpointParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeletePrivateEndpoint",
+		Method:             "DELETE",
+		PathPattern:        "/api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeletePrivateEndpointReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeletePrivateEndpointOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DeletePrivateEndpointDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 GetCluster gets a cluster by ID
 */
 func (a *Client) GetCluster(params *GetClusterParams, opts ...ClientOption) (*GetClusterOK, error) {
@@ -202,9 +338,50 @@ func (a *Client) GetCluster(params *GetClusterParams, opts ...ClientOption) (*Ge
 }
 
 /*
+	GetPrivateEndpointService retrieves the private endpoint service information for a cluster
+
+	- For TiDB Dedicated clusters, you can retrieve the private endpoint service information for a cluster.
+
+- For TiDB Serverless clusters, you cannot create or manage private endpoint service via API.
+*/
+func (a *Client) GetPrivateEndpointService(params *GetPrivateEndpointServiceParams, opts ...ClientOption) (*GetPrivateEndpointServiceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPrivateEndpointServiceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetPrivateEndpointService",
+		Method:             "GET",
+		PathPattern:        "/api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoint_service",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPrivateEndpointServiceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetPrivateEndpointServiceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetPrivateEndpointServiceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 	ListAwsCmek lists a w s customer managed encryption keys for a project
 
-	Customer-Managed Encryption Keys (CMEK) lets you protect your static data in a TiDB Cloud Dedicated Tier using a cryptographic key that is completely controlled by you. To create a project with CMEK enabled, use the [Create a project](#tag/Project/operation/CreateProject) endpoint and configure `aws_cmek_enabled` to `true`.
+	Customer-Managed Encryption Keys (CMEK) lets you protect your static data in a TiDB Dedicated cluster using a cryptographic key that is completely controlled by you. To create a project with CMEK enabled, use the [Create a project](#tag/Project/operation/CreateProject) endpoint and configure `aws_cmek_enabled` to `true`.
 
 For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
 */
@@ -280,6 +457,80 @@ func (a *Client) ListClustersOfProject(params *ListClustersOfProjectParams, opts
 }
 
 /*
+ListPrivateEndpoints lists all private endpoints for a cluster
+*/
+func (a *Client) ListPrivateEndpoints(params *ListPrivateEndpointsParams, opts ...ClientOption) (*ListPrivateEndpointsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListPrivateEndpointsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListPrivateEndpoints",
+		Method:             "GET",
+		PathPattern:        "/api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListPrivateEndpointsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListPrivateEndpointsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ListPrivateEndpointsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ListPrivateEndpointsOfProject lists all private endpoints in a project
+*/
+func (a *Client) ListPrivateEndpointsOfProject(params *ListPrivateEndpointsOfProjectParams, opts ...ClientOption) (*ListPrivateEndpointsOfProjectOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListPrivateEndpointsOfProjectParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListPrivateEndpointsOfProject",
+		Method:             "GET",
+		PathPattern:        "/api/v1beta/projects/{project_id}/private_endpoints",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListPrivateEndpointsOfProjectReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListPrivateEndpointsOfProjectOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ListPrivateEndpointsOfProjectDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 ListProviderRegions lists the cloud providers regions and available specifications
 */
 func (a *Client) ListProviderRegions(params *ListProviderRegionsParams, opts ...ClientOption) (*ListProviderRegionsOK, error) {
@@ -317,7 +568,7 @@ func (a *Client) ListProviderRegions(params *ListProviderRegionsParams, opts ...
 }
 
 /*
-UpdateCluster modifies a dedicated tier cluster
+UpdateCluster modifies a ti d b dedicated cluster
 
 With this endpoint, you can modify the components of a cluster using the `config.components` parameter, or pause or resume a cluster using the `config.paused` parameter.
 */

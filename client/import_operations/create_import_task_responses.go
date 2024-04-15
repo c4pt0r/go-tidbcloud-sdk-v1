@@ -120,6 +120,11 @@ func (o *CreateImportTaskOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create import task o k response
+func (o *CreateImportTaskOK) Code() int {
+	return 200
+}
+
 func (o *CreateImportTaskOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] createImportTaskOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *CreateImportTaskBadRequest) IsServerError() bool {
 // IsCode returns true when this create import task bad request response a status code equal to that given
 func (o *CreateImportTaskBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create import task bad request response
+func (o *CreateImportTaskBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateImportTaskBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *CreateImportTaskUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create import task unauthorized response
+func (o *CreateImportTaskUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateImportTaskUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] createImportTaskUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *CreateImportTaskForbidden) IsServerError() bool {
 // IsCode returns true when this create import task forbidden response a status code equal to that given
 func (o *CreateImportTaskForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create import task forbidden response
+func (o *CreateImportTaskForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateImportTaskForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *CreateImportTaskNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create import task not found response
+func (o *CreateImportTaskNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateImportTaskNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] createImportTaskNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *CreateImportTaskTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create import task too many requests response a status code equal to that given
 func (o *CreateImportTaskTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create import task too many requests response
+func (o *CreateImportTaskTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateImportTaskTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *CreateImportTaskInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create import task internal server error response
+func (o *CreateImportTaskInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateImportTaskInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] createImportTaskInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type CreateImportTaskDefault struct {
 	Payload *CreateImportTaskDefaultBody
 }
 
-// Code gets the status code for the create import task default response
-func (o *CreateImportTaskDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create import task default response has a 2xx status code
 func (o *CreateImportTaskDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *CreateImportTaskDefault) IsServerError() bool {
 // IsCode returns true when this create import task default response a status code equal to that given
 func (o *CreateImportTaskDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create import task default response
+func (o *CreateImportTaskDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateImportTaskDefault) Error() string {
@@ -759,6 +794,11 @@ func (o *CreateImportTaskBody) ContextValidate(ctx context.Context, formats strf
 func (o *CreateImportTaskBody) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Options != nil {
+
+		if swag.IsZero(o.Options) { // not required
+			return nil
+		}
+
 		if err := o.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "options")
@@ -775,6 +815,7 @@ func (o *CreateImportTaskBody) contextValidateOptions(ctx context.Context, forma
 func (o *CreateImportTaskBody) contextValidateSpec(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Spec != nil {
+
 		if err := o.Spec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec")
@@ -881,6 +922,11 @@ func (o *CreateImportTaskDefaultBody) contextValidateDetails(ctx context.Context
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateImportTask default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1235,6 +1281,11 @@ func (o *CreateImportTaskParamsBodyOptions) contextValidatePreCreateTables(ctx c
 	for i := 0; i < len(o.PreCreateTables); i++ {
 
 		if o.PreCreateTables[i] != nil {
+
+			if swag.IsZero(o.PreCreateTables[i]) { // not required
+				return nil
+			}
+
 			if err := o.PreCreateTables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "options" + "." + "pre_create_tables" + "." + strconv.Itoa(i))
@@ -1368,6 +1419,7 @@ func (o *CreateImportTaskParamsBodyOptionsPreCreateTablesItems0) ContextValidate
 func (o *CreateImportTaskParamsBodyOptionsPreCreateTablesItems0) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Schema != nil {
+
 		if err := o.Schema.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
@@ -1477,6 +1529,11 @@ func (o *CreateImportTaskParamsBodyOptionsPreCreateTablesItems0Schema) contextVa
 	for i := 0; i < len(o.ColumnDefinitions); i++ {
 
 		if o.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(o.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := o.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema" + "." + "column_definitions" + "." + strconv.Itoa(i))
@@ -1684,6 +1741,7 @@ func (o *CreateImportTaskParamsBodySpec) ContextValidate(ctx context.Context, fo
 func (o *CreateImportTaskParamsBodySpec) contextValidateSource(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Source != nil {
+
 		if err := o.Source.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source")
@@ -1700,6 +1758,7 @@ func (o *CreateImportTaskParamsBodySpec) contextValidateSource(ctx context.Conte
 func (o *CreateImportTaskParamsBodySpec) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Target != nil {
+
 		if err := o.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "target")
@@ -1753,7 +1812,9 @@ type CreateImportTaskParamsBodySpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier-beta) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	//
+	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
 	// Enum: [S3 GCS LOCAL_FILE]
@@ -1940,6 +2001,11 @@ func (o *CreateImportTaskParamsBodySpecSource) ContextValidate(ctx context.Conte
 func (o *CreateImportTaskParamsBodySpecSource) contextValidateAwsAssumeRoleAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsAssumeRoleAccess != nil {
+
+		if swag.IsZero(o.AwsAssumeRoleAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsAssumeRoleAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_assume_role_access")
@@ -1956,6 +2022,11 @@ func (o *CreateImportTaskParamsBodySpecSource) contextValidateAwsAssumeRoleAcces
 func (o *CreateImportTaskParamsBodySpecSource) contextValidateAwsKeyAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsKeyAccess != nil {
+
+		if swag.IsZero(o.AwsKeyAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsKeyAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_key_access")
@@ -1972,6 +2043,7 @@ func (o *CreateImportTaskParamsBodySpecSource) contextValidateAwsKeyAccess(ctx c
 func (o *CreateImportTaskParamsBodySpecSource) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Format != nil {
+
 		if err := o.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "format")
@@ -2266,6 +2338,11 @@ func (o *CreateImportTaskParamsBodySpecSourceFormat) ContextValidate(ctx context
 func (o *CreateImportTaskParamsBodySpecSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CsvConfig != nil {
+
+		if swag.IsZero(o.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := o.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "format" + "." + "csv_config")
@@ -2356,7 +2433,7 @@ swagger:model CreateImportTaskParamsBodySpecTarget
 */
 type CreateImportTaskParamsBodySpecTarget struct {
 
-	// The settings for each target table that is being imported for the import task.
+	// The settings for each target table that is being imported for the import task. If you leave it empty, the system will scan all the files in the data source using the default file patterns and collect all the tables to import. The files include data files, table schema files, and DB schema files. If you provide a list of tables, only those tables will be imported. For more information about the default file pattern, see [Import CSV Files from Amazon S3 or GCS into TiDB Cloud](https://docs.pingcap.com/tidbcloud/import-csv-files).
 	//
 	// **Limitations:**
 	// * Currently, if you want to use a custom filename pattern, you can only specify one table. If all the tables use the default filename pattern, you can specify more than one target table in `tables`.
@@ -2424,6 +2501,11 @@ func (o *CreateImportTaskParamsBodySpecTarget) contextValidateTables(ctx context
 	for i := 0; i < len(o.Tables); i++ {
 
 		if o.Tables[i] != nil {
+
+			if swag.IsZero(o.Tables[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "spec" + "." + "target" + "." + "tables" + "." + strconv.Itoa(i))

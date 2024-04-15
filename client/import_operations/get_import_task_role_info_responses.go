@@ -119,6 +119,11 @@ func (o *GetImportTaskRoleInfoOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get import task role info o k response
+func (o *GetImportTaskRoleInfoOK) Code() int {
+	return 200
+}
+
 func (o *GetImportTaskRoleInfoOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *GetImportTaskRoleInfoBadRequest) IsServerError() bool {
 // IsCode returns true when this get import task role info bad request response a status code equal to that given
 func (o *GetImportTaskRoleInfoBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get import task role info bad request response
+func (o *GetImportTaskRoleInfoBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetImportTaskRoleInfoBadRequest) Error() string {
@@ -245,6 +255,11 @@ func (o *GetImportTaskRoleInfoUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get import task role info unauthorized response
+func (o *GetImportTaskRoleInfoUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetImportTaskRoleInfoUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *GetImportTaskRoleInfoForbidden) IsServerError() bool {
 // IsCode returns true when this get import task role info forbidden response a status code equal to that given
 func (o *GetImportTaskRoleInfoForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get import task role info forbidden response
+func (o *GetImportTaskRoleInfoForbidden) Code() int {
+	return 403
 }
 
 func (o *GetImportTaskRoleInfoForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *GetImportTaskRoleInfoNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get import task role info not found response
+func (o *GetImportTaskRoleInfoNotFound) Code() int {
+	return 404
+}
+
 func (o *GetImportTaskRoleInfoNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *GetImportTaskRoleInfoTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get import task role info too many requests response a status code equal to that given
 func (o *GetImportTaskRoleInfoTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get import task role info too many requests response
+func (o *GetImportTaskRoleInfoTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetImportTaskRoleInfoTooManyRequests) Error() string {
@@ -495,6 +525,11 @@ func (o *GetImportTaskRoleInfoInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get import task role info internal server error response
+func (o *GetImportTaskRoleInfoInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetImportTaskRoleInfoInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoInternalServerError  %+v", 500, o.Payload)
 }
@@ -537,11 +572,6 @@ type GetImportTaskRoleInfoDefault struct {
 	Payload *GetImportTaskRoleInfoDefaultBody
 }
 
-// Code gets the status code for the get import task role info default response
-func (o *GetImportTaskRoleInfoDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get import task role info default response has a 2xx status code
 func (o *GetImportTaskRoleInfoDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *GetImportTaskRoleInfoDefault) IsServerError() bool {
 // IsCode returns true when this get import task role info default response a status code equal to that given
 func (o *GetImportTaskRoleInfoDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get import task role info default response
+func (o *GetImportTaskRoleInfoDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetImportTaskRoleInfoDefault) Error() string {
@@ -716,6 +751,11 @@ func (o *GetImportTaskRoleInfoDefaultBody) contextValidateDetails(ctx context.Co
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("GetImportTaskRoleInfo default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1029,6 +1069,11 @@ func (o *GetImportTaskRoleInfoOKBody) ContextValidate(ctx context.Context, forma
 func (o *GetImportTaskRoleInfoOKBody) contextValidateAwsImportRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsImportRole != nil {
+
+		if swag.IsZero(o.AwsImportRole) { // not required
+			return nil
+		}
+
 		if err := o.AwsImportRole.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskRoleInfoOK" + "." + "aws_import_role")
@@ -1045,6 +1090,11 @@ func (o *GetImportTaskRoleInfoOKBody) contextValidateAwsImportRole(ctx context.C
 func (o *GetImportTaskRoleInfoOKBody) contextValidateGcpImportRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.GcpImportRole != nil {
+
+		if swag.IsZero(o.GcpImportRole) { // not required
+			return nil
+		}
+
 		if err := o.GcpImportRole.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskRoleInfoOK" + "." + "gcp_import_role")

@@ -36,7 +36,9 @@ type OpenapiImportSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier-beta) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	//
+	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
 	// Enum: [S3 GCS LOCAL_FILE]
@@ -223,6 +225,11 @@ func (m *OpenapiImportSource) ContextValidate(ctx context.Context, formats strfm
 func (m *OpenapiImportSource) contextValidateAwsAssumeRoleAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsAssumeRoleAccess != nil {
+
+		if swag.IsZero(m.AwsAssumeRoleAccess) { // not required
+			return nil
+		}
+
 		if err := m.AwsAssumeRoleAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("aws_assume_role_access")
@@ -239,6 +246,11 @@ func (m *OpenapiImportSource) contextValidateAwsAssumeRoleAccess(ctx context.Con
 func (m *OpenapiImportSource) contextValidateAwsKeyAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsKeyAccess != nil {
+
+		if swag.IsZero(m.AwsKeyAccess) { // not required
+			return nil
+		}
+
 		if err := m.AwsKeyAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("aws_key_access")
@@ -255,6 +267,7 @@ func (m *OpenapiImportSource) contextValidateAwsKeyAccess(ctx context.Context, f
 func (m *OpenapiImportSource) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Format != nil {
+
 		if err := m.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("format")
@@ -546,6 +559,11 @@ func (m *OpenapiImportSourceFormat) ContextValidate(ctx context.Context, formats
 func (m *OpenapiImportSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CsvConfig != nil {
+
+		if swag.IsZero(m.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := m.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("format" + "." + "csv_config")

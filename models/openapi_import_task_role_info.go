@@ -105,6 +105,11 @@ func (m *OpenapiImportTaskRoleInfo) ContextValidate(ctx context.Context, formats
 func (m *OpenapiImportTaskRoleInfo) contextValidateAwsImportRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsImportRole != nil {
+
+		if swag.IsZero(m.AwsImportRole) { // not required
+			return nil
+		}
+
 		if err := m.AwsImportRole.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("aws_import_role")
@@ -121,6 +126,11 @@ func (m *OpenapiImportTaskRoleInfo) contextValidateAwsImportRole(ctx context.Con
 func (m *OpenapiImportTaskRoleInfo) contextValidateGcpImportRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.GcpImportRole != nil {
+
+		if swag.IsZero(m.GcpImportRole) { // not required
+			return nil
+		}
+
 		if err := m.GcpImportRole.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gcp_import_role")
