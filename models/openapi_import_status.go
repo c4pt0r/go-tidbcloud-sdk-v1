@@ -157,6 +157,11 @@ func (m *OpenapiImportStatus) ContextValidate(ctx context.Context, formats strfm
 func (m *OpenapiImportStatus) contextValidateProgress(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Progress != nil {
+
+		if swag.IsZero(m.Progress) { // not required
+			return nil
+		}
+
 		if err := m.Progress.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("progress")

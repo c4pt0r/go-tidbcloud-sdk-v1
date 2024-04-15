@@ -119,6 +119,11 @@ func (o *ListAwsCmekOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list aws cmek o k response
+func (o *ListAwsCmekOK) Code() int {
+	return 200
+}
+
 func (o *ListAwsCmekOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *ListAwsCmekBadRequest) IsServerError() bool {
 // IsCode returns true when this list aws cmek bad request response a status code equal to that given
 func (o *ListAwsCmekBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the list aws cmek bad request response
+func (o *ListAwsCmekBadRequest) Code() int {
+	return 400
 }
 
 func (o *ListAwsCmekBadRequest) Error() string {
@@ -245,6 +255,11 @@ func (o *ListAwsCmekUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list aws cmek unauthorized response
+func (o *ListAwsCmekUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListAwsCmekUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ListAwsCmekForbidden) IsServerError() bool {
 // IsCode returns true when this list aws cmek forbidden response a status code equal to that given
 func (o *ListAwsCmekForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list aws cmek forbidden response
+func (o *ListAwsCmekForbidden) Code() int {
+	return 403
 }
 
 func (o *ListAwsCmekForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *ListAwsCmekNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list aws cmek not found response
+func (o *ListAwsCmekNotFound) Code() int {
+	return 404
+}
+
 func (o *ListAwsCmekNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ListAwsCmekTooManyRequests) IsServerError() bool {
 // IsCode returns true when this list aws cmek too many requests response a status code equal to that given
 func (o *ListAwsCmekTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list aws cmek too many requests response
+func (o *ListAwsCmekTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListAwsCmekTooManyRequests) Error() string {
@@ -495,6 +525,11 @@ func (o *ListAwsCmekInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list aws cmek internal server error response
+func (o *ListAwsCmekInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListAwsCmekInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekInternalServerError  %+v", 500, o.Payload)
 }
@@ -537,11 +572,6 @@ type ListAwsCmekDefault struct {
 	Payload *ListAwsCmekDefaultBody
 }
 
-// Code gets the status code for the list aws cmek default response
-func (o *ListAwsCmekDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list aws cmek default response has a 2xx status code
 func (o *ListAwsCmekDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ListAwsCmekDefault) IsServerError() bool {
 // IsCode returns true when this list aws cmek default response a status code equal to that given
 func (o *ListAwsCmekDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list aws cmek default response
+func (o *ListAwsCmekDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListAwsCmekDefault) Error() string {
@@ -716,6 +751,11 @@ func (o *ListAwsCmekDefaultBody) contextValidateDetails(ctx context.Context, for
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListAwsCmek default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1008,6 +1048,11 @@ func (o *ListAwsCmekOKBody) contextValidateItems(ctx context.Context, formats st
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listAwsCmekOK" + "." + "items" + "." + strconv.Itoa(i))

@@ -99,6 +99,11 @@ func (m *OpenapiGetClusterConfig) ContextValidate(ctx context.Context, formats s
 func (m *OpenapiGetClusterConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Components != nil {
+
+		if swag.IsZero(m.Components) { // not required
+			return nil
+		}
+
 		if err := m.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components")
@@ -254,6 +259,7 @@ func (m *OpenapiGetClusterConfigComponents) ContextValidate(ctx context.Context,
 func (m *OpenapiGetClusterConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tidb != nil {
+
 		if err := m.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tidb")
@@ -270,6 +276,11 @@ func (m *OpenapiGetClusterConfigComponents) contextValidateTidb(ctx context.Cont
 func (m *OpenapiGetClusterConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tiflash != nil {
+
+		if swag.IsZero(m.Tiflash) { // not required
+			return nil
+		}
+
 		if err := m.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tiflash")
@@ -286,6 +297,7 @@ func (m *OpenapiGetClusterConfigComponents) contextValidateTiflash(ctx context.C
 func (m *OpenapiGetClusterConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tikv != nil {
+
 		if err := m.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tikv")
@@ -331,8 +343,8 @@ type OpenapiGetClusterConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -410,8 +422,8 @@ type OpenapiGetClusterConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -511,8 +523,8 @@ type OpenapiGetClusterConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

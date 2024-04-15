@@ -144,6 +144,7 @@ func (m *OpenapiTablePreview) ContextValidate(ctx context.Context, formats strfm
 func (m *OpenapiTablePreview) contextValidateDataPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DataPreview != nil {
+
 		if err := m.DataPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("data_preview")
@@ -160,6 +161,11 @@ func (m *OpenapiTablePreview) contextValidateDataPreview(ctx context.Context, fo
 func (m *OpenapiTablePreview) contextValidateSchemaPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SchemaPreview != nil {
+
+		if swag.IsZero(m.SchemaPreview) { // not required
+			return nil
+		}
+
 		if err := m.SchemaPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema_preview")
@@ -267,6 +273,11 @@ func (m *OpenapiTablePreviewDataPreview) contextValidateRows(ctx context.Context
 	for i := 0; i < len(m.Rows); i++ {
 
 		if m.Rows[i] != nil {
+
+			if swag.IsZero(m.Rows[i]) { // not required
+				return nil
+			}
+
 			if err := m.Rows[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("data_preview" + "." + "rows" + "." + strconv.Itoa(i))
@@ -436,6 +447,11 @@ func (m *OpenapiTablePreviewSchemaPreview) contextValidateColumnDefinitions(ctx 
 	for i := 0; i < len(m.ColumnDefinitions); i++ {
 
 		if m.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(m.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := m.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema_preview" + "." + "column_definitions" + "." + strconv.Itoa(i))

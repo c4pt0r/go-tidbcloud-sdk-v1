@@ -135,6 +135,11 @@ func (m *OpenapiImportSourceFormat) ContextValidate(ctx context.Context, formats
 func (m *OpenapiImportSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CsvConfig != nil {
+
+		if swag.IsZero(m.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := m.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("csv_config")

@@ -120,6 +120,11 @@ func (o *ListBackUpOfClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list back up of cluster o k response
+func (o *ListBackUpOfClusterOK) Code() int {
+	return 200
+}
+
 func (o *ListBackUpOfClusterOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] listBackUpOfClusterOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *ListBackUpOfClusterBadRequest) IsServerError() bool {
 // IsCode returns true when this list back up of cluster bad request response a status code equal to that given
 func (o *ListBackUpOfClusterBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the list back up of cluster bad request response
+func (o *ListBackUpOfClusterBadRequest) Code() int {
+	return 400
 }
 
 func (o *ListBackUpOfClusterBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *ListBackUpOfClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list back up of cluster unauthorized response
+func (o *ListBackUpOfClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListBackUpOfClusterUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] listBackUpOfClusterUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *ListBackUpOfClusterForbidden) IsServerError() bool {
 // IsCode returns true when this list back up of cluster forbidden response a status code equal to that given
 func (o *ListBackUpOfClusterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list back up of cluster forbidden response
+func (o *ListBackUpOfClusterForbidden) Code() int {
+	return 403
 }
 
 func (o *ListBackUpOfClusterForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *ListBackUpOfClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list back up of cluster not found response
+func (o *ListBackUpOfClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *ListBackUpOfClusterNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] listBackUpOfClusterNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *ListBackUpOfClusterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this list back up of cluster too many requests response a status code equal to that given
 func (o *ListBackUpOfClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list back up of cluster too many requests response
+func (o *ListBackUpOfClusterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListBackUpOfClusterTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *ListBackUpOfClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list back up of cluster internal server error response
+func (o *ListBackUpOfClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListBackUpOfClusterInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] listBackUpOfClusterInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type ListBackUpOfClusterDefault struct {
 	Payload *ListBackUpOfClusterDefaultBody
 }
 
-// Code gets the status code for the list back up of cluster default response
-func (o *ListBackUpOfClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list back up of cluster default response has a 2xx status code
 func (o *ListBackUpOfClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *ListBackUpOfClusterDefault) IsServerError() bool {
 // IsCode returns true when this list back up of cluster default response a status code equal to that given
 func (o *ListBackUpOfClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list back up of cluster default response
+func (o *ListBackUpOfClusterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListBackUpOfClusterDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *ListBackUpOfClusterDefaultBody) contextValidateDetails(ctx context.Cont
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListBackUpOfCluster default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1013,6 +1053,11 @@ func (o *ListBackUpOfClusterOKBody) contextValidateItems(ctx context.Context, fo
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listBackUpOfClusterOK" + "." + "items" + "." + strconv.Itoa(i))

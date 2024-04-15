@@ -114,6 +114,7 @@ func (m *OpenapiTableDefinition) ContextValidate(ctx context.Context, formats st
 func (m *OpenapiTableDefinition) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Schema != nil {
+
 		if err := m.Schema.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
@@ -222,6 +223,11 @@ func (m *OpenapiTableDefinitionSchema) contextValidateColumnDefinitions(ctx cont
 	for i := 0; i < len(m.ColumnDefinitions); i++ {
 
 		if m.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(m.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := m.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema" + "." + "column_definitions" + "." + strconv.Itoa(i))

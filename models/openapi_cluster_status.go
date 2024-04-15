@@ -50,6 +50,12 @@ const (
 
 	// OpenapiClusterStatusIMPORTING captures enum value "IMPORTING"
 	OpenapiClusterStatusIMPORTING OpenapiClusterStatus = "IMPORTING"
+
+	// OpenapiClusterStatusMAINTAINING captures enum value "MAINTAINING"
+	OpenapiClusterStatusMAINTAINING OpenapiClusterStatus = "MAINTAINING"
+
+	// OpenapiClusterStatusPAUSING captures enum value "PAUSING"
+	OpenapiClusterStatusPAUSING OpenapiClusterStatus = "PAUSING"
 )
 
 // for schema
@@ -57,7 +63,7 @@ var openapiClusterStatusEnum []interface{}
 
 func init() {
 	var res []OpenapiClusterStatus
-	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

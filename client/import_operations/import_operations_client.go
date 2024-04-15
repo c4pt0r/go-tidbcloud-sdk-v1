@@ -278,7 +278,7 @@ func (a *Client) UpdateImportTask(params *UpdateImportTaskParams, opts ...Client
 
 	If you need to import data from a local file, you must first upload the file using this endpoint before you create an import task using the [Create an import task](#tag/Import/operation/CreateImportTask) endpoint.
 
-Uploading a local file is only available for Serverless Tier clusters.
+Uploading a local file is only available for TiDB Serverless clusters.
 */
 func (a *Client) UploadLocalFile(params *UploadLocalFileParams, opts ...ClientOption) (*UploadLocalFileOK, error) {
 	// TODO: Validate the params before sending

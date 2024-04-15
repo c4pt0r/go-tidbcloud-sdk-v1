@@ -120,6 +120,11 @@ func (o *UpdateImportTaskOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update import task o k response
+func (o *UpdateImportTaskOK) Code() int {
+	return 200
+}
+
 func (o *UpdateImportTaskOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskOK  %+v", 200, o.Payload)
 }
@@ -179,6 +184,11 @@ func (o *UpdateImportTaskBadRequest) IsServerError() bool {
 // IsCode returns true when this update import task bad request response a status code equal to that given
 func (o *UpdateImportTaskBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update import task bad request response
+func (o *UpdateImportTaskBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateImportTaskBadRequest) Error() string {
@@ -244,6 +254,11 @@ func (o *UpdateImportTaskUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the update import task unauthorized response
+func (o *UpdateImportTaskUnauthorized) Code() int {
+	return 401
+}
+
 func (o *UpdateImportTaskUnauthorized) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskUnauthorized  %+v", 401, o.Payload)
 }
@@ -303,6 +318,11 @@ func (o *UpdateImportTaskForbidden) IsServerError() bool {
 // IsCode returns true when this update import task forbidden response a status code equal to that given
 func (o *UpdateImportTaskForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update import task forbidden response
+func (o *UpdateImportTaskForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateImportTaskForbidden) Error() string {
@@ -368,6 +388,11 @@ func (o *UpdateImportTaskNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update import task not found response
+func (o *UpdateImportTaskNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateImportTaskNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskNotFound  %+v", 404, o.Payload)
 }
@@ -429,6 +454,11 @@ func (o *UpdateImportTaskTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update import task too many requests response a status code equal to that given
 func (o *UpdateImportTaskTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update import task too many requests response
+func (o *UpdateImportTaskTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateImportTaskTooManyRequests) Error() string {
@@ -494,6 +524,11 @@ func (o *UpdateImportTaskInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update import task internal server error response
+func (o *UpdateImportTaskInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateImportTaskInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskInternalServerError  %+v", 500, o.Payload)
 }
@@ -536,11 +571,6 @@ type UpdateImportTaskDefault struct {
 	Payload *UpdateImportTaskDefaultBody
 }
 
-// Code gets the status code for the update import task default response
-func (o *UpdateImportTaskDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update import task default response has a 2xx status code
 func (o *UpdateImportTaskDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -564,6 +594,11 @@ func (o *UpdateImportTaskDefault) IsServerError() bool {
 // IsCode returns true when this update import task default response a status code equal to that given
 func (o *UpdateImportTaskDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update import task default response
+func (o *UpdateImportTaskDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateImportTaskDefault) Error() string {
@@ -810,6 +845,11 @@ func (o *UpdateImportTaskDefaultBody) contextValidateDetails(ctx context.Context
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("UpdateImportTask default" + "." + "details" + "." + strconv.Itoa(i))

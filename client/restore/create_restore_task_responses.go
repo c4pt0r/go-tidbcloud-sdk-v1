@@ -119,6 +119,11 @@ func (o *CreateRestoreTaskOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create restore task o k response
+func (o *CreateRestoreTaskOK) Code() int {
+	return 200
+}
+
 func (o *CreateRestoreTaskOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *CreateRestoreTaskBadRequest) IsServerError() bool {
 // IsCode returns true when this create restore task bad request response a status code equal to that given
 func (o *CreateRestoreTaskBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create restore task bad request response
+func (o *CreateRestoreTaskBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateRestoreTaskBadRequest) Error() string {
@@ -245,6 +255,11 @@ func (o *CreateRestoreTaskUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create restore task unauthorized response
+func (o *CreateRestoreTaskUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateRestoreTaskUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *CreateRestoreTaskForbidden) IsServerError() bool {
 // IsCode returns true when this create restore task forbidden response a status code equal to that given
 func (o *CreateRestoreTaskForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create restore task forbidden response
+func (o *CreateRestoreTaskForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateRestoreTaskForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *CreateRestoreTaskNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create restore task not found response
+func (o *CreateRestoreTaskNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateRestoreTaskNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *CreateRestoreTaskTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create restore task too many requests response a status code equal to that given
 func (o *CreateRestoreTaskTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create restore task too many requests response
+func (o *CreateRestoreTaskTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateRestoreTaskTooManyRequests) Error() string {
@@ -495,6 +525,11 @@ func (o *CreateRestoreTaskInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create restore task internal server error response
+func (o *CreateRestoreTaskInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateRestoreTaskInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskInternalServerError  %+v", 500, o.Payload)
 }
@@ -537,11 +572,6 @@ type CreateRestoreTaskDefault struct {
 	Payload *CreateRestoreTaskDefaultBody
 }
 
-// Code gets the status code for the create restore task default response
-func (o *CreateRestoreTaskDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create restore task default response has a 2xx status code
 func (o *CreateRestoreTaskDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *CreateRestoreTaskDefault) IsServerError() bool {
 // IsCode returns true when this create restore task default response a status code equal to that given
 func (o *CreateRestoreTaskDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create restore task default response
+func (o *CreateRestoreTaskDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateRestoreTaskDefault) Error() string {
@@ -747,6 +782,11 @@ func (o *CreateRestoreTaskBody) ContextValidate(ctx context.Context, formats str
 func (o *CreateRestoreTaskBody) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Config != nil {
+
+		if swag.IsZero(o.Config) { // not required
+			return nil
+		}
+
 		if err := o.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config")
@@ -853,6 +893,11 @@ func (o *CreateRestoreTaskDefaultBody) contextValidateDetails(ctx context.Contex
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateRestoreTask default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1134,7 +1179,7 @@ type CreateRestoreTaskParamsBodyConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -1273,6 +1318,11 @@ func (o *CreateRestoreTaskParamsBodyConfig) ContextValidate(ctx context.Context,
 func (o *CreateRestoreTaskParamsBodyConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Components != nil {
+
+		if swag.IsZero(o.Components) { // not required
+			return nil
+		}
+
 		if err := o.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components")
@@ -1291,6 +1341,11 @@ func (o *CreateRestoreTaskParamsBodyConfig) contextValidateIPAccessList(ctx cont
 	for i := 0; i < len(o.IPAccessList); i++ {
 
 		if o.IPAccessList[i] != nil {
+
+			if swag.IsZero(o.IPAccessList[i]) { // not required
+				return nil
+			}
+
 			if err := o.IPAccessList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "config" + "." + "ip_access_list" + "." + strconv.Itoa(i))
@@ -1328,8 +1383,8 @@ func (o *CreateRestoreTaskParamsBodyConfig) UnmarshalBinary(b []byte) error {
 CreateRestoreTaskParamsBodyConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a Dedicated Tier cluster, the `components` parameter is **required**.
-// - For a Serverless Tier cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model CreateRestoreTaskParamsBodyConfigComponents
 */
@@ -1453,6 +1508,7 @@ func (o *CreateRestoreTaskParamsBodyConfigComponents) ContextValidate(ctx contex
 func (o *CreateRestoreTaskParamsBodyConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tidb != nil {
+
 		if err := o.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tidb")
@@ -1469,6 +1525,11 @@ func (o *CreateRestoreTaskParamsBodyConfigComponents) contextValidateTidb(ctx co
 func (o *CreateRestoreTaskParamsBodyConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tiflash != nil {
+
+		if swag.IsZero(o.Tiflash) { // not required
+			return nil
+		}
+
 		if err := o.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tiflash")
@@ -1485,6 +1546,7 @@ func (o *CreateRestoreTaskParamsBodyConfigComponents) contextValidateTiflash(ctx
 func (o *CreateRestoreTaskParamsBodyConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tikv != nil {
+
 		if err := o.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tikv")
@@ -1531,8 +1593,8 @@ type CreateRestoreTaskParamsBodyConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1611,8 +1673,8 @@ type CreateRestoreTaskParamsBodyConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1713,8 +1775,8 @@ type CreateRestoreTaskParamsBodyConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

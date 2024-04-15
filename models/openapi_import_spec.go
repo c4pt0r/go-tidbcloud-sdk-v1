@@ -111,6 +111,7 @@ func (m *OpenapiImportSpec) ContextValidate(ctx context.Context, formats strfmt.
 func (m *OpenapiImportSpec) contextValidateSource(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Source != nil {
+
 		if err := m.Source.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("source")
@@ -127,6 +128,7 @@ func (m *OpenapiImportSpec) contextValidateSource(ctx context.Context, formats s
 func (m *OpenapiImportSpec) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Target != nil {
+
 		if err := m.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target")
@@ -179,7 +181,9 @@ type OpenapiImportSpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier-beta) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	//
+	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
 	// Enum: [S3 GCS LOCAL_FILE]
@@ -366,6 +370,11 @@ func (m *OpenapiImportSpecSource) ContextValidate(ctx context.Context, formats s
 func (m *OpenapiImportSpecSource) contextValidateAwsAssumeRoleAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsAssumeRoleAccess != nil {
+
+		if swag.IsZero(m.AwsAssumeRoleAccess) { // not required
+			return nil
+		}
+
 		if err := m.AwsAssumeRoleAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("source" + "." + "aws_assume_role_access")
@@ -382,6 +391,11 @@ func (m *OpenapiImportSpecSource) contextValidateAwsAssumeRoleAccess(ctx context
 func (m *OpenapiImportSpecSource) contextValidateAwsKeyAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsKeyAccess != nil {
+
+		if swag.IsZero(m.AwsKeyAccess) { // not required
+			return nil
+		}
+
 		if err := m.AwsKeyAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("source" + "." + "aws_key_access")
@@ -398,6 +412,7 @@ func (m *OpenapiImportSpecSource) contextValidateAwsKeyAccess(ctx context.Contex
 func (m *OpenapiImportSpecSource) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Format != nil {
+
 		if err := m.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("source" + "." + "format")
@@ -689,6 +704,11 @@ func (m *OpenapiImportSpecSourceFormat) ContextValidate(ctx context.Context, for
 func (m *OpenapiImportSpecSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CsvConfig != nil {
+
+		if swag.IsZero(m.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := m.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("source" + "." + "format" + "." + "csv_config")
@@ -777,7 +797,7 @@ func (m *OpenapiImportSpecSourceFormatCsvConfig) UnmarshalBinary(b []byte) error
 // swagger:model OpenapiImportSpecTarget
 type OpenapiImportSpecTarget struct {
 
-	// The settings for each target table that is being imported for the import task.
+	// The settings for each target table that is being imported for the import task. If you leave it empty, the system will scan all the files in the data source using the default file patterns and collect all the tables to import. The files include data files, table schema files, and DB schema files. If you provide a list of tables, only those tables will be imported. For more information about the default file pattern, see [Import CSV Files from Amazon S3 or GCS into TiDB Cloud](https://docs.pingcap.com/tidbcloud/import-csv-files).
 	//
 	// **Limitations:**
 	// * Currently, if you want to use a custom filename pattern, you can only specify one table. If all the tables use the default filename pattern, you can specify more than one target table in `tables`.
@@ -845,6 +865,11 @@ func (m *OpenapiImportSpecTarget) contextValidateTables(ctx context.Context, for
 	for i := 0; i < len(m.Tables); i++ {
 
 		if m.Tables[i] != nil {
+
+			if swag.IsZero(m.Tables[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target" + "." + "tables" + "." + strconv.Itoa(i))

@@ -120,6 +120,11 @@ func (o *GetImportTaskOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get import task o k response
+func (o *GetImportTaskOK) Code() int {
+	return 200
+}
+
 func (o *GetImportTaskOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] getImportTaskOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *GetImportTaskBadRequest) IsServerError() bool {
 // IsCode returns true when this get import task bad request response a status code equal to that given
 func (o *GetImportTaskBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get import task bad request response
+func (o *GetImportTaskBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetImportTaskBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *GetImportTaskUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get import task unauthorized response
+func (o *GetImportTaskUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetImportTaskUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] getImportTaskUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *GetImportTaskForbidden) IsServerError() bool {
 // IsCode returns true when this get import task forbidden response a status code equal to that given
 func (o *GetImportTaskForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get import task forbidden response
+func (o *GetImportTaskForbidden) Code() int {
+	return 403
 }
 
 func (o *GetImportTaskForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *GetImportTaskNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get import task not found response
+func (o *GetImportTaskNotFound) Code() int {
+	return 404
+}
+
 func (o *GetImportTaskNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] getImportTaskNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *GetImportTaskTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get import task too many requests response a status code equal to that given
 func (o *GetImportTaskTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get import task too many requests response
+func (o *GetImportTaskTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetImportTaskTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *GetImportTaskInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get import task internal server error response
+func (o *GetImportTaskInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetImportTaskInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] getImportTaskInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type GetImportTaskDefault struct {
 	Payload *GetImportTaskDefaultBody
 }
 
-// Code gets the status code for the get import task default response
-func (o *GetImportTaskDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get import task default response has a 2xx status code
 func (o *GetImportTaskDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *GetImportTaskDefault) IsServerError() bool {
 // IsCode returns true when this get import task default response a status code equal to that given
 func (o *GetImportTaskDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get import task default response
+func (o *GetImportTaskDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetImportTaskDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *GetImportTaskDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("GetImportTask default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1060,6 +1100,11 @@ func (o *GetImportTaskOKBody) ContextValidate(ctx context.Context, formats strfm
 func (o *GetImportTaskOKBody) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Metadata != nil {
+
+		if swag.IsZero(o.Metadata) { // not required
+			return nil
+		}
+
 		if err := o.Metadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "metadata")
@@ -1076,6 +1121,11 @@ func (o *GetImportTaskOKBody) contextValidateMetadata(ctx context.Context, forma
 func (o *GetImportTaskOKBody) contextValidateSpec(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Spec != nil {
+
+		if swag.IsZero(o.Spec) { // not required
+			return nil
+		}
+
 		if err := o.Spec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec")
@@ -1092,6 +1142,11 @@ func (o *GetImportTaskOKBody) contextValidateSpec(ctx context.Context, formats s
 func (o *GetImportTaskOKBody) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Status != nil {
+
+		if swag.IsZero(o.Status) { // not required
+			return nil
+		}
+
 		if err := o.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "status")
@@ -1301,6 +1356,7 @@ func (o *GetImportTaskOKBodySpec) ContextValidate(ctx context.Context, formats s
 func (o *GetImportTaskOKBodySpec) contextValidateSource(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Source != nil {
+
 		if err := o.Source.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "source")
@@ -1317,6 +1373,7 @@ func (o *GetImportTaskOKBodySpec) contextValidateSource(ctx context.Context, for
 func (o *GetImportTaskOKBodySpec) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Target != nil {
+
 		if err := o.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "target")
@@ -1370,7 +1427,9 @@ type GetImportTaskOKBodySpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier-beta) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	//
+	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
 	// Enum: [S3 GCS LOCAL_FILE]
@@ -1557,6 +1616,11 @@ func (o *GetImportTaskOKBodySpecSource) ContextValidate(ctx context.Context, for
 func (o *GetImportTaskOKBodySpecSource) contextValidateAwsAssumeRoleAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsAssumeRoleAccess != nil {
+
+		if swag.IsZero(o.AwsAssumeRoleAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsAssumeRoleAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "source" + "." + "aws_assume_role_access")
@@ -1573,6 +1637,11 @@ func (o *GetImportTaskOKBodySpecSource) contextValidateAwsAssumeRoleAccess(ctx c
 func (o *GetImportTaskOKBodySpecSource) contextValidateAwsKeyAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsKeyAccess != nil {
+
+		if swag.IsZero(o.AwsKeyAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsKeyAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "source" + "." + "aws_key_access")
@@ -1589,6 +1658,7 @@ func (o *GetImportTaskOKBodySpecSource) contextValidateAwsKeyAccess(ctx context.
 func (o *GetImportTaskOKBodySpecSource) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Format != nil {
+
 		if err := o.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "source" + "." + "format")
@@ -1883,6 +1953,11 @@ func (o *GetImportTaskOKBodySpecSourceFormat) ContextValidate(ctx context.Contex
 func (o *GetImportTaskOKBodySpecSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CsvConfig != nil {
+
+		if swag.IsZero(o.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := o.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "source" + "." + "format" + "." + "csv_config")
@@ -1973,7 +2048,7 @@ swagger:model GetImportTaskOKBodySpecTarget
 */
 type GetImportTaskOKBodySpecTarget struct {
 
-	// The settings for each target table that is being imported for the import task.
+	// The settings for each target table that is being imported for the import task. If you leave it empty, the system will scan all the files in the data source using the default file patterns and collect all the tables to import. The files include data files, table schema files, and DB schema files. If you provide a list of tables, only those tables will be imported. For more information about the default file pattern, see [Import CSV Files from Amazon S3 or GCS into TiDB Cloud](https://docs.pingcap.com/tidbcloud/import-csv-files).
 	//
 	// **Limitations:**
 	// * Currently, if you want to use a custom filename pattern, you can only specify one table. If all the tables use the default filename pattern, you can specify more than one target table in `tables`.
@@ -2041,6 +2116,11 @@ func (o *GetImportTaskOKBodySpecTarget) contextValidateTables(ctx context.Contex
 	for i := 0; i < len(o.Tables); i++ {
 
 		if o.Tables[i] != nil {
+
+			if swag.IsZero(o.Tables[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("getImportTaskOK" + "." + "spec" + "." + "target" + "." + "tables" + "." + strconv.Itoa(i))
@@ -2309,6 +2389,11 @@ func (o *GetImportTaskOKBodyStatus) ContextValidate(ctx context.Context, formats
 func (o *GetImportTaskOKBodyStatus) contextValidateProgress(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Progress != nil {
+
+		if swag.IsZero(o.Progress) { // not required
+			return nil
+		}
+
 		if err := o.Progress.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getImportTaskOK" + "." + "status" + "." + "progress")

@@ -22,7 +22,7 @@ import (
 // swagger:model openapiImportTarget
 type OpenapiImportTarget struct {
 
-	// The settings for each target table that is being imported for the import task.
+	// The settings for each target table that is being imported for the import task. If you leave it empty, the system will scan all the files in the data source using the default file patterns and collect all the tables to import. The files include data files, table schema files, and DB schema files. If you provide a list of tables, only those tables will be imported. For more information about the default file pattern, see [Import CSV Files from Amazon S3 or GCS into TiDB Cloud](https://docs.pingcap.com/tidbcloud/import-csv-files).
 	//
 	// **Limitations:**
 	// * Currently, if you want to use a custom filename pattern, you can only specify one table. If all the tables use the default filename pattern, you can specify more than one target table in `tables`.
@@ -90,6 +90,11 @@ func (m *OpenapiImportTarget) contextValidateTables(ctx context.Context, formats
 	for i := 0; i < len(m.Tables); i++ {
 
 		if m.Tables[i] != nil {
+
+			if swag.IsZero(m.Tables[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tables" + "." + strconv.Itoa(i))

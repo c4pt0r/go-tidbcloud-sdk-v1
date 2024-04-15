@@ -92,6 +92,11 @@ func (m *OpenapiTableSchema) contextValidateColumnDefinitions(ctx context.Contex
 	for i := 0; i < len(m.ColumnDefinitions); i++ {
 
 		if m.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(m.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := m.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("column_definitions" + "." + strconv.Itoa(i))

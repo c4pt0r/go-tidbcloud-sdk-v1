@@ -120,6 +120,11 @@ func (o *PreviewImportDataOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the preview import data o k response
+func (o *PreviewImportDataOK) Code() int {
+	return 200
+}
+
 func (o *PreviewImportDataOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *PreviewImportDataBadRequest) IsServerError() bool {
 // IsCode returns true when this preview import data bad request response a status code equal to that given
 func (o *PreviewImportDataBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the preview import data bad request response
+func (o *PreviewImportDataBadRequest) Code() int {
+	return 400
 }
 
 func (o *PreviewImportDataBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *PreviewImportDataUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the preview import data unauthorized response
+func (o *PreviewImportDataUnauthorized) Code() int {
+	return 401
+}
+
 func (o *PreviewImportDataUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *PreviewImportDataForbidden) IsServerError() bool {
 // IsCode returns true when this preview import data forbidden response a status code equal to that given
 func (o *PreviewImportDataForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the preview import data forbidden response
+func (o *PreviewImportDataForbidden) Code() int {
+	return 403
 }
 
 func (o *PreviewImportDataForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *PreviewImportDataNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the preview import data not found response
+func (o *PreviewImportDataNotFound) Code() int {
+	return 404
+}
+
 func (o *PreviewImportDataNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *PreviewImportDataTooManyRequests) IsServerError() bool {
 // IsCode returns true when this preview import data too many requests response a status code equal to that given
 func (o *PreviewImportDataTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the preview import data too many requests response
+func (o *PreviewImportDataTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PreviewImportDataTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *PreviewImportDataInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the preview import data internal server error response
+func (o *PreviewImportDataInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PreviewImportDataInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type PreviewImportDataDefault struct {
 	Payload *PreviewImportDataDefaultBody
 }
 
-// Code gets the status code for the preview import data default response
-func (o *PreviewImportDataDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this preview import data default response has a 2xx status code
 func (o *PreviewImportDataDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *PreviewImportDataDefault) IsServerError() bool {
 // IsCode returns true when this preview import data default response a status code equal to that given
 func (o *PreviewImportDataDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the preview import data default response
+func (o *PreviewImportDataDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PreviewImportDataDefault) Error() string {
@@ -654,7 +689,7 @@ type PreviewImportDataBody struct {
 	// Example: 10
 	// Maximum: 20
 	// Minimum: 1
-	LimitRowsCount int64 `json:"limit_rows_count,omitempty"`
+	LimitRowsCount *int64 `json:"limit_rows_count,omitempty"`
 
 	// spec
 	// Required: true
@@ -684,11 +719,11 @@ func (o *PreviewImportDataBody) validateLimitRowsCount(formats strfmt.Registry) 
 		return nil
 	}
 
-	if err := validate.MinimumInt("body"+"."+"limit_rows_count", "body", o.LimitRowsCount, 1, false); err != nil {
+	if err := validate.MinimumInt("body"+"."+"limit_rows_count", "body", *o.LimitRowsCount, 1, false); err != nil {
 		return err
 	}
 
-	if err := validate.MaximumInt("body"+"."+"limit_rows_count", "body", o.LimitRowsCount, 20, false); err != nil {
+	if err := validate.MaximumInt("body"+"."+"limit_rows_count", "body", *o.LimitRowsCount, 20, false); err != nil {
 		return err
 	}
 
@@ -732,6 +767,7 @@ func (o *PreviewImportDataBody) ContextValidate(ctx context.Context, formats str
 func (o *PreviewImportDataBody) contextValidateSpec(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Spec != nil {
+
 		if err := o.Spec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec")
@@ -838,6 +874,11 @@ func (o *PreviewImportDataDefaultBody) contextValidateDetails(ctx context.Contex
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PreviewImportData default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1130,6 +1171,11 @@ func (o *PreviewImportDataOKBody) contextValidateTablePreviews(ctx context.Conte
 	for i := 0; i < len(o.TablePreviews); i++ {
 
 		if o.TablePreviews[i] != nil {
+
+			if swag.IsZero(o.TablePreviews[i]) { // not required
+				return nil
+			}
+
 			if err := o.TablePreviews[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("previewImportDataOK" + "." + "table_previews" + "." + strconv.Itoa(i))
@@ -1293,6 +1339,7 @@ func (o *PreviewImportDataOKBodyTablePreviewsItems0) ContextValidate(ctx context
 func (o *PreviewImportDataOKBodyTablePreviewsItems0) contextValidateDataPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DataPreview != nil {
+
 		if err := o.DataPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("data_preview")
@@ -1309,6 +1356,11 @@ func (o *PreviewImportDataOKBodyTablePreviewsItems0) contextValidateDataPreview(
 func (o *PreviewImportDataOKBodyTablePreviewsItems0) contextValidateSchemaPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.SchemaPreview != nil {
+
+		if swag.IsZero(o.SchemaPreview) { // not required
+			return nil
+		}
+
 		if err := o.SchemaPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema_preview")
@@ -1417,6 +1469,11 @@ func (o *PreviewImportDataOKBodyTablePreviewsItems0DataPreview) contextValidateR
 	for i := 0; i < len(o.Rows); i++ {
 
 		if o.Rows[i] != nil {
+
+			if swag.IsZero(o.Rows[i]) { // not required
+				return nil
+			}
+
 			if err := o.Rows[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("data_preview" + "." + "rows" + "." + strconv.Itoa(i))
@@ -1588,6 +1645,11 @@ func (o *PreviewImportDataOKBodyTablePreviewsItems0SchemaPreview) contextValidat
 	for i := 0; i < len(o.ColumnDefinitions); i++ {
 
 		if o.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(o.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := o.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema_preview" + "." + "column_definitions" + "." + strconv.Itoa(i))
@@ -1703,6 +1765,8 @@ func (o *PreviewImportDataOKBodyTablePreviewsItems0SchemaPreviewColumnDefinition
 PreviewImportDataParamsBodySpec ImportSpec
 //
 // The specifications of the import task.
+//
+// **Note:** Currently, you can only preview locally uploaded files. This means that only data sources with the `LOCAL_FILE` source type are supported. If you specify a data source other than `LOCAL_FILE`, errors will occur.
 swagger:model PreviewImportDataParamsBodySpec
 */
 type PreviewImportDataParamsBodySpec struct {
@@ -1795,6 +1859,7 @@ func (o *PreviewImportDataParamsBodySpec) ContextValidate(ctx context.Context, f
 func (o *PreviewImportDataParamsBodySpec) contextValidateSource(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Source != nil {
+
 		if err := o.Source.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source")
@@ -1811,6 +1876,7 @@ func (o *PreviewImportDataParamsBodySpec) contextValidateSource(ctx context.Cont
 func (o *PreviewImportDataParamsBodySpec) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Target != nil {
+
 		if err := o.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "target")
@@ -1864,7 +1930,9 @@ type PreviewImportDataParamsBodySpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier-beta) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	//
+	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
 	// Enum: [S3 GCS LOCAL_FILE]
@@ -2051,6 +2119,11 @@ func (o *PreviewImportDataParamsBodySpecSource) ContextValidate(ctx context.Cont
 func (o *PreviewImportDataParamsBodySpecSource) contextValidateAwsAssumeRoleAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsAssumeRoleAccess != nil {
+
+		if swag.IsZero(o.AwsAssumeRoleAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsAssumeRoleAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_assume_role_access")
@@ -2067,6 +2140,11 @@ func (o *PreviewImportDataParamsBodySpecSource) contextValidateAwsAssumeRoleAcce
 func (o *PreviewImportDataParamsBodySpecSource) contextValidateAwsKeyAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AwsKeyAccess != nil {
+
+		if swag.IsZero(o.AwsKeyAccess) { // not required
+			return nil
+		}
+
 		if err := o.AwsKeyAccess.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_key_access")
@@ -2083,6 +2161,7 @@ func (o *PreviewImportDataParamsBodySpecSource) contextValidateAwsKeyAccess(ctx 
 func (o *PreviewImportDataParamsBodySpecSource) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Format != nil {
+
 		if err := o.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "format")
@@ -2377,6 +2456,11 @@ func (o *PreviewImportDataParamsBodySpecSourceFormat) ContextValidate(ctx contex
 func (o *PreviewImportDataParamsBodySpecSourceFormat) contextValidateCsvConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CsvConfig != nil {
+
+		if swag.IsZero(o.CsvConfig) { // not required
+			return nil
+		}
+
 		if err := o.CsvConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "format" + "." + "csv_config")
@@ -2467,7 +2551,7 @@ swagger:model PreviewImportDataParamsBodySpecTarget
 */
 type PreviewImportDataParamsBodySpecTarget struct {
 
-	// The settings for each target table that is being imported for the import task.
+	// The settings for each target table that is being imported for the import task. If you leave it empty, the system will scan all the files in the data source using the default file patterns and collect all the tables to import. The files include data files, table schema files, and DB schema files. If you provide a list of tables, only those tables will be imported. For more information about the default file pattern, see [Import CSV Files from Amazon S3 or GCS into TiDB Cloud](https://docs.pingcap.com/tidbcloud/import-csv-files).
 	//
 	// **Limitations:**
 	// * Currently, if you want to use a custom filename pattern, you can only specify one table. If all the tables use the default filename pattern, you can specify more than one target table in `tables`.
@@ -2535,6 +2619,11 @@ func (o *PreviewImportDataParamsBodySpecTarget) contextValidateTables(ctx contex
 	for i := 0; i < len(o.Tables); i++ {
 
 		if o.Tables[i] != nil {
+
+			if swag.IsZero(o.Tables[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "spec" + "." + "target" + "." + "tables" + "." + strconv.Itoa(i))

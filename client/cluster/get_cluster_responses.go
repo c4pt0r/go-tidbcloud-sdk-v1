@@ -120,6 +120,11 @@ func (o *GetClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get cluster o k response
+func (o *GetClusterOK) Code() int {
+	return 200
+}
+
 func (o *GetClusterOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *GetClusterBadRequest) IsServerError() bool {
 // IsCode returns true when this get cluster bad request response a status code equal to that given
 func (o *GetClusterBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get cluster bad request response
+func (o *GetClusterBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetClusterBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *GetClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get cluster unauthorized response
+func (o *GetClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetClusterUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *GetClusterForbidden) IsServerError() bool {
 // IsCode returns true when this get cluster forbidden response a status code equal to that given
 func (o *GetClusterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get cluster forbidden response
+func (o *GetClusterForbidden) Code() int {
+	return 403
 }
 
 func (o *GetClusterForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *GetClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get cluster not found response
+func (o *GetClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *GetClusterNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *GetClusterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get cluster too many requests response a status code equal to that given
 func (o *GetClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get cluster too many requests response
+func (o *GetClusterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetClusterTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *GetClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get cluster internal server error response
+func (o *GetClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetClusterInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type GetClusterDefault struct {
 	Payload *GetClusterDefaultBody
 }
 
-// Code gets the status code for the get cluster default response
-func (o *GetClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get cluster default response has a 2xx status code
 func (o *GetClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *GetClusterDefault) IsServerError() bool {
 // IsCode returns true when this get cluster default response a status code equal to that given
 func (o *GetClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get cluster default response
+func (o *GetClusterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetClusterDefault) Error() string {
@@ -717,6 +752,11 @@ func (o *GetClusterDefaultBody) contextValidateDetails(ctx context.Context, form
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("GetCluster default" + "." + "details" + "." + strconv.Itoa(i))
@@ -948,16 +988,16 @@ type GetClusterOKBody struct {
 
 	// The cloud provider on which your TiDB cluster is hosted.
 	// - `"AWS"`: the Amazon Web Services cloud provider
-	// - `"GCP"`: the Google Cloud Platform cloud provider
+	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
 	// Enum: [AWS GCP]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type:
-	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
-	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Serverless clusters.
 	// Example: DEDICATED
 	// Enum: [DEDICATED DEVELOPER]
 	ClusterType string `json:"cluster_type,omitempty"`
@@ -1203,6 +1243,11 @@ func (o *GetClusterOKBody) ContextValidate(ctx context.Context, formats strfmt.R
 func (o *GetClusterOKBody) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Config != nil {
+
+		if swag.IsZero(o.Config) { // not required
+			return nil
+		}
+
 		if err := o.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "config")
@@ -1219,6 +1264,11 @@ func (o *GetClusterOKBody) contextValidateConfig(ctx context.Context, formats st
 func (o *GetClusterOKBody) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Status != nil {
+
+		if swag.IsZero(o.Status) { // not required
+			return nil
+		}
+
 		if err := o.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "status")
@@ -1337,6 +1387,11 @@ func (o *GetClusterOKBodyConfig) ContextValidate(ctx context.Context, formats st
 func (o *GetClusterOKBodyConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Components != nil {
+
+		if swag.IsZero(o.Components) { // not required
+			return nil
+		}
+
 		if err := o.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "config" + "." + "components")
@@ -1493,6 +1548,7 @@ func (o *GetClusterOKBodyConfigComponents) ContextValidate(ctx context.Context, 
 func (o *GetClusterOKBodyConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tidb != nil {
+
 		if err := o.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "config" + "." + "components" + "." + "tidb")
@@ -1509,6 +1565,11 @@ func (o *GetClusterOKBodyConfigComponents) contextValidateTidb(ctx context.Conte
 func (o *GetClusterOKBodyConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tiflash != nil {
+
+		if swag.IsZero(o.Tiflash) { // not required
+			return nil
+		}
+
 		if err := o.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "config" + "." + "components" + "." + "tiflash")
@@ -1525,6 +1586,7 @@ func (o *GetClusterOKBodyConfigComponents) contextValidateTiflash(ctx context.Co
 func (o *GetClusterOKBodyConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tikv != nil {
+
 		if err := o.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "config" + "." + "components" + "." + "tikv")
@@ -1571,8 +1633,8 @@ type GetClusterOKBodyConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1651,8 +1713,8 @@ type GetClusterOKBodyConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1753,8 +1815,8 @@ type GetClusterOKBodyConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1847,7 +1909,7 @@ type GetClusterOKBodyStatus struct {
 
 	// Status of the cluster.
 	// Example: AVAILABLE
-	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING]
+	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING MAINTAINING PAUSING]
 	ClusterStatus string `json:"cluster_status,omitempty"`
 
 	// connection strings
@@ -1887,7 +1949,7 @@ var getClusterOKBodyStatusTypeClusterStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1917,6 +1979,12 @@ const (
 
 	// GetClusterOKBodyStatusClusterStatusIMPORTING captures enum value "IMPORTING"
 	GetClusterOKBodyStatusClusterStatusIMPORTING string = "IMPORTING"
+
+	// GetClusterOKBodyStatusClusterStatusMAINTAINING captures enum value "MAINTAINING"
+	GetClusterOKBodyStatusClusterStatusMAINTAINING string = "MAINTAINING"
+
+	// GetClusterOKBodyStatusClusterStatusPAUSING captures enum value "PAUSING"
+	GetClusterOKBodyStatusClusterStatusPAUSING string = "PAUSING"
 )
 
 // prop value enum
@@ -1999,6 +2067,11 @@ func (o *GetClusterOKBodyStatus) ContextValidate(ctx context.Context, formats st
 func (o *GetClusterOKBodyStatus) contextValidateConnectionStrings(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ConnectionStrings != nil {
+
+		if swag.IsZero(o.ConnectionStrings) { // not required
+			return nil
+		}
+
 		if err := o.ConnectionStrings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "status" + "." + "connection_strings")
@@ -2015,6 +2088,11 @@ func (o *GetClusterOKBodyStatus) contextValidateConnectionStrings(ctx context.Co
 func (o *GetClusterOKBodyStatus) contextValidateNodeMap(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NodeMap != nil {
+
+		if swag.IsZero(o.NodeMap) { // not required
+			return nil
+		}
+
 		if err := o.NodeMap.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "status" + "." + "node_map")
@@ -2140,6 +2218,11 @@ func (o *GetClusterOKBodyStatusConnectionStrings) ContextValidate(ctx context.Co
 func (o *GetClusterOKBodyStatusConnectionStrings) contextValidateStandard(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Standard != nil {
+
+		if swag.IsZero(o.Standard) { // not required
+			return nil
+		}
+
 		if err := o.Standard.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "status" + "." + "connection_strings" + "." + "standard")
@@ -2156,6 +2239,11 @@ func (o *GetClusterOKBodyStatusConnectionStrings) contextValidateStandard(ctx co
 func (o *GetClusterOKBodyStatusConnectionStrings) contextValidateVpcPeering(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.VpcPeering != nil {
+
+		if swag.IsZero(o.VpcPeering) { // not required
+			return nil
+		}
+
 		if err := o.VpcPeering.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("getClusterOK" + "." + "status" + "." + "connection_strings" + "." + "vpc_peering")
@@ -2202,7 +2290,7 @@ type GetClusterOKBodyStatusConnectionStringsStandard struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2277,7 +2365,7 @@ type GetClusterOKBodyStatusConnectionStringsVpcPeering struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2487,6 +2575,11 @@ func (o *GetClusterOKBodyStatusNodeMap) contextValidateTidb(ctx context.Context,
 	for i := 0; i < len(o.Tidb); i++ {
 
 		if o.Tidb[i] != nil {
+
+			if swag.IsZero(o.Tidb[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tidb[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("getClusterOK" + "." + "status" + "." + "node_map" + "." + "tidb" + "." + strconv.Itoa(i))
@@ -2507,6 +2600,11 @@ func (o *GetClusterOKBodyStatusNodeMap) contextValidateTiflash(ctx context.Conte
 	for i := 0; i < len(o.Tiflash); i++ {
 
 		if o.Tiflash[i] != nil {
+
+			if swag.IsZero(o.Tiflash[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tiflash[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("getClusterOK" + "." + "status" + "." + "node_map" + "." + "tiflash" + "." + strconv.Itoa(i))
@@ -2527,6 +2625,11 @@ func (o *GetClusterOKBodyStatusNodeMap) contextValidateTikv(ctx context.Context,
 	for i := 0; i < len(o.Tikv); i++ {
 
 		if o.Tikv[i] != nil {
+
+			if swag.IsZero(o.Tikv[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tikv[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("getClusterOK" + "." + "status" + "." + "node_map" + "." + "tikv" + "." + strconv.Itoa(i))

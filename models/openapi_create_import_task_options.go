@@ -87,6 +87,11 @@ func (m *OpenapiCreateImportTaskOptions) contextValidatePreCreateTables(ctx cont
 	for i := 0; i < len(m.PreCreateTables); i++ {
 
 		if m.PreCreateTables[i] != nil {
+
+			if swag.IsZero(m.PreCreateTables[i]) { // not required
+				return nil
+			}
+
 			if err := m.PreCreateTables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pre_create_tables" + "." + strconv.Itoa(i))
@@ -219,6 +224,7 @@ func (m *OpenapiCreateImportTaskOptionsPreCreateTablesItems0) ContextValidate(ct
 func (m *OpenapiCreateImportTaskOptionsPreCreateTablesItems0) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Schema != nil {
+
 		if err := m.Schema.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
@@ -327,6 +333,11 @@ func (m *OpenapiCreateImportTaskOptionsPreCreateTablesItems0Schema) contextValid
 	for i := 0; i < len(m.ColumnDefinitions); i++ {
 
 		if m.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(m.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := m.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema" + "." + "column_definitions" + "." + strconv.Itoa(i))

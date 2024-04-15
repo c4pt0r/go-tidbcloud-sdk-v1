@@ -106,6 +106,11 @@ func (m *OpenapiTiKVProfile) ContextValidate(ctx context.Context, formats strfmt
 func (m *OpenapiTiKVProfile) contextValidateNodeQuantityRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NodeQuantityRange != nil {
+
+		if swag.IsZero(m.NodeQuantityRange) { // not required
+			return nil
+		}
+
 		if err := m.NodeQuantityRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_quantity_range")
@@ -122,6 +127,11 @@ func (m *OpenapiTiKVProfile) contextValidateNodeQuantityRange(ctx context.Contex
 func (m *OpenapiTiKVProfile) contextValidateStorageSizeGibRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.StorageSizeGibRange != nil {
+
+		if swag.IsZero(m.StorageSizeGibRange) { // not required
+			return nil
+		}
+
 		if err := m.StorageSizeGibRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("storage_size_gib_range")

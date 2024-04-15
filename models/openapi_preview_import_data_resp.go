@@ -85,6 +85,11 @@ func (m *OpenapiPreviewImportDataResp) contextValidateTablePreviews(ctx context.
 	for i := 0; i < len(m.TablePreviews); i++ {
 
 		if m.TablePreviews[i] != nil {
+
+			if swag.IsZero(m.TablePreviews[i]) { // not required
+				return nil
+			}
+
 			if err := m.TablePreviews[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("table_previews" + "." + strconv.Itoa(i))
@@ -247,6 +252,7 @@ func (m *OpenapiPreviewImportDataRespTablePreviewsItems0) ContextValidate(ctx co
 func (m *OpenapiPreviewImportDataRespTablePreviewsItems0) contextValidateDataPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DataPreview != nil {
+
 		if err := m.DataPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("data_preview")
@@ -263,6 +269,11 @@ func (m *OpenapiPreviewImportDataRespTablePreviewsItems0) contextValidateDataPre
 func (m *OpenapiPreviewImportDataRespTablePreviewsItems0) contextValidateSchemaPreview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SchemaPreview != nil {
+
+		if swag.IsZero(m.SchemaPreview) { // not required
+			return nil
+		}
+
 		if err := m.SchemaPreview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema_preview")
@@ -370,6 +381,11 @@ func (m *OpenapiPreviewImportDataRespTablePreviewsItems0DataPreview) contextVali
 	for i := 0; i < len(m.Rows); i++ {
 
 		if m.Rows[i] != nil {
+
+			if swag.IsZero(m.Rows[i]) { // not required
+				return nil
+			}
+
 			if err := m.Rows[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("data_preview" + "." + "rows" + "." + strconv.Itoa(i))
@@ -539,6 +555,11 @@ func (m *OpenapiPreviewImportDataRespTablePreviewsItems0SchemaPreview) contextVa
 	for i := 0; i < len(m.ColumnDefinitions); i++ {
 
 		if m.ColumnDefinitions[i] != nil {
+
+			if swag.IsZero(m.ColumnDefinitions[i]) { // not required
+				return nil
+			}
+
 			if err := m.ColumnDefinitions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("schema_preview" + "." + "column_definitions" + "." + strconv.Itoa(i))

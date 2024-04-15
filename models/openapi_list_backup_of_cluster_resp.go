@@ -90,6 +90,11 @@ func (m *OpenapiListBackupOfClusterResp) contextValidateItems(ctx context.Contex
 	for i := 0; i < len(m.Items); i++ {
 
 		if m.Items[i] != nil {
+
+			if swag.IsZero(m.Items[i]) { // not required
+				return nil
+			}
+
 			if err := m.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("items" + "." + strconv.Itoa(i))

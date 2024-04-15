@@ -120,6 +120,11 @@ func (o *CreateClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create cluster o k response
+func (o *CreateClusterOK) Code() int {
+	return 200
+}
+
 func (o *CreateClusterOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterOK  %+v", 200, o.Payload)
 }
@@ -181,6 +186,11 @@ func (o *CreateClusterBadRequest) IsServerError() bool {
 // IsCode returns true when this create cluster bad request response a status code equal to that given
 func (o *CreateClusterBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create cluster bad request response
+func (o *CreateClusterBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateClusterBadRequest) Error() string {
@@ -246,6 +256,11 @@ func (o *CreateClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create cluster unauthorized response
+func (o *CreateClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateClusterUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterUnauthorized  %+v", 401, o.Payload)
 }
@@ -305,6 +320,11 @@ func (o *CreateClusterForbidden) IsServerError() bool {
 // IsCode returns true when this create cluster forbidden response a status code equal to that given
 func (o *CreateClusterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create cluster forbidden response
+func (o *CreateClusterForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateClusterForbidden) Error() string {
@@ -370,6 +390,11 @@ func (o *CreateClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create cluster not found response
+func (o *CreateClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateClusterNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterNotFound  %+v", 404, o.Payload)
 }
@@ -431,6 +456,11 @@ func (o *CreateClusterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create cluster too many requests response a status code equal to that given
 func (o *CreateClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create cluster too many requests response
+func (o *CreateClusterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateClusterTooManyRequests) Error() string {
@@ -496,6 +526,11 @@ func (o *CreateClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create cluster internal server error response
+func (o *CreateClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateClusterInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterInternalServerError  %+v", 500, o.Payload)
 }
@@ -538,11 +573,6 @@ type CreateClusterDefault struct {
 	Payload *CreateClusterDefaultBody
 }
 
-// Code gets the status code for the create cluster default response
-func (o *CreateClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create cluster default response has a 2xx status code
 func (o *CreateClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -566,6 +596,11 @@ func (o *CreateClusterDefault) IsServerError() bool {
 // IsCode returns true when this create cluster default response a status code equal to that given
 func (o *CreateClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create cluster default response
+func (o *CreateClusterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateClusterDefault) Error() string {
@@ -652,15 +687,15 @@ type CreateClusterBody struct {
 
 	// The cloud provider on which your TiDB cluster is hosted.
 	// - `"AWS"`: the Amazon Web Services cloud provider
-	// - `"GCP"`: the Google Cloud Platform cloud provider
+	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
 	// Required: true
 	// Enum: [AWS GCP]
 	CloudProvider *string `json:"cloud_provider"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: create a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
-	// - `"DEDICATED"`: create a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster. Before creating a Dedicated Tier cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
+	// - `"DEVELOPER"`: create a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
+	// - `"DEDICATED"`: create a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster. Before creating a TiDB Dedicated cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
 	// Example: DEDICATED
 	// Required: true
 	// Enum: [DEDICATED DEVELOPER]
@@ -862,6 +897,7 @@ func (o *CreateClusterBody) ContextValidate(ctx context.Context, formats strfmt.
 func (o *CreateClusterBody) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Config != nil {
+
 		if err := o.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config")
@@ -968,6 +1004,11 @@ func (o *CreateClusterDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateCluster default" + "." + "details" + "." + strconv.Itoa(i))
@@ -1264,7 +1305,7 @@ type CreateClusterParamsBodyConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -1403,6 +1444,11 @@ func (o *CreateClusterParamsBodyConfig) ContextValidate(ctx context.Context, for
 func (o *CreateClusterParamsBodyConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Components != nil {
+
+		if swag.IsZero(o.Components) { // not required
+			return nil
+		}
+
 		if err := o.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components")
@@ -1421,6 +1467,11 @@ func (o *CreateClusterParamsBodyConfig) contextValidateIPAccessList(ctx context.
 	for i := 0; i < len(o.IPAccessList); i++ {
 
 		if o.IPAccessList[i] != nil {
+
+			if swag.IsZero(o.IPAccessList[i]) { // not required
+				return nil
+			}
+
 			if err := o.IPAccessList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "config" + "." + "ip_access_list" + "." + strconv.Itoa(i))
@@ -1458,8 +1509,8 @@ func (o *CreateClusterParamsBodyConfig) UnmarshalBinary(b []byte) error {
 CreateClusterParamsBodyConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a Dedicated Tier cluster, the `components` parameter is **required**.
-// - For a Serverless Tier cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model CreateClusterParamsBodyConfigComponents
 */
@@ -1583,6 +1634,7 @@ func (o *CreateClusterParamsBodyConfigComponents) ContextValidate(ctx context.Co
 func (o *CreateClusterParamsBodyConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tidb != nil {
+
 		if err := o.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tidb")
@@ -1599,6 +1651,11 @@ func (o *CreateClusterParamsBodyConfigComponents) contextValidateTidb(ctx contex
 func (o *CreateClusterParamsBodyConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tiflash != nil {
+
+		if swag.IsZero(o.Tiflash) { // not required
+			return nil
+		}
+
 		if err := o.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tiflash")
@@ -1615,6 +1672,7 @@ func (o *CreateClusterParamsBodyConfigComponents) contextValidateTiflash(ctx con
 func (o *CreateClusterParamsBodyConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tikv != nil {
+
 		if err := o.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "config" + "." + "components" + "." + "tikv")
@@ -1661,8 +1719,8 @@ type CreateClusterParamsBodyConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1741,8 +1799,8 @@ type CreateClusterParamsBodyConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1843,8 +1901,8 @@ type CreateClusterParamsBodyConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

@@ -25,7 +25,7 @@ type OpenapiClusterItemStatus struct {
 
 	// Status of the cluster.
 	// Example: AVAILABLE
-	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING]
+	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING MAINTAINING PAUSING]
 	ClusterStatus string `json:"cluster_status,omitempty"`
 
 	// connection strings
@@ -65,7 +65,7 @@ var openapiClusterItemStatusTypeClusterStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -95,6 +95,12 @@ const (
 
 	// OpenapiClusterItemStatusClusterStatusIMPORTING captures enum value "IMPORTING"
 	OpenapiClusterItemStatusClusterStatusIMPORTING string = "IMPORTING"
+
+	// OpenapiClusterItemStatusClusterStatusMAINTAINING captures enum value "MAINTAINING"
+	OpenapiClusterItemStatusClusterStatusMAINTAINING string = "MAINTAINING"
+
+	// OpenapiClusterItemStatusClusterStatusPAUSING captures enum value "PAUSING"
+	OpenapiClusterItemStatusClusterStatusPAUSING string = "PAUSING"
 )
 
 // prop value enum
@@ -177,6 +183,11 @@ func (m *OpenapiClusterItemStatus) ContextValidate(ctx context.Context, formats 
 func (m *OpenapiClusterItemStatus) contextValidateConnectionStrings(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ConnectionStrings != nil {
+
+		if swag.IsZero(m.ConnectionStrings) { // not required
+			return nil
+		}
+
 		if err := m.ConnectionStrings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection_strings")
@@ -193,6 +204,11 @@ func (m *OpenapiClusterItemStatus) contextValidateConnectionStrings(ctx context.
 func (m *OpenapiClusterItemStatus) contextValidateNodeMap(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NodeMap != nil {
+
+		if swag.IsZero(m.NodeMap) { // not required
+			return nil
+		}
+
 		if err := m.NodeMap.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_map")
@@ -317,6 +333,11 @@ func (m *OpenapiClusterItemStatusConnectionStrings) ContextValidate(ctx context.
 func (m *OpenapiClusterItemStatusConnectionStrings) contextValidateStandard(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Standard != nil {
+
+		if swag.IsZero(m.Standard) { // not required
+			return nil
+		}
+
 		if err := m.Standard.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection_strings" + "." + "standard")
@@ -333,6 +354,11 @@ func (m *OpenapiClusterItemStatusConnectionStrings) contextValidateStandard(ctx 
 func (m *OpenapiClusterItemStatusConnectionStrings) contextValidateVpcPeering(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.VpcPeering != nil {
+
+		if swag.IsZero(m.VpcPeering) { // not required
+			return nil
+		}
+
 		if err := m.VpcPeering.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection_strings" + "." + "vpc_peering")
@@ -378,7 +404,7 @@ type OpenapiClusterItemStatusConnectionStringsStandard struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -452,7 +478,7 @@ type OpenapiClusterItemStatusConnectionStringsVpcPeering struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -661,6 +687,11 @@ func (m *OpenapiClusterItemStatusNodeMap) contextValidateTidb(ctx context.Contex
 	for i := 0; i < len(m.Tidb); i++ {
 
 		if m.Tidb[i] != nil {
+
+			if swag.IsZero(m.Tidb[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tidb[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("node_map" + "." + "tidb" + "." + strconv.Itoa(i))
@@ -681,6 +712,11 @@ func (m *OpenapiClusterItemStatusNodeMap) contextValidateTiflash(ctx context.Con
 	for i := 0; i < len(m.Tiflash); i++ {
 
 		if m.Tiflash[i] != nil {
+
+			if swag.IsZero(m.Tiflash[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tiflash[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("node_map" + "." + "tiflash" + "." + strconv.Itoa(i))
@@ -701,6 +737,11 @@ func (m *OpenapiClusterItemStatusNodeMap) contextValidateTikv(ctx context.Contex
 	for i := 0; i < len(m.Tikv); i++ {
 
 		if m.Tikv[i] != nil {
+
+			if swag.IsZero(m.Tikv[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tikv[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("node_map" + "." + "tikv" + "." + strconv.Itoa(i))
