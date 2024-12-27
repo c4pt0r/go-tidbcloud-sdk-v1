@@ -120,12 +120,19 @@ func (o *ListClustersOfProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list clusters of project o k response
+func (o *ListClustersOfProjectOK) Code() int {
+	return 200
+}
+
 func (o *ListClustersOfProjectOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK %s", 200, payload)
 }
 
 func (o *ListClustersOfProjectOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK %s", 200, payload)
 }
 
 func (o *ListClustersOfProjectOK) GetPayload() *ListClustersOfProjectOKBody {
@@ -183,12 +190,19 @@ func (o *ListClustersOfProjectBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the list clusters of project bad request response
+func (o *ListClustersOfProjectBadRequest) Code() int {
+	return 400
+}
+
 func (o *ListClustersOfProjectBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest %s", 400, payload)
 }
 
 func (o *ListClustersOfProjectBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest %s", 400, payload)
 }
 
 func (o *ListClustersOfProjectBadRequest) GetPayload() *ListClustersOfProjectBadRequestBody {
@@ -246,12 +260,19 @@ func (o *ListClustersOfProjectUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list clusters of project unauthorized response
+func (o *ListClustersOfProjectUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListClustersOfProjectUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized %s", 401, payload)
 }
 
 func (o *ListClustersOfProjectUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized %s", 401, payload)
 }
 
 func (o *ListClustersOfProjectUnauthorized) GetPayload() interface{} {
@@ -307,12 +328,19 @@ func (o *ListClustersOfProjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the list clusters of project forbidden response
+func (o *ListClustersOfProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *ListClustersOfProjectForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden %s", 403, payload)
 }
 
 func (o *ListClustersOfProjectForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden %s", 403, payload)
 }
 
 func (o *ListClustersOfProjectForbidden) GetPayload() *ListClustersOfProjectForbiddenBody {
@@ -370,12 +398,19 @@ func (o *ListClustersOfProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list clusters of project not found response
+func (o *ListClustersOfProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *ListClustersOfProjectNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound %s", 404, payload)
 }
 
 func (o *ListClustersOfProjectNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound %s", 404, payload)
 }
 
 func (o *ListClustersOfProjectNotFound) GetPayload() *ListClustersOfProjectNotFoundBody {
@@ -433,12 +468,19 @@ func (o *ListClustersOfProjectTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the list clusters of project too many requests response
+func (o *ListClustersOfProjectTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ListClustersOfProjectTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *ListClustersOfProjectTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *ListClustersOfProjectTooManyRequests) GetPayload() *ListClustersOfProjectTooManyRequestsBody {
@@ -496,12 +538,19 @@ func (o *ListClustersOfProjectInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list clusters of project internal server error response
+func (o *ListClustersOfProjectInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListClustersOfProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError %s", 500, payload)
 }
 
 func (o *ListClustersOfProjectInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError %s", 500, payload)
 }
 
 func (o *ListClustersOfProjectInternalServerError) GetPayload() *ListClustersOfProjectInternalServerErrorBody {
@@ -538,11 +587,6 @@ type ListClustersOfProjectDefault struct {
 	Payload *ListClustersOfProjectDefaultBody
 }
 
-// Code gets the status code for the list clusters of project default response
-func (o *ListClustersOfProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list clusters of project default response has a 2xx status code
 func (o *ListClustersOfProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -568,12 +612,19 @@ func (o *ListClustersOfProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the list clusters of project default response
+func (o *ListClustersOfProjectDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *ListClustersOfProjectDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default %s", o._statusCode, payload)
 }
 
 func (o *ListClustersOfProjectDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default %s", o._statusCode, payload)
 }
 
 func (o *ListClustersOfProjectDefault) GetPayload() *ListClustersOfProjectDefaultBody {
@@ -717,6 +768,11 @@ func (o *ListClustersOfProjectDefaultBody) contextValidateDetails(ctx context.Co
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListClustersOfProject default" + "." + "details" + "." + strconv.Itoa(i))
@@ -758,6 +814,82 @@ type ListClustersOfProjectDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list clusters of project default body details items0
+	ListClustersOfProjectDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListClustersOfProjectDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListClustersOfProjectDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListClustersOfProjectDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListClustersOfProjectDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListClustersOfProjectDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListClustersOfProjectDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list clusters of project default body details items0
@@ -1029,6 +1161,11 @@ func (o *ListClustersOfProjectOKBody) contextValidateItems(ctx context.Context, 
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listClustersOfProjectOK" + "." + "items" + "." + strconv.Itoa(i))
@@ -1072,18 +1209,18 @@ type ListClustersOfProjectOKBodyItemsItems0 struct {
 
 	// The cloud provider on which your TiDB cluster is hosted.
 	// - `"AWS"`: the Amazon Web Services cloud provider
-	// - `"GCP"`: the Google Cloud Platform cloud provider
+	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type:
-	// - `"DEVELOPER"`: a [Serverless Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#serverless-tier) cluster
-	// - `"DEDICATED"`: a [Dedicated Tier](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Cloud Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-dedicated) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent Serverless Tier clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Cloud Serverless clusters.
 	// Example: DEDICATED
-	// Enum: [DEDICATED DEVELOPER]
+	// Enum: ["DEDICATED","DEVELOPER"]
 	ClusterType string `json:"cluster_type,omitempty"`
 
 	// config
@@ -1327,6 +1464,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0) ContextValidate(ctx context.Con
 func (o *ListClustersOfProjectOKBodyItemsItems0) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Config != nil {
+
+		if swag.IsZero(o.Config) { // not required
+			return nil
+		}
+
 		if err := o.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config")
@@ -1343,6 +1485,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0) contextValidateConfig(ctx conte
 func (o *ListClustersOfProjectOKBodyItemsItems0) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Status != nil {
+
+		if swag.IsZero(o.Status) { // not required
+			return nil
+		}
+
 		if err := o.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
@@ -1461,6 +1608,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0Config) ContextValidate(ctx conte
 func (o *ListClustersOfProjectOKBodyItemsItems0Config) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Components != nil {
+
+		if swag.IsZero(o.Components) { // not required
+			return nil
+		}
+
 		if err := o.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config" + "." + "components")
@@ -1617,6 +1769,7 @@ func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) ContextValidate
 func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tidb != nil {
+
 		if err := o.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config" + "." + "components" + "." + "tidb")
@@ -1633,6 +1786,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) contextValidate
 func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tiflash != nil {
+
+		if swag.IsZero(o.Tiflash) { // not required
+			return nil
+		}
+
 		if err := o.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config" + "." + "components" + "." + "tiflash")
@@ -1649,6 +1807,7 @@ func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) contextValidate
 func (o *ListClustersOfProjectOKBodyItemsItems0ConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Tikv != nil {
+
 		if err := o.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config" + "." + "components" + "." + "tikv")
@@ -1695,11 +1854,8 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiDB.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1771,10 +1927,6 @@ swagger:model ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash
 type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
-	//
-	// **Limitations**:
-	// - You cannot decrease node quantity for TiFlash.
-	//
 	// Example: 1
 	// Required: true
 	NodeQuantity *int32 `json:"node_quantity"`
@@ -1782,11 +1934,8 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1879,7 +2028,6 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTikv struct {
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Limitations**:
-	// - You cannot decrease node quantity for TiKV.
 	// - The `node_quantity` of TiKV must be a multiple of 3.
 	// Example: 3
 	// Required: true
@@ -1888,11 +2036,8 @@ type ListClustersOfProjectOKBodyItemsItems0ConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiKV
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -1985,7 +2130,7 @@ type ListClustersOfProjectOKBodyItemsItems0Status struct {
 
 	// Status of the cluster.
 	// Example: AVAILABLE
-	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING]
+	// Enum: ["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]
 	ClusterStatus string `json:"cluster_status,omitempty"`
 
 	// connection strings
@@ -2025,7 +2170,7 @@ var listClustersOfProjectOKBodyItemsItems0StatusTypeClusterStatusPropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -2055,6 +2200,12 @@ const (
 
 	// ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusIMPORTING captures enum value "IMPORTING"
 	ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusIMPORTING string = "IMPORTING"
+
+	// ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusMAINTAINING captures enum value "MAINTAINING"
+	ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusMAINTAINING string = "MAINTAINING"
+
+	// ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusPAUSING captures enum value "PAUSING"
+	ListClustersOfProjectOKBodyItemsItems0StatusClusterStatusPAUSING string = "PAUSING"
 )
 
 // prop value enum
@@ -2137,6 +2288,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0Status) ContextValidate(ctx conte
 func (o *ListClustersOfProjectOKBodyItemsItems0Status) contextValidateConnectionStrings(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ConnectionStrings != nil {
+
+		if swag.IsZero(o.ConnectionStrings) { // not required
+			return nil
+		}
+
 		if err := o.ConnectionStrings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status" + "." + "connection_strings")
@@ -2153,6 +2309,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0Status) contextValidateConnection
 func (o *ListClustersOfProjectOKBodyItemsItems0Status) contextValidateNodeMap(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NodeMap != nil {
+
+		if swag.IsZero(o.NodeMap) { // not required
+			return nil
+		}
+
 		if err := o.NodeMap.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status" + "." + "node_map")
@@ -2278,6 +2439,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0StatusConnectionStrings) ContextV
 func (o *ListClustersOfProjectOKBodyItemsItems0StatusConnectionStrings) contextValidateStandard(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Standard != nil {
+
+		if swag.IsZero(o.Standard) { // not required
+			return nil
+		}
+
 		if err := o.Standard.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status" + "." + "connection_strings" + "." + "standard")
@@ -2294,6 +2460,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0StatusConnectionStrings) contextV
 func (o *ListClustersOfProjectOKBodyItemsItems0StatusConnectionStrings) contextValidateVpcPeering(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.VpcPeering != nil {
+
+		if swag.IsZero(o.VpcPeering) { // not required
+			return nil
+		}
+
 		if err := o.VpcPeering.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status" + "." + "connection_strings" + "." + "vpc_peering")
@@ -2340,7 +2511,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsStandard struc
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2415,7 +2586,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsVpcPeering str
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2625,6 +2796,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0StatusNodeMap) contextValidateTid
 	for i := 0; i < len(o.Tidb); i++ {
 
 		if o.Tidb[i] != nil {
+
+			if swag.IsZero(o.Tidb[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tidb[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("status" + "." + "node_map" + "." + "tidb" + "." + strconv.Itoa(i))
@@ -2645,6 +2821,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0StatusNodeMap) contextValidateTif
 	for i := 0; i < len(o.Tiflash); i++ {
 
 		if o.Tiflash[i] != nil {
+
+			if swag.IsZero(o.Tiflash[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tiflash[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("status" + "." + "node_map" + "." + "tiflash" + "." + strconv.Itoa(i))
@@ -2665,6 +2846,11 @@ func (o *ListClustersOfProjectOKBodyItemsItems0StatusNodeMap) contextValidateTik
 	for i := 0; i < len(o.Tikv); i++ {
 
 		if o.Tikv[i] != nil {
+
+			if swag.IsZero(o.Tikv[i]) { // not required
+				return nil
+			}
+
 			if err := o.Tikv[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("status" + "." + "node_map" + "." + "tikv" + "." + strconv.Itoa(i))
@@ -2722,7 +2908,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTidbItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The total vCPUs of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `vcpu_num` is always 0.
@@ -2839,7 +3025,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTiflashItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.
@@ -2960,7 +3146,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTikvItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.

@@ -7,6 +7,7 @@ package cluster
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -118,12 +119,19 @@ func (o *DeleteClusterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete cluster o k response
+func (o *DeleteClusterOK) Code() int {
+	return 200
+}
+
 func (o *DeleteClusterOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterOK %s", 200, payload)
 }
 
 func (o *DeleteClusterOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterOK %s", 200, payload)
 }
 
 func (o *DeleteClusterOK) GetPayload() interface{} {
@@ -179,12 +187,19 @@ func (o *DeleteClusterBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete cluster bad request response
+func (o *DeleteClusterBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteClusterBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterBadRequest %s", 400, payload)
 }
 
 func (o *DeleteClusterBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterBadRequest %s", 400, payload)
 }
 
 func (o *DeleteClusterBadRequest) GetPayload() *DeleteClusterBadRequestBody {
@@ -242,12 +257,19 @@ func (o *DeleteClusterUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the delete cluster unauthorized response
+func (o *DeleteClusterUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DeleteClusterUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteClusterUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteClusterUnauthorized) GetPayload() interface{} {
@@ -303,12 +325,19 @@ func (o *DeleteClusterForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete cluster forbidden response
+func (o *DeleteClusterForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteClusterForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterForbidden %s", 403, payload)
 }
 
 func (o *DeleteClusterForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterForbidden %s", 403, payload)
 }
 
 func (o *DeleteClusterForbidden) GetPayload() *DeleteClusterForbiddenBody {
@@ -366,12 +395,19 @@ func (o *DeleteClusterNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete cluster not found response
+func (o *DeleteClusterNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteClusterNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterNotFound %s", 404, payload)
 }
 
 func (o *DeleteClusterNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterNotFound %s", 404, payload)
 }
 
 func (o *DeleteClusterNotFound) GetPayload() *DeleteClusterNotFoundBody {
@@ -429,12 +465,19 @@ func (o *DeleteClusterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the delete cluster too many requests response
+func (o *DeleteClusterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeleteClusterTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteClusterTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteClusterTooManyRequests) GetPayload() *DeleteClusterTooManyRequestsBody {
@@ -492,12 +535,19 @@ func (o *DeleteClusterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete cluster internal server error response
+func (o *DeleteClusterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteClusterInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteClusterInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] deleteClusterInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteClusterInternalServerError) GetPayload() *DeleteClusterInternalServerErrorBody {
@@ -534,11 +584,6 @@ type DeleteClusterDefault struct {
 	Payload *DeleteClusterDefaultBody
 }
 
-// Code gets the status code for the delete cluster default response
-func (o *DeleteClusterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete cluster default response has a 2xx status code
 func (o *DeleteClusterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -564,12 +609,19 @@ func (o *DeleteClusterDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the delete cluster default response
+func (o *DeleteClusterDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *DeleteClusterDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] DeleteCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] DeleteCluster default %s", o._statusCode, payload)
 }
 
 func (o *DeleteClusterDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] DeleteCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] DeleteCluster default %s", o._statusCode, payload)
 }
 
 func (o *DeleteClusterDefault) GetPayload() *DeleteClusterDefaultBody {
@@ -713,6 +765,11 @@ func (o *DeleteClusterDefaultBody) contextValidateDetails(ctx context.Context, f
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("DeleteCluster default" + "." + "details" + "." + strconv.Itoa(i))
@@ -754,6 +811,82 @@ type DeleteClusterDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// delete cluster default body details items0
+	DeleteClusterDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *DeleteClusterDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv DeleteClusterDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.DeleteClusterDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o DeleteClusterDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.DeleteClusterDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.DeleteClusterDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this delete cluster default body details items0

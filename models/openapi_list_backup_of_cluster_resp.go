@@ -90,6 +90,11 @@ func (m *OpenapiListBackupOfClusterResp) contextValidateItems(ctx context.Contex
 	for i := 0; i < len(m.Items); i++ {
 
 		if m.Items[i] != nil {
+
+			if swag.IsZero(m.Items[i]) { // not required
+				return nil
+			}
+
 			if err := m.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("items" + "." + strconv.Itoa(i))
@@ -153,12 +158,12 @@ type OpenapiListBackupOfClusterRespItemsItems0 struct {
 
 	// The status of backup.
 	// Example: SUCCESS
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 
 	// The type of backup. TiDB Cloud only supports manual and auto backup. For more information, see [TiDB Cloud Documentation](https://docs.pingcap.com/tidbcloud/backup-and-restore#backup).
 	// Example: MANUAL
-	// Enum: [MANUAL AUTO]
+	// Enum: ["MANUAL","AUTO"]
 	Type string `json:"type,omitempty"`
 }
 

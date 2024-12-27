@@ -29,7 +29,7 @@ type OpenapiClusterConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a Serverless Tier cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -168,6 +168,11 @@ func (m *OpenapiClusterConfig) ContextValidate(ctx context.Context, formats strf
 func (m *OpenapiClusterConfig) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Components != nil {
+
+		if swag.IsZero(m.Components) { // not required
+			return nil
+		}
+
 		if err := m.Components.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components")
@@ -186,6 +191,11 @@ func (m *OpenapiClusterConfig) contextValidateIPAccessList(ctx context.Context, 
 	for i := 0; i < len(m.IPAccessList); i++ {
 
 		if m.IPAccessList[i] != nil {
+
+			if swag.IsZero(m.IPAccessList[i]) { // not required
+				return nil
+			}
+
 			if err := m.IPAccessList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ip_access_list" + "." + strconv.Itoa(i))
@@ -222,8 +232,8 @@ func (m *OpenapiClusterConfig) UnmarshalBinary(b []byte) error {
 // OpenapiClusterConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a Dedicated Tier cluster, the `components` parameter is **required**.
-// - For a Serverless Tier cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Cloud Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Cloud Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 //
 // swagger:model OpenapiClusterConfigComponents
@@ -347,6 +357,7 @@ func (m *OpenapiClusterConfigComponents) ContextValidate(ctx context.Context, fo
 func (m *OpenapiClusterConfigComponents) contextValidateTidb(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tidb != nil {
+
 		if err := m.Tidb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tidb")
@@ -363,6 +374,11 @@ func (m *OpenapiClusterConfigComponents) contextValidateTidb(ctx context.Context
 func (m *OpenapiClusterConfigComponents) contextValidateTiflash(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tiflash != nil {
+
+		if swag.IsZero(m.Tiflash) { // not required
+			return nil
+		}
+
 		if err := m.Tiflash.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tiflash")
@@ -379,6 +395,7 @@ func (m *OpenapiClusterConfigComponents) contextValidateTiflash(ctx context.Cont
 func (m *OpenapiClusterConfigComponents) contextValidateTikv(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tikv != nil {
+
 		if err := m.Tikv.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("components" + "." + "tikv")
@@ -424,11 +441,8 @@ type OpenapiClusterConfigComponentsTidb struct {
 	// The size of the TiDB component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiDB.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C16G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -499,10 +513,6 @@ func (m *OpenapiClusterConfigComponentsTidb) UnmarshalBinary(b []byte) error {
 type OpenapiClusterConfigComponentsTiflash struct {
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
-	//
-	// **Limitations**:
-	// - You cannot decrease node quantity for TiFlash.
-	//
 	// Example: 1
 	// Required: true
 	NodeQuantity *int32 `json:"node_quantity"`
@@ -510,11 +520,8 @@ type OpenapiClusterConfigComponentsTiflash struct {
 	// The size of the TiFlash component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiFlash.
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`
@@ -606,7 +613,6 @@ type OpenapiClusterConfigComponentsTikv struct {
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Limitations**:
-	// - You cannot decrease node quantity for TiKV.
 	// - The `node_quantity` of TiKV must be a multiple of 3.
 	// Example: 3
 	// Required: true
@@ -615,11 +621,8 @@ type OpenapiClusterConfigComponentsTikv struct {
 	// The size of the TiKV component in the cluster. You can get the available node size of each region from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	//
 	// **Additional combination rules**:
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then their vCPUs need to be the same.
-	// - If the vCPUs of TiDB or TiKV component is 2 or 4, then the cluster does not support TiFlash.
-	//
-	// **Limitations**:
-	// - You cannot decrease `node_size` for TiKV
+	// - If the vCPUs of TiDB or TiKV component is 4, then their vCPUs need to be the same.
+	// - If the vCPUs of TiDB or TiKV component is 4, then the cluster does not support TiFlash.
 	// Example: 8C64G
 	// Required: true
 	NodeSize *string `json:"node_size"`

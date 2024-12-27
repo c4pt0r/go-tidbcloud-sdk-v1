@@ -120,12 +120,19 @@ func (o *ListRestoreTasksOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list restore tasks o k response
+func (o *ListRestoreTasksOK) Code() int {
+	return 200
+}
+
 func (o *ListRestoreTasksOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksOK %s", 200, payload)
 }
 
 func (o *ListRestoreTasksOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksOK %s", 200, payload)
 }
 
 func (o *ListRestoreTasksOK) GetPayload() *ListRestoreTasksOKBody {
@@ -183,12 +190,19 @@ func (o *ListRestoreTasksBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the list restore tasks bad request response
+func (o *ListRestoreTasksBadRequest) Code() int {
+	return 400
+}
+
 func (o *ListRestoreTasksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksBadRequest %s", 400, payload)
 }
 
 func (o *ListRestoreTasksBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksBadRequest %s", 400, payload)
 }
 
 func (o *ListRestoreTasksBadRequest) GetPayload() *ListRestoreTasksBadRequestBody {
@@ -246,12 +260,19 @@ func (o *ListRestoreTasksUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list restore tasks unauthorized response
+func (o *ListRestoreTasksUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListRestoreTasksUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksUnauthorized %s", 401, payload)
 }
 
 func (o *ListRestoreTasksUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksUnauthorized %s", 401, payload)
 }
 
 func (o *ListRestoreTasksUnauthorized) GetPayload() interface{} {
@@ -307,12 +328,19 @@ func (o *ListRestoreTasksForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the list restore tasks forbidden response
+func (o *ListRestoreTasksForbidden) Code() int {
+	return 403
+}
+
 func (o *ListRestoreTasksForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksForbidden %s", 403, payload)
 }
 
 func (o *ListRestoreTasksForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksForbidden %s", 403, payload)
 }
 
 func (o *ListRestoreTasksForbidden) GetPayload() *ListRestoreTasksForbiddenBody {
@@ -370,12 +398,19 @@ func (o *ListRestoreTasksNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list restore tasks not found response
+func (o *ListRestoreTasksNotFound) Code() int {
+	return 404
+}
+
 func (o *ListRestoreTasksNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksNotFound %s", 404, payload)
 }
 
 func (o *ListRestoreTasksNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksNotFound %s", 404, payload)
 }
 
 func (o *ListRestoreTasksNotFound) GetPayload() *ListRestoreTasksNotFoundBody {
@@ -433,12 +468,19 @@ func (o *ListRestoreTasksTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the list restore tasks too many requests response
+func (o *ListRestoreTasksTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ListRestoreTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ListRestoreTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ListRestoreTasksTooManyRequests) GetPayload() *ListRestoreTasksTooManyRequestsBody {
@@ -496,12 +538,19 @@ func (o *ListRestoreTasksInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list restore tasks internal server error response
+func (o *ListRestoreTasksInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListRestoreTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ListRestoreTasksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] listRestoreTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ListRestoreTasksInternalServerError) GetPayload() *ListRestoreTasksInternalServerErrorBody {
@@ -538,11 +587,6 @@ type ListRestoreTasksDefault struct {
 	Payload *ListRestoreTasksDefaultBody
 }
 
-// Code gets the status code for the list restore tasks default response
-func (o *ListRestoreTasksDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list restore tasks default response has a 2xx status code
 func (o *ListRestoreTasksDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -568,12 +612,19 @@ func (o *ListRestoreTasksDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the list restore tasks default response
+func (o *ListRestoreTasksDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *ListRestoreTasksDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] ListRestoreTasks default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] ListRestoreTasks default %s", o._statusCode, payload)
 }
 
 func (o *ListRestoreTasksDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] ListRestoreTasks default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores][%d] ListRestoreTasks default %s", o._statusCode, payload)
 }
 
 func (o *ListRestoreTasksDefault) GetPayload() *ListRestoreTasksDefaultBody {
@@ -717,6 +768,11 @@ func (o *ListRestoreTasksDefaultBody) contextValidateDetails(ctx context.Context
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListRestoreTasks default" + "." + "details" + "." + strconv.Itoa(i))
@@ -758,6 +814,82 @@ type ListRestoreTasksDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list restore tasks default body details items0
+	ListRestoreTasksDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListRestoreTasksDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListRestoreTasksDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListRestoreTasksDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListRestoreTasksDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListRestoreTasksDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListRestoreTasksDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list restore tasks default body details items0
@@ -1013,6 +1145,11 @@ func (o *ListRestoreTasksOKBody) contextValidateItems(ctx context.Context, forma
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listRestoreTasksOK" + "." + "items" + "." + strconv.Itoa(i))
@@ -1082,7 +1219,7 @@ type ListRestoreTasksOKBodyItemsItems0 struct {
 
 	// The status of the restore task.
 	// Example: PENDING
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 }
 
@@ -1204,6 +1341,11 @@ func (o *ListRestoreTasksOKBodyItemsItems0) ContextValidate(ctx context.Context,
 func (o *ListRestoreTasksOKBodyItemsItems0) contextValidateCluster(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Cluster != nil {
+
+		if swag.IsZero(o.Cluster) { // not required
+			return nil
+		}
+
 		if err := o.Cluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cluster")

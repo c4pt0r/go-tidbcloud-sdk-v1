@@ -76,6 +76,11 @@ func (m *OpenapiTiDBProfile) ContextValidate(ctx context.Context, formats strfmt
 func (m *OpenapiTiDBProfile) contextValidateNodeQuantityRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NodeQuantityRange != nil {
+
+		if swag.IsZero(m.NodeQuantityRange) { // not required
+			return nil
+		}
+
 		if err := m.NodeQuantityRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("node_quantity_range")

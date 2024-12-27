@@ -105,6 +105,11 @@ func (m *OpenapiListProjectsResp) contextValidateItems(ctx context.Context, form
 	for i := 0; i < len(m.Items); i++ {
 
 		if m.Items[i] != nil {
+
+			if swag.IsZero(m.Items[i]) { // not required
+				return nil
+			}
+
 			if err := m.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("items" + "." + strconv.Itoa(i))
@@ -144,6 +149,12 @@ func (m *OpenapiListProjectsResp) UnmarshalBinary(b []byte) error {
 //
 // swagger:model OpenapiListProjectsRespItemsItems0
 type OpenapiListProjectsRespItemsItems0 struct {
+
+	// Flag that indicates whether to enable AWS Customer-Managed Encryption Keys (CMEK). For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
+	//
+	// **Note:** Currently, this feature is only available upon request. If you need to try out this feature, contact [support](https://docs.pingcap.com/tidbcloud/tidb-cloud-support).
+	// Example: false
+	AwsCmekEnabled *bool `json:"aws_cmek_enabled,omitempty"`
 
 	// The number of TiDB Cloud clusters deployed in the project.
 	// Example: 4

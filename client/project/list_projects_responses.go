@@ -7,6 +7,7 @@ package project
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -119,12 +120,19 @@ func (o *ListProjectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list projects o k response
+func (o *ListProjectsOK) Code() int {
+	return 200
+}
+
 func (o *ListProjectsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK %s", 200, payload)
 }
 
 func (o *ListProjectsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK %s", 200, payload)
 }
 
 func (o *ListProjectsOK) GetPayload() *ListProjectsOKBody {
@@ -182,12 +190,19 @@ func (o *ListProjectsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the list projects bad request response
+func (o *ListProjectsBadRequest) Code() int {
+	return 400
+}
+
 func (o *ListProjectsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest %s", 400, payload)
 }
 
 func (o *ListProjectsBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest %s", 400, payload)
 }
 
 func (o *ListProjectsBadRequest) GetPayload() *ListProjectsBadRequestBody {
@@ -245,12 +260,19 @@ func (o *ListProjectsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the list projects unauthorized response
+func (o *ListProjectsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ListProjectsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProjectsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProjectsUnauthorized) GetPayload() interface{} {
@@ -306,12 +328,19 @@ func (o *ListProjectsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the list projects forbidden response
+func (o *ListProjectsForbidden) Code() int {
+	return 403
+}
+
 func (o *ListProjectsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListProjectsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListProjectsForbidden) GetPayload() *ListProjectsForbiddenBody {
@@ -369,12 +398,19 @@ func (o *ListProjectsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list projects not found response
+func (o *ListProjectsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProjectsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListProjectsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListProjectsNotFound) GetPayload() *ListProjectsNotFoundBody {
@@ -432,12 +468,19 @@ func (o *ListProjectsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the list projects too many requests response
+func (o *ListProjectsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ListProjectsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProjectsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProjectsTooManyRequests) GetPayload() *ListProjectsTooManyRequestsBody {
@@ -495,12 +538,19 @@ func (o *ListProjectsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list projects internal server error response
+func (o *ListProjectsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListProjectsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProjectsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProjectsInternalServerError) GetPayload() *ListProjectsInternalServerErrorBody {
@@ -537,11 +587,6 @@ type ListProjectsDefault struct {
 	Payload *ListProjectsDefaultBody
 }
 
-// Code gets the status code for the list projects default response
-func (o *ListProjectsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list projects default response has a 2xx status code
 func (o *ListProjectsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -567,12 +612,19 @@ func (o *ListProjectsDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the list projects default response
+func (o *ListProjectsDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *ListProjectsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectsDefault) GetPayload() *ListProjectsDefaultBody {
@@ -716,6 +768,11 @@ func (o *ListProjectsDefaultBody) contextValidateDetails(ctx context.Context, fo
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ListProjects default" + "." + "details" + "." + strconv.Itoa(i))
@@ -757,6 +814,82 @@ type ListProjectsDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list projects default body details items0
+	ListProjectsDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListProjectsDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListProjectsDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListProjectsDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListProjectsDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListProjectsDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListProjectsDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list projects default body details items0
@@ -1028,6 +1161,11 @@ func (o *ListProjectsOKBody) contextValidateItems(ctx context.Context, formats s
 	for i := 0; i < len(o.Items); i++ {
 
 		if o.Items[i] != nil {
+
+			if swag.IsZero(o.Items[i]) { // not required
+				return nil
+			}
+
 			if err := o.Items[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("listProjectsOK" + "." + "items" + "." + strconv.Itoa(i))
@@ -1068,6 +1206,12 @@ ListProjectsOKBodyItemsItems0 ListProjectItem
 swagger:model ListProjectsOKBodyItemsItems0
 */
 type ListProjectsOKBodyItemsItems0 struct {
+
+	// Flag that indicates whether to enable AWS Customer-Managed Encryption Keys (CMEK). For more information, see [Encryption at Rest using CMEK](https://docs.pingcap.com/tidbcloud/tidb-cloud-encrypt-cmek).
+	//
+	// **Note:** Currently, this feature is only available upon request. If you need to try out this feature, contact [support](https://docs.pingcap.com/tidbcloud/tidb-cloud-support).
+	// Example: false
+	AwsCmekEnabled *bool `json:"aws_cmek_enabled,omitempty"`
 
 	// The number of TiDB Cloud clusters deployed in the project.
 	// Example: 4

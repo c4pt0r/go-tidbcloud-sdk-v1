@@ -7,6 +7,7 @@ package backup
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -119,12 +120,19 @@ func (o *CreateBackupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create backup o k response
+func (o *CreateBackupOK) Code() int {
+	return 200
+}
+
 func (o *CreateBackupOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK %s", 200, payload)
 }
 
 func (o *CreateBackupOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK %s", 200, payload)
 }
 
 func (o *CreateBackupOK) GetPayload() *CreateBackupOKBody {
@@ -182,12 +190,19 @@ func (o *CreateBackupBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create backup bad request response
+func (o *CreateBackupBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateBackupBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest %s", 400, payload)
 }
 
 func (o *CreateBackupBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest %s", 400, payload)
 }
 
 func (o *CreateBackupBadRequest) GetPayload() *CreateBackupBadRequestBody {
@@ -245,12 +260,19 @@ func (o *CreateBackupUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create backup unauthorized response
+func (o *CreateBackupUnauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateBackupUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized %s", 401, payload)
 }
 
 func (o *CreateBackupUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized %s", 401, payload)
 }
 
 func (o *CreateBackupUnauthorized) GetPayload() interface{} {
@@ -306,12 +328,19 @@ func (o *CreateBackupForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create backup forbidden response
+func (o *CreateBackupForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateBackupForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden %s", 403, payload)
 }
 
 func (o *CreateBackupForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden %s", 403, payload)
 }
 
 func (o *CreateBackupForbidden) GetPayload() *CreateBackupForbiddenBody {
@@ -369,12 +398,19 @@ func (o *CreateBackupNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create backup not found response
+func (o *CreateBackupNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateBackupNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound %s", 404, payload)
 }
 
 func (o *CreateBackupNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound %s", 404, payload)
 }
 
 func (o *CreateBackupNotFound) GetPayload() *CreateBackupNotFoundBody {
@@ -432,12 +468,19 @@ func (o *CreateBackupTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the create backup too many requests response
+func (o *CreateBackupTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *CreateBackupTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBackupTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBackupTooManyRequests) GetPayload() *CreateBackupTooManyRequestsBody {
@@ -495,12 +538,19 @@ func (o *CreateBackupInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create backup internal server error response
+func (o *CreateBackupInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateBackupInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBackupInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBackupInternalServerError) GetPayload() *CreateBackupInternalServerErrorBody {
@@ -537,11 +587,6 @@ type CreateBackupDefault struct {
 	Payload *CreateBackupDefaultBody
 }
 
-// Code gets the status code for the create backup default response
-func (o *CreateBackupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create backup default response has a 2xx status code
 func (o *CreateBackupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -567,12 +612,19 @@ func (o *CreateBackupDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the create backup default response
+func (o *CreateBackupDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *CreateBackupDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default %s", o._statusCode, payload)
 }
 
 func (o *CreateBackupDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default %s", o._statusCode, payload)
 }
 
 func (o *CreateBackupDefault) GetPayload() *CreateBackupDefaultBody {
@@ -651,7 +703,7 @@ type CreateBackupBody struct {
 
 	// The description of the backup. It helps you add additional information to the backup. Allows up to 256 characters.
 	// Example: backup-1
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Specify the name for a manual backup. It is recommended that you use a unique name, so that it is easy to distinguish the backup when you query the backups.
 	// Example: backup-1
@@ -780,6 +832,11 @@ func (o *CreateBackupDefaultBody) contextValidateDetails(ctx context.Context, fo
 	for i := 0; i < len(o.Details); i++ {
 
 		if o.Details[i] != nil {
+
+			if swag.IsZero(o.Details[i]) { // not required
+				return nil
+			}
+
 			if err := o.Details[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("CreateBackup default" + "." + "details" + "." + strconv.Itoa(i))
@@ -821,6 +878,82 @@ type CreateBackupDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create backup default body details items0
+	CreateBackupDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateBackupDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateBackupDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateBackupDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateBackupDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateBackupDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateBackupDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create backup default body details items0

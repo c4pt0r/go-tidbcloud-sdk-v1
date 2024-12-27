@@ -50,7 +50,7 @@ type OpenapiListRestoreRespItem struct {
 
 	// The status of the restore task.
 	// Example: PENDING
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 }
 
@@ -172,6 +172,11 @@ func (m *OpenapiListRestoreRespItem) ContextValidate(ctx context.Context, format
 func (m *OpenapiListRestoreRespItem) contextValidateCluster(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cluster != nil {
+
+		if swag.IsZero(m.Cluster) { // not required
+			return nil
+		}
+
 		if err := m.Cluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cluster")
