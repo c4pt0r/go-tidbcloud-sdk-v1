@@ -126,11 +126,13 @@ func (o *GetClusterOK) Code() int {
 }
 
 func (o *GetClusterOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterOK %s", 200, payload)
 }
 
 func (o *GetClusterOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterOK %s", 200, payload)
 }
 
 func (o *GetClusterOK) GetPayload() *GetClusterOKBody {
@@ -194,11 +196,13 @@ func (o *GetClusterBadRequest) Code() int {
 }
 
 func (o *GetClusterBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterBadRequest %s", 400, payload)
 }
 
 func (o *GetClusterBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterBadRequest %s", 400, payload)
 }
 
 func (o *GetClusterBadRequest) GetPayload() *GetClusterBadRequestBody {
@@ -262,11 +266,13 @@ func (o *GetClusterUnauthorized) Code() int {
 }
 
 func (o *GetClusterUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterUnauthorized %s", 401, payload)
 }
 
 func (o *GetClusterUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterUnauthorized %s", 401, payload)
 }
 
 func (o *GetClusterUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *GetClusterForbidden) Code() int {
 }
 
 func (o *GetClusterForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterForbidden %s", 403, payload)
 }
 
 func (o *GetClusterForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterForbidden %s", 403, payload)
 }
 
 func (o *GetClusterForbidden) GetPayload() *GetClusterForbiddenBody {
@@ -396,11 +404,13 @@ func (o *GetClusterNotFound) Code() int {
 }
 
 func (o *GetClusterNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterNotFound %s", 404, payload)
 }
 
 func (o *GetClusterNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterNotFound %s", 404, payload)
 }
 
 func (o *GetClusterNotFound) GetPayload() *GetClusterNotFoundBody {
@@ -464,11 +474,13 @@ func (o *GetClusterTooManyRequests) Code() int {
 }
 
 func (o *GetClusterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetClusterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetClusterTooManyRequests) GetPayload() *GetClusterTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *GetClusterInternalServerError) Code() int {
 }
 
 func (o *GetClusterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterInternalServerError %s", 500, payload)
 }
 
 func (o *GetClusterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] getClusterInternalServerError %s", 500, payload)
 }
 
 func (o *GetClusterInternalServerError) GetPayload() *GetClusterInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *GetClusterDefault) Code() int {
 }
 
 func (o *GetClusterDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] GetCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] GetCluster default %s", o._statusCode, payload)
 }
 
 func (o *GetClusterDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] GetCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] GetCluster default %s", o._statusCode, payload)
 }
 
 func (o *GetClusterDefault) GetPayload() *GetClusterDefaultBody {
@@ -798,6 +814,82 @@ type GetClusterDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// get cluster default body details items0
+	GetClusterDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *GetClusterDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv GetClusterDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.GetClusterDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o GetClusterDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.GetClusterDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.GetClusterDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this get cluster default body details items0
@@ -990,16 +1082,16 @@ type GetClusterOKBody struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type:
-	// - `"DEVELOPER"`: a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
-	// - `"DEDICATED"`: a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Cloud Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-dedicated) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Serverless clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Cloud Serverless clusters.
 	// Example: DEDICATED
-	// Enum: [DEDICATED DEVELOPER]
+	// Enum: ["DEDICATED","DEVELOPER"]
 	ClusterType string `json:"cluster_type,omitempty"`
 
 	// config
@@ -1909,7 +2001,7 @@ type GetClusterOKBodyStatus struct {
 
 	// Status of the cluster.
 	// Example: AVAILABLE
-	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING MAINTAINING PAUSING]
+	// Enum: ["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]
 	ClusterStatus string `json:"cluster_status,omitempty"`
 
 	// connection strings
@@ -2290,7 +2382,7 @@ type GetClusterOKBodyStatusConnectionStringsStandard struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2365,7 +2457,7 @@ type GetClusterOKBodyStatusConnectionStringsVpcPeering struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2687,7 +2779,7 @@ type GetClusterOKBodyStatusNodeMapTidbItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The total vCPUs of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `vcpu_num` is always 0.
@@ -2804,7 +2896,7 @@ type GetClusterOKBodyStatusNodeMapTiflashItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.
@@ -2925,7 +3017,7 @@ type GetClusterOKBodyStatusNodeMapTikvItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.

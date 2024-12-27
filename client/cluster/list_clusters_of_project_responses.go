@@ -126,11 +126,13 @@ func (o *ListClustersOfProjectOK) Code() int {
 }
 
 func (o *ListClustersOfProjectOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK %s", 200, payload)
 }
 
 func (o *ListClustersOfProjectOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectOK %s", 200, payload)
 }
 
 func (o *ListClustersOfProjectOK) GetPayload() *ListClustersOfProjectOKBody {
@@ -194,11 +196,13 @@ func (o *ListClustersOfProjectBadRequest) Code() int {
 }
 
 func (o *ListClustersOfProjectBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest %s", 400, payload)
 }
 
 func (o *ListClustersOfProjectBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectBadRequest %s", 400, payload)
 }
 
 func (o *ListClustersOfProjectBadRequest) GetPayload() *ListClustersOfProjectBadRequestBody {
@@ -262,11 +266,13 @@ func (o *ListClustersOfProjectUnauthorized) Code() int {
 }
 
 func (o *ListClustersOfProjectUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized %s", 401, payload)
 }
 
 func (o *ListClustersOfProjectUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectUnauthorized %s", 401, payload)
 }
 
 func (o *ListClustersOfProjectUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *ListClustersOfProjectForbidden) Code() int {
 }
 
 func (o *ListClustersOfProjectForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden %s", 403, payload)
 }
 
 func (o *ListClustersOfProjectForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectForbidden %s", 403, payload)
 }
 
 func (o *ListClustersOfProjectForbidden) GetPayload() *ListClustersOfProjectForbiddenBody {
@@ -396,11 +404,13 @@ func (o *ListClustersOfProjectNotFound) Code() int {
 }
 
 func (o *ListClustersOfProjectNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound %s", 404, payload)
 }
 
 func (o *ListClustersOfProjectNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectNotFound %s", 404, payload)
 }
 
 func (o *ListClustersOfProjectNotFound) GetPayload() *ListClustersOfProjectNotFoundBody {
@@ -464,11 +474,13 @@ func (o *ListClustersOfProjectTooManyRequests) Code() int {
 }
 
 func (o *ListClustersOfProjectTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *ListClustersOfProjectTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *ListClustersOfProjectTooManyRequests) GetPayload() *ListClustersOfProjectTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *ListClustersOfProjectInternalServerError) Code() int {
 }
 
 func (o *ListClustersOfProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError %s", 500, payload)
 }
 
 func (o *ListClustersOfProjectInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] listClustersOfProjectInternalServerError %s", 500, payload)
 }
 
 func (o *ListClustersOfProjectInternalServerError) GetPayload() *ListClustersOfProjectInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *ListClustersOfProjectDefault) Code() int {
 }
 
 func (o *ListClustersOfProjectDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default %s", o._statusCode, payload)
 }
 
 func (o *ListClustersOfProjectDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters][%d] ListClustersOfProject default %s", o._statusCode, payload)
 }
 
 func (o *ListClustersOfProjectDefault) GetPayload() *ListClustersOfProjectDefaultBody {
@@ -798,6 +814,82 @@ type ListClustersOfProjectDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list clusters of project default body details items0
+	ListClustersOfProjectDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListClustersOfProjectDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListClustersOfProjectDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListClustersOfProjectDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListClustersOfProjectDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListClustersOfProjectDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListClustersOfProjectDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list clusters of project default body details items0
@@ -1119,16 +1211,16 @@ type ListClustersOfProjectOKBodyItemsItems0 struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type:
-	// - `"DEVELOPER"`: a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
-	// - `"DEDICATED"`: a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Cloud Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-dedicated) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Serverless clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Cloud Serverless clusters.
 	// Example: DEDICATED
-	// Enum: [DEDICATED DEVELOPER]
+	// Enum: ["DEDICATED","DEVELOPER"]
 	ClusterType string `json:"cluster_type,omitempty"`
 
 	// config
@@ -2038,7 +2130,7 @@ type ListClustersOfProjectOKBodyItemsItems0Status struct {
 
 	// Status of the cluster.
 	// Example: AVAILABLE
-	// Enum: [AVAILABLE CREATING MODIFYING PAUSED RESUMING UNAVAILABLE IMPORTING MAINTAINING PAUSING]
+	// Enum: ["AVAILABLE","CREATING","MODIFYING","PAUSED","RESUMING","UNAVAILABLE","IMPORTING","MAINTAINING","PAUSING"]
 	ClusterStatus string `json:"cluster_status,omitempty"`
 
 	// connection strings
@@ -2419,7 +2511,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsStandard struc
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2494,7 +2586,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusConnectionStringsVpcPeering str
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -2816,7 +2908,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTidbItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The total vCPUs of a node in the cluster. If the `cluster_type` is `"DEVELOPER"`, `vcpu_num` is always 0.
@@ -2933,7 +3025,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTiflashItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.
@@ -3054,7 +3146,7 @@ type ListClustersOfProjectOKBodyItemsItems0StatusNodeMapTikvItems0 struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.

@@ -38,7 +38,7 @@ type OpenapiTiFlashNodeMap struct {
 
 	// The status of a node in the cluster.
 	// Example: NODE_STATUS_AVAILABLE
-	// Enum: [NODE_STATUS_AVAILABLE NODE_STATUS_UNAVAILABLE NODE_STATUS_CREATING NODE_STATUS_DELETING]
+	// Enum: ["NODE_STATUS_AVAILABLE","NODE_STATUS_UNAVAILABLE","NODE_STATUS_CREATING","NODE_STATUS_DELETING"]
 	Status string `json:"status,omitempty"`
 
 	// The storage size of a node in the cluster.

@@ -7,6 +7,7 @@ package import_operations
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *UploadLocalFileOK) Code() int {
 }
 
 func (o *UploadLocalFileOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileOK %s", 200, payload)
 }
 
 func (o *UploadLocalFileOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileOK %s", 200, payload)
 }
 
 func (o *UploadLocalFileOK) GetPayload() *UploadLocalFileOKBody {
@@ -193,11 +196,13 @@ func (o *UploadLocalFileBadRequest) Code() int {
 }
 
 func (o *UploadLocalFileBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileBadRequest %s", 400, payload)
 }
 
 func (o *UploadLocalFileBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileBadRequest %s", 400, payload)
 }
 
 func (o *UploadLocalFileBadRequest) GetPayload() *UploadLocalFileBadRequestBody {
@@ -261,11 +266,13 @@ func (o *UploadLocalFileUnauthorized) Code() int {
 }
 
 func (o *UploadLocalFileUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileUnauthorized %s", 401, payload)
 }
 
 func (o *UploadLocalFileUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileUnauthorized %s", 401, payload)
 }
 
 func (o *UploadLocalFileUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *UploadLocalFileForbidden) Code() int {
 }
 
 func (o *UploadLocalFileForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileForbidden %s", 403, payload)
 }
 
 func (o *UploadLocalFileForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileForbidden %s", 403, payload)
 }
 
 func (o *UploadLocalFileForbidden) GetPayload() *UploadLocalFileForbiddenBody {
@@ -395,11 +404,13 @@ func (o *UploadLocalFileNotFound) Code() int {
 }
 
 func (o *UploadLocalFileNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileNotFound %s", 404, payload)
 }
 
 func (o *UploadLocalFileNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileNotFound %s", 404, payload)
 }
 
 func (o *UploadLocalFileNotFound) GetPayload() *UploadLocalFileNotFoundBody {
@@ -463,11 +474,13 @@ func (o *UploadLocalFileTooManyRequests) Code() int {
 }
 
 func (o *UploadLocalFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileTooManyRequests %s", 429, payload)
 }
 
 func (o *UploadLocalFileTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileTooManyRequests %s", 429, payload)
 }
 
 func (o *UploadLocalFileTooManyRequests) GetPayload() *UploadLocalFileTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *UploadLocalFileInternalServerError) Code() int {
 }
 
 func (o *UploadLocalFileInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileInternalServerError %s", 500, payload)
 }
 
 func (o *UploadLocalFileInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] uploadLocalFileInternalServerError %s", 500, payload)
 }
 
 func (o *UploadLocalFileInternalServerError) GetPayload() *UploadLocalFileInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *UploadLocalFileDefault) Code() int {
 }
 
 func (o *UploadLocalFileDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] UploadLocalFile default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] UploadLocalFile default %s", o._statusCode, payload)
 }
 
 func (o *UploadLocalFileDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] UploadLocalFile default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/upload_file][%d] UploadLocalFile default %s", o._statusCode, payload)
 }
 
 func (o *UploadLocalFileDefault) GetPayload() *UploadLocalFileDefaultBody {
@@ -920,6 +937,82 @@ type UploadLocalFileDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// upload local file default body details items0
+	UploadLocalFileDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *UploadLocalFileDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv UploadLocalFileDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.UploadLocalFileDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o UploadLocalFileDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.UploadLocalFileDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.UploadLocalFileDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this upload local file default body details items0

@@ -7,6 +7,7 @@ package cluster
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *ListAwsCmekOK) Code() int {
 }
 
 func (o *ListAwsCmekOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekOK %s", 200, payload)
 }
 
 func (o *ListAwsCmekOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekOK %s", 200, payload)
 }
 
 func (o *ListAwsCmekOK) GetPayload() *ListAwsCmekOKBody {
@@ -193,11 +196,13 @@ func (o *ListAwsCmekBadRequest) Code() int {
 }
 
 func (o *ListAwsCmekBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekBadRequest %s", 400, payload)
 }
 
 func (o *ListAwsCmekBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekBadRequest %s", 400, payload)
 }
 
 func (o *ListAwsCmekBadRequest) GetPayload() *ListAwsCmekBadRequestBody {
@@ -261,11 +266,13 @@ func (o *ListAwsCmekUnauthorized) Code() int {
 }
 
 func (o *ListAwsCmekUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekUnauthorized %s", 401, payload)
 }
 
 func (o *ListAwsCmekUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekUnauthorized %s", 401, payload)
 }
 
 func (o *ListAwsCmekUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *ListAwsCmekForbidden) Code() int {
 }
 
 func (o *ListAwsCmekForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekForbidden %s", 403, payload)
 }
 
 func (o *ListAwsCmekForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekForbidden %s", 403, payload)
 }
 
 func (o *ListAwsCmekForbidden) GetPayload() *ListAwsCmekForbiddenBody {
@@ -395,11 +404,13 @@ func (o *ListAwsCmekNotFound) Code() int {
 }
 
 func (o *ListAwsCmekNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekNotFound %s", 404, payload)
 }
 
 func (o *ListAwsCmekNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekNotFound %s", 404, payload)
 }
 
 func (o *ListAwsCmekNotFound) GetPayload() *ListAwsCmekNotFoundBody {
@@ -463,11 +474,13 @@ func (o *ListAwsCmekTooManyRequests) Code() int {
 }
 
 func (o *ListAwsCmekTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekTooManyRequests %s", 429, payload)
 }
 
 func (o *ListAwsCmekTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekTooManyRequests %s", 429, payload)
 }
 
 func (o *ListAwsCmekTooManyRequests) GetPayload() *ListAwsCmekTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *ListAwsCmekInternalServerError) Code() int {
 }
 
 func (o *ListAwsCmekInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekInternalServerError %s", 500, payload)
 }
 
 func (o *ListAwsCmekInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] listAwsCmekInternalServerError %s", 500, payload)
 }
 
 func (o *ListAwsCmekInternalServerError) GetPayload() *ListAwsCmekInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *ListAwsCmekDefault) Code() int {
 }
 
 func (o *ListAwsCmekDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] ListAwsCmek default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] ListAwsCmek default %s", o._statusCode, payload)
 }
 
 func (o *ListAwsCmekDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] ListAwsCmek default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/aws-cmek][%d] ListAwsCmek default %s", o._statusCode, payload)
 }
 
 func (o *ListAwsCmekDefault) GetPayload() *ListAwsCmekDefaultBody {
@@ -797,6 +814,82 @@ type ListAwsCmekDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list aws cmek default body details items0
+	ListAwsCmekDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListAwsCmekDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListAwsCmekDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListAwsCmekDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListAwsCmekDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListAwsCmekDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListAwsCmekDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list aws cmek default body details items0

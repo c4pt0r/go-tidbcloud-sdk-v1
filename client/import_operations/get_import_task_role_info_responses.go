@@ -7,6 +7,7 @@ package import_operations
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *GetImportTaskRoleInfoOK) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoOK %s", 200, payload)
 }
 
 func (o *GetImportTaskRoleInfoOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoOK %s", 200, payload)
 }
 
 func (o *GetImportTaskRoleInfoOK) GetPayload() *GetImportTaskRoleInfoOKBody {
@@ -193,11 +196,13 @@ func (o *GetImportTaskRoleInfoBadRequest) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoBadRequest %s", 400, payload)
 }
 
 func (o *GetImportTaskRoleInfoBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoBadRequest %s", 400, payload)
 }
 
 func (o *GetImportTaskRoleInfoBadRequest) GetPayload() *GetImportTaskRoleInfoBadRequestBody {
@@ -261,11 +266,13 @@ func (o *GetImportTaskRoleInfoUnauthorized) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoUnauthorized %s", 401, payload)
 }
 
 func (o *GetImportTaskRoleInfoUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoUnauthorized %s", 401, payload)
 }
 
 func (o *GetImportTaskRoleInfoUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *GetImportTaskRoleInfoForbidden) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoForbidden %s", 403, payload)
 }
 
 func (o *GetImportTaskRoleInfoForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoForbidden %s", 403, payload)
 }
 
 func (o *GetImportTaskRoleInfoForbidden) GetPayload() *GetImportTaskRoleInfoForbiddenBody {
@@ -395,11 +404,13 @@ func (o *GetImportTaskRoleInfoNotFound) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoNotFound %s", 404, payload)
 }
 
 func (o *GetImportTaskRoleInfoNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoNotFound %s", 404, payload)
 }
 
 func (o *GetImportTaskRoleInfoNotFound) GetPayload() *GetImportTaskRoleInfoNotFoundBody {
@@ -463,11 +474,13 @@ func (o *GetImportTaskRoleInfoTooManyRequests) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoTooManyRequests %s", 429, payload)
 }
 
 func (o *GetImportTaskRoleInfoTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoTooManyRequests %s", 429, payload)
 }
 
 func (o *GetImportTaskRoleInfoTooManyRequests) GetPayload() *GetImportTaskRoleInfoTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *GetImportTaskRoleInfoInternalServerError) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoInternalServerError %s", 500, payload)
 }
 
 func (o *GetImportTaskRoleInfoInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] getImportTaskRoleInfoInternalServerError %s", 500, payload)
 }
 
 func (o *GetImportTaskRoleInfoInternalServerError) GetPayload() *GetImportTaskRoleInfoInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *GetImportTaskRoleInfoDefault) Code() int {
 }
 
 func (o *GetImportTaskRoleInfoDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] GetImportTaskRoleInfo default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] GetImportTaskRoleInfo default %s", o._statusCode, payload)
 }
 
 func (o *GetImportTaskRoleInfoDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] GetImportTaskRoleInfo default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/role_info][%d] GetImportTaskRoleInfo default %s", o._statusCode, payload)
 }
 
 func (o *GetImportTaskRoleInfoDefault) GetPayload() *GetImportTaskRoleInfoDefaultBody {
@@ -797,6 +814,82 @@ type GetImportTaskRoleInfoDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// get import task role info default body details items0
+	GetImportTaskRoleInfoDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *GetImportTaskRoleInfoDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv GetImportTaskRoleInfoDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.GetImportTaskRoleInfoDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o GetImportTaskRoleInfoDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.GetImportTaskRoleInfoDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.GetImportTaskRoleInfoDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this get import task role info default body details items0

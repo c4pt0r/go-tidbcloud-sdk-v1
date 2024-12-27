@@ -50,7 +50,7 @@ type OpenapiListRestoreRespItem struct {
 
 	// The status of the restore task.
 	// Example: PENDING
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 }
 

@@ -7,6 +7,7 @@ package cluster
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -124,11 +125,13 @@ func (o *DeletePrivateEndpointOK) Code() int {
 }
 
 func (o *DeletePrivateEndpointOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointOK %s", 200, payload)
 }
 
 func (o *DeletePrivateEndpointOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointOK %s", 200, payload)
 }
 
 func (o *DeletePrivateEndpointOK) GetPayload() interface{} {
@@ -190,11 +193,13 @@ func (o *DeletePrivateEndpointBadRequest) Code() int {
 }
 
 func (o *DeletePrivateEndpointBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointBadRequest %s", 400, payload)
 }
 
 func (o *DeletePrivateEndpointBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointBadRequest %s", 400, payload)
 }
 
 func (o *DeletePrivateEndpointBadRequest) GetPayload() *DeletePrivateEndpointBadRequestBody {
@@ -258,11 +263,13 @@ func (o *DeletePrivateEndpointUnauthorized) Code() int {
 }
 
 func (o *DeletePrivateEndpointUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointUnauthorized %s", 401, payload)
 }
 
 func (o *DeletePrivateEndpointUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointUnauthorized %s", 401, payload)
 }
 
 func (o *DeletePrivateEndpointUnauthorized) GetPayload() interface{} {
@@ -324,11 +331,13 @@ func (o *DeletePrivateEndpointForbidden) Code() int {
 }
 
 func (o *DeletePrivateEndpointForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointForbidden %s", 403, payload)
 }
 
 func (o *DeletePrivateEndpointForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointForbidden %s", 403, payload)
 }
 
 func (o *DeletePrivateEndpointForbidden) GetPayload() *DeletePrivateEndpointForbiddenBody {
@@ -392,11 +401,13 @@ func (o *DeletePrivateEndpointNotFound) Code() int {
 }
 
 func (o *DeletePrivateEndpointNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointNotFound %s", 404, payload)
 }
 
 func (o *DeletePrivateEndpointNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointNotFound %s", 404, payload)
 }
 
 func (o *DeletePrivateEndpointNotFound) GetPayload() *DeletePrivateEndpointNotFoundBody {
@@ -460,11 +471,13 @@ func (o *DeletePrivateEndpointTooManyRequests) Code() int {
 }
 
 func (o *DeletePrivateEndpointTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePrivateEndpointTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePrivateEndpointTooManyRequests) GetPayload() *DeletePrivateEndpointTooManyRequestsBody {
@@ -528,11 +541,13 @@ func (o *DeletePrivateEndpointInternalServerError) Code() int {
 }
 
 func (o *DeletePrivateEndpointInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePrivateEndpointInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] deletePrivateEndpointInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePrivateEndpointInternalServerError) GetPayload() *DeletePrivateEndpointInternalServerErrorBody {
@@ -600,11 +615,13 @@ func (o *DeletePrivateEndpointDefault) Code() int {
 }
 
 func (o *DeletePrivateEndpointDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] DeletePrivateEndpoint default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] DeletePrivateEndpoint default %s", o._statusCode, payload)
 }
 
 func (o *DeletePrivateEndpointDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] DeletePrivateEndpoint default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints/{endpoint_id}][%d] DeletePrivateEndpoint default %s", o._statusCode, payload)
 }
 
 func (o *DeletePrivateEndpointDefault) GetPayload() *DeletePrivateEndpointDefaultBody {
@@ -794,6 +811,82 @@ type DeletePrivateEndpointDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// delete private endpoint default body details items0
+	DeletePrivateEndpointDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *DeletePrivateEndpointDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv DeletePrivateEndpointDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.DeletePrivateEndpointDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o DeletePrivateEndpointDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.DeletePrivateEndpointDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.DeletePrivateEndpointDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this delete private endpoint default body details items0

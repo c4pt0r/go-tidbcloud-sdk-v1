@@ -126,11 +126,13 @@ func (o *PreviewImportDataOK) Code() int {
 }
 
 func (o *PreviewImportDataOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataOK %s", 200, payload)
 }
 
 func (o *PreviewImportDataOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataOK %s", 200, payload)
 }
 
 func (o *PreviewImportDataOK) GetPayload() *PreviewImportDataOKBody {
@@ -194,11 +196,13 @@ func (o *PreviewImportDataBadRequest) Code() int {
 }
 
 func (o *PreviewImportDataBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataBadRequest %s", 400, payload)
 }
 
 func (o *PreviewImportDataBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataBadRequest %s", 400, payload)
 }
 
 func (o *PreviewImportDataBadRequest) GetPayload() *PreviewImportDataBadRequestBody {
@@ -262,11 +266,13 @@ func (o *PreviewImportDataUnauthorized) Code() int {
 }
 
 func (o *PreviewImportDataUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataUnauthorized %s", 401, payload)
 }
 
 func (o *PreviewImportDataUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataUnauthorized %s", 401, payload)
 }
 
 func (o *PreviewImportDataUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *PreviewImportDataForbidden) Code() int {
 }
 
 func (o *PreviewImportDataForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataForbidden %s", 403, payload)
 }
 
 func (o *PreviewImportDataForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataForbidden %s", 403, payload)
 }
 
 func (o *PreviewImportDataForbidden) GetPayload() *PreviewImportDataForbiddenBody {
@@ -396,11 +404,13 @@ func (o *PreviewImportDataNotFound) Code() int {
 }
 
 func (o *PreviewImportDataNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataNotFound %s", 404, payload)
 }
 
 func (o *PreviewImportDataNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataNotFound %s", 404, payload)
 }
 
 func (o *PreviewImportDataNotFound) GetPayload() *PreviewImportDataNotFoundBody {
@@ -464,11 +474,13 @@ func (o *PreviewImportDataTooManyRequests) Code() int {
 }
 
 func (o *PreviewImportDataTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataTooManyRequests %s", 429, payload)
 }
 
 func (o *PreviewImportDataTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataTooManyRequests %s", 429, payload)
 }
 
 func (o *PreviewImportDataTooManyRequests) GetPayload() *PreviewImportDataTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *PreviewImportDataInternalServerError) Code() int {
 }
 
 func (o *PreviewImportDataInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataInternalServerError %s", 500, payload)
 }
 
 func (o *PreviewImportDataInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] previewImportDataInternalServerError %s", 500, payload)
 }
 
 func (o *PreviewImportDataInternalServerError) GetPayload() *PreviewImportDataInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *PreviewImportDataDefault) Code() int {
 }
 
 func (o *PreviewImportDataDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] PreviewImportData default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] PreviewImportData default %s", o._statusCode, payload)
 }
 
 func (o *PreviewImportDataDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] PreviewImportData default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/preview][%d] PreviewImportData default %s", o._statusCode, payload)
 }
 
 func (o *PreviewImportDataDefault) GetPayload() *PreviewImportDataDefaultBody {
@@ -920,6 +936,82 @@ type PreviewImportDataDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// preview import data default body details items0
+	PreviewImportDataDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *PreviewImportDataDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv PreviewImportDataDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.PreviewImportDataDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o PreviewImportDataDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.PreviewImportDataDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.PreviewImportDataDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this preview import data default body details items0
@@ -1922,6 +2014,9 @@ type PreviewImportDataParamsBodySpecSource struct {
 	// aws key access
 	AwsKeyAccess *PreviewImportDataParamsBodySpecSourceAwsKeyAccess `json:"aws_key_access,omitempty"`
 
+	// azure token access
+	AzureTokenAccess *PreviewImportDataParamsBodySpecSourceAzureTokenAccess `json:"azure_token_access,omitempty"`
+
 	// format
 	// Required: true
 	Format *PreviewImportDataParamsBodySpecSourceFormat `json:"format"`
@@ -1930,12 +2025,12 @@ type PreviewImportDataParamsBodySpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
 	//
 	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
-	// Enum: [S3 GCS LOCAL_FILE]
+	// Enum: ["S3","GCS","LOCAL_FILE","AZBLOB"]
 	Type *string `json:"type"`
 
 	// The data source URI of an import task. The URI scheme must match the data source type. Here are the scheme of each source type:
@@ -1960,6 +2055,10 @@ func (o *PreviewImportDataParamsBodySpecSource) Validate(formats strfmt.Registry
 	}
 
 	if err := o.validateAwsKeyAccess(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateAzureTokenAccess(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -2019,6 +2118,25 @@ func (o *PreviewImportDataParamsBodySpecSource) validateAwsKeyAccess(formats str
 	return nil
 }
 
+func (o *PreviewImportDataParamsBodySpecSource) validateAzureTokenAccess(formats strfmt.Registry) error {
+	if swag.IsZero(o.AzureTokenAccess) { // not required
+		return nil
+	}
+
+	if o.AzureTokenAccess != nil {
+		if err := o.AzureTokenAccess.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body" + "." + "spec" + "." + "source" + "." + "azure_token_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (o *PreviewImportDataParamsBodySpecSource) validateFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("body"+"."+"spec"+"."+"source"+"."+"format", "body", o.Format); err != nil {
@@ -2043,7 +2161,7 @@ var previewImportDataParamsBodySpecSourceTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE","AZBLOB"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -2061,6 +2179,9 @@ const (
 
 	// PreviewImportDataParamsBodySpecSourceTypeLOCALFILE captures enum value "LOCAL_FILE"
 	PreviewImportDataParamsBodySpecSourceTypeLOCALFILE string = "LOCAL_FILE"
+
+	// PreviewImportDataParamsBodySpecSourceTypeAZBLOB captures enum value "AZBLOB"
+	PreviewImportDataParamsBodySpecSourceTypeAZBLOB string = "AZBLOB"
 )
 
 // prop value enum
@@ -2103,6 +2224,10 @@ func (o *PreviewImportDataParamsBodySpecSource) ContextValidate(ctx context.Cont
 	}
 
 	if err := o.contextValidateAwsKeyAccess(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateAzureTokenAccess(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -2150,6 +2275,27 @@ func (o *PreviewImportDataParamsBodySpecSource) contextValidateAwsKeyAccess(ctx 
 				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_key_access")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("body" + "." + "spec" + "." + "source" + "." + "aws_key_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *PreviewImportDataParamsBodySpecSource) contextValidateAzureTokenAccess(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.AzureTokenAccess != nil {
+
+		if swag.IsZero(o.AzureTokenAccess) { // not required
+			return nil
+		}
+
+		if err := o.AzureTokenAccess.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("body" + "." + "spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body" + "." + "spec" + "." + "source" + "." + "azure_token_access")
 			}
 			return err
 		}
@@ -2336,6 +2482,66 @@ func (o *PreviewImportDataParamsBodySpecSourceAwsKeyAccess) UnmarshalBinary(b []
 }
 
 /*
+PreviewImportDataParamsBodySpecSourceAzureTokenAccess AzureTokenAccess
+//
+// The settings to access the Azblob data with an sas token. This field is only needed if you want to access the Azblob data with an sas token.
+swagger:model PreviewImportDataParamsBodySpecSourceAzureTokenAccess
+*/
+type PreviewImportDataParamsBodySpecSourceAzureTokenAccess struct {
+
+	// The sas token to access the data. This information will be redacted when it is retrieved to obtain the import task information.
+	// Example: YOUR_SAS_TOKEN
+	// Required: true
+	SasToken *string `json:"sas_token"`
+}
+
+// Validate validates this preview import data params body spec source azure token access
+func (o *PreviewImportDataParamsBodySpecSourceAzureTokenAccess) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateSasToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *PreviewImportDataParamsBodySpecSourceAzureTokenAccess) validateSasToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("body"+"."+"spec"+"."+"source"+"."+"azure_token_access"+"."+"sas_token", "body", o.SasToken); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this preview import data params body spec source azure token access based on context it is used
+func (o *PreviewImportDataParamsBodySpecSourceAzureTokenAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *PreviewImportDataParamsBodySpecSourceAzureTokenAccess) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *PreviewImportDataParamsBodySpecSourceAzureTokenAccess) UnmarshalBinary(b []byte) error {
+	var res PreviewImportDataParamsBodySpecSourceAzureTokenAccess
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+/*
 PreviewImportDataParamsBodySpecSourceFormat ImportSourceFormat
 //
 // The format settings of the import data source.
@@ -2349,7 +2555,7 @@ type PreviewImportDataParamsBodySpecSourceFormat struct {
 	// The format type of an import source.
 	// Example: CSV
 	// Required: true
-	// Enum: [CSV PARQUET SQL AURORA_SNAPSHOT]
+	// Enum: ["CSV","PARQUET","SQL","AURORA_SNAPSHOT"]
 	Type *string `json:"type"`
 }
 

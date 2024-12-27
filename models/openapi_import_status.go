@@ -33,7 +33,7 @@ type OpenapiImportStatus struct {
 	// The current phase that the import task is in.
 	// Example: IMPORTING
 	// Required: true
-	// Enum: [PREPARING IMPORTING COMPLETED FAILED CANCELING CANCELED]
+	// Enum: ["PREPARING","IMPORTING","COMPLETED","FAILED","CANCELING","CANCELED"]
 	Phase *string `json:"phase"`
 
 	// progress

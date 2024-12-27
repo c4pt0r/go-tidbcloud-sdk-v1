@@ -126,11 +126,13 @@ func (o *CreatePrivateEndpointOK) Code() int {
 }
 
 func (o *CreatePrivateEndpointOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointOK %s", 200, payload)
 }
 
 func (o *CreatePrivateEndpointOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointOK %s", 200, payload)
 }
 
 func (o *CreatePrivateEndpointOK) GetPayload() *CreatePrivateEndpointOKBody {
@@ -194,11 +196,13 @@ func (o *CreatePrivateEndpointBadRequest) Code() int {
 }
 
 func (o *CreatePrivateEndpointBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointBadRequest %s", 400, payload)
 }
 
 func (o *CreatePrivateEndpointBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointBadRequest %s", 400, payload)
 }
 
 func (o *CreatePrivateEndpointBadRequest) GetPayload() *CreatePrivateEndpointBadRequestBody {
@@ -262,11 +266,13 @@ func (o *CreatePrivateEndpointUnauthorized) Code() int {
 }
 
 func (o *CreatePrivateEndpointUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointUnauthorized %s", 401, payload)
 }
 
 func (o *CreatePrivateEndpointUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointUnauthorized %s", 401, payload)
 }
 
 func (o *CreatePrivateEndpointUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *CreatePrivateEndpointForbidden) Code() int {
 }
 
 func (o *CreatePrivateEndpointForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointForbidden %s", 403, payload)
 }
 
 func (o *CreatePrivateEndpointForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointForbidden %s", 403, payload)
 }
 
 func (o *CreatePrivateEndpointForbidden) GetPayload() *CreatePrivateEndpointForbiddenBody {
@@ -396,11 +404,13 @@ func (o *CreatePrivateEndpointNotFound) Code() int {
 }
 
 func (o *CreatePrivateEndpointNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointNotFound %s", 404, payload)
 }
 
 func (o *CreatePrivateEndpointNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointNotFound %s", 404, payload)
 }
 
 func (o *CreatePrivateEndpointNotFound) GetPayload() *CreatePrivateEndpointNotFoundBody {
@@ -464,11 +474,13 @@ func (o *CreatePrivateEndpointTooManyRequests) Code() int {
 }
 
 func (o *CreatePrivateEndpointTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePrivateEndpointTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePrivateEndpointTooManyRequests) GetPayload() *CreatePrivateEndpointTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *CreatePrivateEndpointInternalServerError) Code() int {
 }
 
 func (o *CreatePrivateEndpointInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePrivateEndpointInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] createPrivateEndpointInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePrivateEndpointInternalServerError) GetPayload() *CreatePrivateEndpointInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *CreatePrivateEndpointDefault) Code() int {
 }
 
 func (o *CreatePrivateEndpointDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] CreatePrivateEndpoint default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] CreatePrivateEndpoint default %s", o._statusCode, payload)
 }
 
 func (o *CreatePrivateEndpointDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] CreatePrivateEndpoint default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] CreatePrivateEndpoint default %s", o._statusCode, payload)
 }
 
 func (o *CreatePrivateEndpointDefault) GetPayload() *CreatePrivateEndpointDefaultBody {
@@ -688,7 +704,7 @@ type CreatePrivateEndpointBody struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// [Output Only] The ID of the cluster.
@@ -721,12 +737,12 @@ type CreatePrivateEndpointBody struct {
 
 	// [Output Only] The status of the private endpoint service.
 	// Example: ACTIVE
-	// Enum: [CREATING ACTIVE DELETING]
+	// Enum: ["CREATING","ACTIVE","DELETING"]
 	ServiceStatus string `json:"service_status,omitempty"`
 
 	// [Output Only] The status of the private endpoint.
 	// Example: FAILED
-	// Enum: [PENDING ACTIVE DELETING FAILED]
+	// Enum: ["PENDING","ACTIVE","DELETING","FAILED"]
 	Status string `json:"status,omitempty"`
 }
 
@@ -1031,6 +1047,82 @@ type CreatePrivateEndpointDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create private endpoint default body details items0
+	CreatePrivateEndpointDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreatePrivateEndpointDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreatePrivateEndpointDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreatePrivateEndpointDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreatePrivateEndpointDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreatePrivateEndpointDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreatePrivateEndpointDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create private endpoint default body details items0
@@ -1317,7 +1409,7 @@ type CreatePrivateEndpointOKBodyPrivateEndpoint struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// [Output Only] The ID of the cluster.
@@ -1350,12 +1442,12 @@ type CreatePrivateEndpointOKBodyPrivateEndpoint struct {
 
 	// [Output Only] The status of the private endpoint service.
 	// Example: ACTIVE
-	// Enum: [CREATING ACTIVE DELETING]
+	// Enum: ["CREATING","ACTIVE","DELETING"]
 	ServiceStatus string `json:"service_status,omitempty"`
 
 	// [Output Only] The status of the private endpoint.
 	// Example: FAILED
-	// Enum: [PENDING ACTIVE DELETING FAILED]
+	// Enum: ["PENDING","ACTIVE","DELETING","FAILED"]
 	Status string `json:"status,omitempty"`
 }
 

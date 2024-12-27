@@ -29,7 +29,7 @@ type OpenapiClusterConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -232,8 +232,8 @@ func (m *OpenapiClusterConfig) UnmarshalBinary(b []byte) error {
 // OpenapiClusterConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a TiDB Dedicated cluster, the `components` parameter is **required**.
-// - For a TiDB Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Cloud Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Cloud Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 //
 // swagger:model OpenapiClusterConfigComponents

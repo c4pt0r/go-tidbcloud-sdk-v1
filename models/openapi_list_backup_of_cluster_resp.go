@@ -158,12 +158,12 @@ type OpenapiListBackupOfClusterRespItemsItems0 struct {
 
 	// The status of backup.
 	// Example: SUCCESS
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 
 	// The type of backup. TiDB Cloud only supports manual and auto backup. For more information, see [TiDB Cloud Documentation](https://docs.pingcap.com/tidbcloud/backup-and-restore#backup).
 	// Example: MANUAL
-	// Enum: [MANUAL AUTO]
+	// Enum: ["MANUAL","AUTO"]
 	Type string `json:"type,omitempty"`
 }
 

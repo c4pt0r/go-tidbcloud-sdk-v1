@@ -126,11 +126,13 @@ func (o *CreateClusterOK) Code() int {
 }
 
 func (o *CreateClusterOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterOK %s", 200, payload)
 }
 
 func (o *CreateClusterOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterOK %s", 200, payload)
 }
 
 func (o *CreateClusterOK) GetPayload() *CreateClusterOKBody {
@@ -194,11 +196,13 @@ func (o *CreateClusterBadRequest) Code() int {
 }
 
 func (o *CreateClusterBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterBadRequest %s", 400, payload)
 }
 
 func (o *CreateClusterBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterBadRequest %s", 400, payload)
 }
 
 func (o *CreateClusterBadRequest) GetPayload() *CreateClusterBadRequestBody {
@@ -262,11 +266,13 @@ func (o *CreateClusterUnauthorized) Code() int {
 }
 
 func (o *CreateClusterUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterUnauthorized %s", 401, payload)
 }
 
 func (o *CreateClusterUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterUnauthorized %s", 401, payload)
 }
 
 func (o *CreateClusterUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *CreateClusterForbidden) Code() int {
 }
 
 func (o *CreateClusterForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterForbidden %s", 403, payload)
 }
 
 func (o *CreateClusterForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterForbidden %s", 403, payload)
 }
 
 func (o *CreateClusterForbidden) GetPayload() *CreateClusterForbiddenBody {
@@ -396,11 +404,13 @@ func (o *CreateClusterNotFound) Code() int {
 }
 
 func (o *CreateClusterNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterNotFound %s", 404, payload)
 }
 
 func (o *CreateClusterNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterNotFound %s", 404, payload)
 }
 
 func (o *CreateClusterNotFound) GetPayload() *CreateClusterNotFoundBody {
@@ -464,11 +474,13 @@ func (o *CreateClusterTooManyRequests) Code() int {
 }
 
 func (o *CreateClusterTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateClusterTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateClusterTooManyRequests) GetPayload() *CreateClusterTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *CreateClusterInternalServerError) Code() int {
 }
 
 func (o *CreateClusterInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterInternalServerError %s", 500, payload)
 }
 
 func (o *CreateClusterInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] createClusterInternalServerError %s", 500, payload)
 }
 
 func (o *CreateClusterInternalServerError) GetPayload() *CreateClusterInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *CreateClusterDefault) Code() int {
 }
 
 func (o *CreateClusterDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] CreateCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] CreateCluster default %s", o._statusCode, payload)
 }
 
 func (o *CreateClusterDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] CreateCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters][%d] CreateCluster default %s", o._statusCode, payload)
 }
 
 func (o *CreateClusterDefault) GetPayload() *CreateClusterDefaultBody {
@@ -690,15 +706,15 @@ type CreateClusterBody struct {
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
 	// Required: true
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider *string `json:"cloud_provider"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: create a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
-	// - `"DEDICATED"`: create a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster. Before creating a TiDB Dedicated cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
+	// - `"DEVELOPER"`: create a [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) cluster
+	// - `"DEDICATED"`: create a [TiDB Cloud Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-dedicated) cluster. Before creating a TiDB Cloud Dedicated cluster, you must [set a Project CIDR](https://docs.pingcap.com/tidbcloud/set-up-vpc-peering-connections#prerequisite-set-a-project-cidr) on [TiDB Cloud console](https://tidbcloud.com/).
 	// Example: DEDICATED
 	// Required: true
-	// Enum: [DEDICATED DEVELOPER]
+	// Enum: ["DEDICATED","DEVELOPER"]
 	ClusterType *string `json:"cluster_type"`
 
 	// config
@@ -1050,6 +1066,82 @@ type CreateClusterDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create cluster default body details items0
+	CreateClusterDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateClusterDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateClusterDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateClusterDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateClusterDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateClusterDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateClusterDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create cluster default body details items0
@@ -1305,7 +1397,7 @@ type CreateClusterParamsBodyConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -1509,8 +1601,8 @@ func (o *CreateClusterParamsBodyConfig) UnmarshalBinary(b []byte) error {
 CreateClusterParamsBodyConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a TiDB Dedicated cluster, the `components` parameter is **required**.
-// - For a TiDB Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Cloud Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Cloud Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model CreateClusterParamsBodyConfigComponents
 */

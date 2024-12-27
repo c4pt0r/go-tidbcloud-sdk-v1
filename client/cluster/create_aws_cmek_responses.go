@@ -7,6 +7,7 @@ package cluster
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *CreateAwsCmekOK) Code() int {
 }
 
 func (o *CreateAwsCmekOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekOK %s", 200, payload)
 }
 
 func (o *CreateAwsCmekOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekOK %s", 200, payload)
 }
 
 func (o *CreateAwsCmekOK) GetPayload() interface{} {
@@ -191,11 +194,13 @@ func (o *CreateAwsCmekBadRequest) Code() int {
 }
 
 func (o *CreateAwsCmekBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekBadRequest %s", 400, payload)
 }
 
 func (o *CreateAwsCmekBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekBadRequest %s", 400, payload)
 }
 
 func (o *CreateAwsCmekBadRequest) GetPayload() *CreateAwsCmekBadRequestBody {
@@ -259,11 +264,13 @@ func (o *CreateAwsCmekUnauthorized) Code() int {
 }
 
 func (o *CreateAwsCmekUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekUnauthorized %s", 401, payload)
 }
 
 func (o *CreateAwsCmekUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekUnauthorized %s", 401, payload)
 }
 
 func (o *CreateAwsCmekUnauthorized) GetPayload() interface{} {
@@ -325,11 +332,13 @@ func (o *CreateAwsCmekForbidden) Code() int {
 }
 
 func (o *CreateAwsCmekForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekForbidden %s", 403, payload)
 }
 
 func (o *CreateAwsCmekForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekForbidden %s", 403, payload)
 }
 
 func (o *CreateAwsCmekForbidden) GetPayload() *CreateAwsCmekForbiddenBody {
@@ -393,11 +402,13 @@ func (o *CreateAwsCmekNotFound) Code() int {
 }
 
 func (o *CreateAwsCmekNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekNotFound %s", 404, payload)
 }
 
 func (o *CreateAwsCmekNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekNotFound %s", 404, payload)
 }
 
 func (o *CreateAwsCmekNotFound) GetPayload() *CreateAwsCmekNotFoundBody {
@@ -461,11 +472,13 @@ func (o *CreateAwsCmekTooManyRequests) Code() int {
 }
 
 func (o *CreateAwsCmekTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAwsCmekTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAwsCmekTooManyRequests) GetPayload() *CreateAwsCmekTooManyRequestsBody {
@@ -529,11 +542,13 @@ func (o *CreateAwsCmekInternalServerError) Code() int {
 }
 
 func (o *CreateAwsCmekInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAwsCmekInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] createAwsCmekInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAwsCmekInternalServerError) GetPayload() *CreateAwsCmekInternalServerErrorBody {
@@ -601,11 +616,13 @@ func (o *CreateAwsCmekDefault) Code() int {
 }
 
 func (o *CreateAwsCmekDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] CreateAwsCmek default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] CreateAwsCmek default %s", o._statusCode, payload)
 }
 
 func (o *CreateAwsCmekDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] CreateAwsCmek default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/aws-cmek][%d] CreateAwsCmek default %s", o._statusCode, payload)
 }
 
 func (o *CreateAwsCmekDefault) GetPayload() *CreateAwsCmekDefaultBody {
@@ -908,6 +925,82 @@ type CreateAwsCmekDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create aws cmek default body details items0
+	CreateAwsCmekDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateAwsCmekDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateAwsCmekDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateAwsCmekDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateAwsCmekDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateAwsCmekDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateAwsCmekDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create aws cmek default body details items0

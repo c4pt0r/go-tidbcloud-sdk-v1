@@ -126,11 +126,13 @@ func (o *ListPrivateEndpointsOK) Code() int {
 }
 
 func (o *ListPrivateEndpointsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsOK %s", 200, payload)
 }
 
 func (o *ListPrivateEndpointsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsOK %s", 200, payload)
 }
 
 func (o *ListPrivateEndpointsOK) GetPayload() *ListPrivateEndpointsOKBody {
@@ -194,11 +196,13 @@ func (o *ListPrivateEndpointsBadRequest) Code() int {
 }
 
 func (o *ListPrivateEndpointsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsBadRequest %s", 400, payload)
 }
 
 func (o *ListPrivateEndpointsBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsBadRequest %s", 400, payload)
 }
 
 func (o *ListPrivateEndpointsBadRequest) GetPayload() *ListPrivateEndpointsBadRequestBody {
@@ -262,11 +266,13 @@ func (o *ListPrivateEndpointsUnauthorized) Code() int {
 }
 
 func (o *ListPrivateEndpointsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsUnauthorized %s", 401, payload)
 }
 
 func (o *ListPrivateEndpointsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsUnauthorized %s", 401, payload)
 }
 
 func (o *ListPrivateEndpointsUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *ListPrivateEndpointsForbidden) Code() int {
 }
 
 func (o *ListPrivateEndpointsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsForbidden %s", 403, payload)
 }
 
 func (o *ListPrivateEndpointsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsForbidden %s", 403, payload)
 }
 
 func (o *ListPrivateEndpointsForbidden) GetPayload() *ListPrivateEndpointsForbiddenBody {
@@ -396,11 +404,13 @@ func (o *ListPrivateEndpointsNotFound) Code() int {
 }
 
 func (o *ListPrivateEndpointsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsNotFound %s", 404, payload)
 }
 
 func (o *ListPrivateEndpointsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsNotFound %s", 404, payload)
 }
 
 func (o *ListPrivateEndpointsNotFound) GetPayload() *ListPrivateEndpointsNotFoundBody {
@@ -464,11 +474,13 @@ func (o *ListPrivateEndpointsTooManyRequests) Code() int {
 }
 
 func (o *ListPrivateEndpointsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListPrivateEndpointsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListPrivateEndpointsTooManyRequests) GetPayload() *ListPrivateEndpointsTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *ListPrivateEndpointsInternalServerError) Code() int {
 }
 
 func (o *ListPrivateEndpointsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsInternalServerError %s", 500, payload)
 }
 
 func (o *ListPrivateEndpointsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] listPrivateEndpointsInternalServerError %s", 500, payload)
 }
 
 func (o *ListPrivateEndpointsInternalServerError) GetPayload() *ListPrivateEndpointsInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *ListPrivateEndpointsDefault) Code() int {
 }
 
 func (o *ListPrivateEndpointsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] ListPrivateEndpoints default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] ListPrivateEndpoints default %s", o._statusCode, payload)
 }
 
 func (o *ListPrivateEndpointsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] ListPrivateEndpoints default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/private_endpoints][%d] ListPrivateEndpoints default %s", o._statusCode, payload)
 }
 
 func (o *ListPrivateEndpointsDefault) GetPayload() *ListPrivateEndpointsDefaultBody {
@@ -798,6 +814,82 @@ type ListPrivateEndpointsDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list private endpoints default body details items0
+	ListPrivateEndpointsDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListPrivateEndpointsDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListPrivateEndpointsDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListPrivateEndpointsDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListPrivateEndpointsDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListPrivateEndpointsDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListPrivateEndpointsDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list private endpoints default body details items0
@@ -1099,7 +1191,7 @@ type ListPrivateEndpointsOKBodyEndpointsItems0 struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// [Output Only] The ID of the cluster.
@@ -1132,12 +1224,12 @@ type ListPrivateEndpointsOKBodyEndpointsItems0 struct {
 
 	// [Output Only] The status of the private endpoint service.
 	// Example: ACTIVE
-	// Enum: [CREATING ACTIVE DELETING]
+	// Enum: ["CREATING","ACTIVE","DELETING"]
 	ServiceStatus string `json:"service_status,omitempty"`
 
 	// [Output Only] The status of the private endpoint.
 	// Example: FAILED
-	// Enum: [PENDING ACTIVE DELETING FAILED]
+	// Enum: ["PENDING","ACTIVE","DELETING","FAILED"]
 	Status string `json:"status,omitempty"`
 }
 

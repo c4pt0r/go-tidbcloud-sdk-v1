@@ -215,6 +215,10 @@ func (m *OpenapiUpdateClusterComponents) UnmarshalBinary(b []byte) error {
 // swagger:model OpenapiUpdateClusterComponentsTidb
 type OpenapiUpdateClusterComponentsTidb struct {
 
+	// The ID of the accesspoint.
+	// Example: 1
+	AccesspointID *string `json:"accesspoint_id,omitempty"`
+
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3
 	NodeQuantity *int32 `json:"node_quantity,omitempty"`

@@ -126,11 +126,13 @@ func (o *ListImportTasksOK) Code() int {
 }
 
 func (o *ListImportTasksOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksOK %s", 200, payload)
 }
 
 func (o *ListImportTasksOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksOK %s", 200, payload)
 }
 
 func (o *ListImportTasksOK) GetPayload() *ListImportTasksOKBody {
@@ -194,11 +196,13 @@ func (o *ListImportTasksBadRequest) Code() int {
 }
 
 func (o *ListImportTasksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksBadRequest %s", 400, payload)
 }
 
 func (o *ListImportTasksBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksBadRequest %s", 400, payload)
 }
 
 func (o *ListImportTasksBadRequest) GetPayload() *ListImportTasksBadRequestBody {
@@ -262,11 +266,13 @@ func (o *ListImportTasksUnauthorized) Code() int {
 }
 
 func (o *ListImportTasksUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksUnauthorized %s", 401, payload)
 }
 
 func (o *ListImportTasksUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksUnauthorized %s", 401, payload)
 }
 
 func (o *ListImportTasksUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *ListImportTasksForbidden) Code() int {
 }
 
 func (o *ListImportTasksForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksForbidden %s", 403, payload)
 }
 
 func (o *ListImportTasksForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksForbidden %s", 403, payload)
 }
 
 func (o *ListImportTasksForbidden) GetPayload() *ListImportTasksForbiddenBody {
@@ -396,11 +404,13 @@ func (o *ListImportTasksNotFound) Code() int {
 }
 
 func (o *ListImportTasksNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksNotFound %s", 404, payload)
 }
 
 func (o *ListImportTasksNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksNotFound %s", 404, payload)
 }
 
 func (o *ListImportTasksNotFound) GetPayload() *ListImportTasksNotFoundBody {
@@ -464,11 +474,13 @@ func (o *ListImportTasksTooManyRequests) Code() int {
 }
 
 func (o *ListImportTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ListImportTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ListImportTasksTooManyRequests) GetPayload() *ListImportTasksTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *ListImportTasksInternalServerError) Code() int {
 }
 
 func (o *ListImportTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ListImportTasksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] listImportTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ListImportTasksInternalServerError) GetPayload() *ListImportTasksInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *ListImportTasksDefault) Code() int {
 }
 
 func (o *ListImportTasksDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] ListImportTasks default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] ListImportTasks default %s", o._statusCode, payload)
 }
 
 func (o *ListImportTasksDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] ListImportTasks default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports][%d] ListImportTasks default %s", o._statusCode, payload)
 }
 
 func (o *ListImportTasksDefault) GetPayload() *ListImportTasksDefaultBody {
@@ -798,6 +814,82 @@ type ListImportTasksDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list import tasks default body details items0
+	ListImportTasksDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListImportTasksDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListImportTasksDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListImportTasksDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListImportTasksDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListImportTasksDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListImportTasksDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list import tasks default body details items0
@@ -1548,6 +1640,9 @@ type ListImportTasksOKBodyItemsItems0SpecSource struct {
 	// aws key access
 	AwsKeyAccess *ListImportTasksOKBodyItemsItems0SpecSourceAwsKeyAccess `json:"aws_key_access,omitempty"`
 
+	// azure token access
+	AzureTokenAccess *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess `json:"azure_token_access,omitempty"`
+
 	// format
 	// Required: true
 	Format *ListImportTasksOKBodyItemsItems0SpecSourceFormat `json:"format"`
@@ -1556,12 +1651,12 @@ type ListImportTasksOKBodyItemsItems0SpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
 	//
 	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
-	// Enum: [S3 GCS LOCAL_FILE]
+	// Enum: ["S3","GCS","LOCAL_FILE","AZBLOB"]
 	Type *string `json:"type"`
 
 	// The data source URI of an import task. The URI scheme must match the data source type. Here are the scheme of each source type:
@@ -1586,6 +1681,10 @@ func (o *ListImportTasksOKBodyItemsItems0SpecSource) Validate(formats strfmt.Reg
 	}
 
 	if err := o.validateAwsKeyAccess(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateAzureTokenAccess(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1645,6 +1744,25 @@ func (o *ListImportTasksOKBodyItemsItems0SpecSource) validateAwsKeyAccess(format
 	return nil
 }
 
+func (o *ListImportTasksOKBodyItemsItems0SpecSource) validateAzureTokenAccess(formats strfmt.Registry) error {
+	if swag.IsZero(o.AzureTokenAccess) { // not required
+		return nil
+	}
+
+	if o.AzureTokenAccess != nil {
+		if err := o.AzureTokenAccess.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (o *ListImportTasksOKBodyItemsItems0SpecSource) validateFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("spec"+"."+"source"+"."+"format", "body", o.Format); err != nil {
@@ -1669,7 +1787,7 @@ var listImportTasksOKBodyItemsItems0SpecSourceTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE","AZBLOB"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1687,6 +1805,9 @@ const (
 
 	// ListImportTasksOKBodyItemsItems0SpecSourceTypeLOCALFILE captures enum value "LOCAL_FILE"
 	ListImportTasksOKBodyItemsItems0SpecSourceTypeLOCALFILE string = "LOCAL_FILE"
+
+	// ListImportTasksOKBodyItemsItems0SpecSourceTypeAZBLOB captures enum value "AZBLOB"
+	ListImportTasksOKBodyItemsItems0SpecSourceTypeAZBLOB string = "AZBLOB"
 )
 
 // prop value enum
@@ -1729,6 +1850,10 @@ func (o *ListImportTasksOKBodyItemsItems0SpecSource) ContextValidate(ctx context
 	}
 
 	if err := o.contextValidateAwsKeyAccess(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateAzureTokenAccess(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1776,6 +1901,27 @@ func (o *ListImportTasksOKBodyItemsItems0SpecSource) contextValidateAwsKeyAccess
 				return ve.ValidateName("spec" + "." + "source" + "." + "aws_key_access")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("spec" + "." + "source" + "." + "aws_key_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *ListImportTasksOKBodyItemsItems0SpecSource) contextValidateAzureTokenAccess(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.AzureTokenAccess != nil {
+
+		if swag.IsZero(o.AzureTokenAccess) { // not required
+			return nil
+		}
+
+		if err := o.AzureTokenAccess.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
 			}
 			return err
 		}
@@ -1962,6 +2108,66 @@ func (o *ListImportTasksOKBodyItemsItems0SpecSourceAwsKeyAccess) UnmarshalBinary
 }
 
 /*
+ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess AzureTokenAccess
+//
+// The settings to access the Azblob data with an sas token. This field is only needed if you want to access the Azblob data with an sas token.
+swagger:model ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess
+*/
+type ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess struct {
+
+	// The sas token to access the data. This information will be redacted when it is retrieved to obtain the import task information.
+	// Example: YOUR_SAS_TOKEN
+	// Required: true
+	SasToken *string `json:"sas_token"`
+}
+
+// Validate validates this list import tasks o k body items items0 spec source azure token access
+func (o *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateSasToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess) validateSasToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("spec"+"."+"source"+"."+"azure_token_access"+"."+"sas_token", "body", o.SasToken); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this list import tasks o k body items items0 spec source azure token access based on context it is used
+func (o *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess) UnmarshalBinary(b []byte) error {
+	var res ListImportTasksOKBodyItemsItems0SpecSourceAzureTokenAccess
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+/*
 ListImportTasksOKBodyItemsItems0SpecSourceFormat ImportSourceFormat
 //
 // The format settings of the import data source.
@@ -1975,7 +2181,7 @@ type ListImportTasksOKBodyItemsItems0SpecSourceFormat struct {
 	// The format type of an import source.
 	// Example: CSV
 	// Required: true
-	// Enum: [CSV PARQUET SQL AURORA_SNAPSHOT]
+	// Enum: ["CSV","PARQUET","SQL","AURORA_SNAPSHOT"]
 	Type *string `json:"type"`
 }
 
@@ -2394,7 +2600,7 @@ type ListImportTasksOKBodyItemsItems0Status struct {
 	// The current phase that the import task is in.
 	// Example: IMPORTING
 	// Required: true
-	// Enum: [PREPARING IMPORTING COMPLETED FAILED CANCELING CANCELED]
+	// Enum: ["PREPARING","IMPORTING","COMPLETED","FAILED","CANCELING","CANCELED"]
 	Phase *string `json:"phase"`
 
 	// progress
