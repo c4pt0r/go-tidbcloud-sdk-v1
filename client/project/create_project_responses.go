@@ -7,6 +7,7 @@ package project
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *CreateProjectOK) Code() int {
 }
 
 func (o *CreateProjectOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectOK %s", 200, payload)
 }
 
 func (o *CreateProjectOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectOK %s", 200, payload)
 }
 
 func (o *CreateProjectOK) GetPayload() *CreateProjectOKBody {
@@ -193,11 +196,13 @@ func (o *CreateProjectBadRequest) Code() int {
 }
 
 func (o *CreateProjectBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectBadRequest %s", 400, payload)
 }
 
 func (o *CreateProjectBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectBadRequest %s", 400, payload)
 }
 
 func (o *CreateProjectBadRequest) GetPayload() *CreateProjectBadRequestBody {
@@ -261,11 +266,13 @@ func (o *CreateProjectUnauthorized) Code() int {
 }
 
 func (o *CreateProjectUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectUnauthorized %s", 401, payload)
 }
 
 func (o *CreateProjectUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectUnauthorized %s", 401, payload)
 }
 
 func (o *CreateProjectUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *CreateProjectForbidden) Code() int {
 }
 
 func (o *CreateProjectForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectForbidden %s", 403, payload)
 }
 
 func (o *CreateProjectForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectForbidden %s", 403, payload)
 }
 
 func (o *CreateProjectForbidden) GetPayload() *CreateProjectForbiddenBody {
@@ -395,11 +404,13 @@ func (o *CreateProjectNotFound) Code() int {
 }
 
 func (o *CreateProjectNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectNotFound %s", 404, payload)
 }
 
 func (o *CreateProjectNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectNotFound %s", 404, payload)
 }
 
 func (o *CreateProjectNotFound) GetPayload() *CreateProjectNotFoundBody {
@@ -463,11 +474,13 @@ func (o *CreateProjectTooManyRequests) Code() int {
 }
 
 func (o *CreateProjectTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateProjectTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateProjectTooManyRequests) GetPayload() *CreateProjectTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *CreateProjectInternalServerError) Code() int {
 }
 
 func (o *CreateProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectInternalServerError %s", 500, payload)
 }
 
 func (o *CreateProjectInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] createProjectInternalServerError %s", 500, payload)
 }
 
 func (o *CreateProjectInternalServerError) GetPayload() *CreateProjectInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *CreateProjectDefault) Code() int {
 }
 
 func (o *CreateProjectDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] CreateProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] CreateProject default %s", o._statusCode, payload)
 }
 
 func (o *CreateProjectDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects][%d] CreateProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects][%d] CreateProject default %s", o._statusCode, payload)
 }
 
 func (o *CreateProjectDefault) GetPayload() *CreateProjectDefaultBody {
@@ -863,6 +880,82 @@ type CreateProjectDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create project default body details items0
+	CreateProjectDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateProjectDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateProjectDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateProjectDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateProjectDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateProjectDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateProjectDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create project default body details items0

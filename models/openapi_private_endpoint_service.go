@@ -28,7 +28,7 @@ type OpenapiPrivateEndpointService struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The DNS name of the private endpoint service.
@@ -45,7 +45,7 @@ type OpenapiPrivateEndpointService struct {
 
 	// The status of the private endpoint service.
 	// Example: ACTIVE
-	// Enum: [CREATING ACTIVE DELETING]
+	// Enum: ["CREATING","ACTIVE","DELETING"]
 	Status string `json:"status,omitempty"`
 }
 

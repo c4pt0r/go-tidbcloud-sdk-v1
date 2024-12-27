@@ -7,6 +7,7 @@ package cluster
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *UpdateClusterOK) Code() int {
 }
 
 func (o *UpdateClusterOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterOK %s", 200, payload)
 }
 
 func (o *UpdateClusterOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterOK %s", 200, payload)
 }
 
 func (o *UpdateClusterOK) GetPayload() interface{} {
@@ -191,11 +194,13 @@ func (o *UpdateClusterBadRequest) Code() int {
 }
 
 func (o *UpdateClusterBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterBadRequest %s", 400, payload)
 }
 
 func (o *UpdateClusterBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterBadRequest %s", 400, payload)
 }
 
 func (o *UpdateClusterBadRequest) GetPayload() *UpdateClusterBadRequestBody {
@@ -259,11 +264,13 @@ func (o *UpdateClusterUnauthorized) Code() int {
 }
 
 func (o *UpdateClusterUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateClusterUnauthorized) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateClusterUnauthorized) GetPayload() interface{} {
@@ -325,11 +332,13 @@ func (o *UpdateClusterForbidden) Code() int {
 }
 
 func (o *UpdateClusterForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterForbidden %s", 403, payload)
 }
 
 func (o *UpdateClusterForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterForbidden %s", 403, payload)
 }
 
 func (o *UpdateClusterForbidden) GetPayload() *UpdateClusterForbiddenBody {
@@ -393,11 +402,13 @@ func (o *UpdateClusterNotFound) Code() int {
 }
 
 func (o *UpdateClusterNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterNotFound %s", 404, payload)
 }
 
 func (o *UpdateClusterNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterNotFound %s", 404, payload)
 }
 
 func (o *UpdateClusterNotFound) GetPayload() *UpdateClusterNotFoundBody {
@@ -461,11 +472,13 @@ func (o *UpdateClusterTooManyRequests) Code() int {
 }
 
 func (o *UpdateClusterTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateClusterTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateClusterTooManyRequests) GetPayload() *UpdateClusterTooManyRequestsBody {
@@ -529,11 +542,13 @@ func (o *UpdateClusterInternalServerError) Code() int {
 }
 
 func (o *UpdateClusterInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateClusterInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] updateClusterInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateClusterInternalServerError) GetPayload() *UpdateClusterInternalServerErrorBody {
@@ -601,11 +616,13 @@ func (o *UpdateClusterDefault) Code() int {
 }
 
 func (o *UpdateClusterDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] UpdateCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] UpdateCluster default %s", o._statusCode, payload)
 }
 
 func (o *UpdateClusterDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] UpdateCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}][%d] UpdateCluster default %s", o._statusCode, payload)
 }
 
 func (o *UpdateClusterDefault) GetPayload() *UpdateClusterDefaultBody {
@@ -891,6 +908,82 @@ type UpdateClusterDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// update cluster default body details items0
+	UpdateClusterDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *UpdateClusterDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv UpdateClusterDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.UpdateClusterDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o UpdateClusterDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.UpdateClusterDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.UpdateClusterDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this update cluster default body details items0
@@ -1382,6 +1475,10 @@ UpdateClusterParamsBodyConfigComponentsTidb The TiDB component of the cluster.
 swagger:model UpdateClusterParamsBodyConfigComponentsTidb
 */
 type UpdateClusterParamsBodyConfigComponentsTidb struct {
+
+	// The ID of the accesspoint.
+	// Example: 1
+	AccesspointID *string `json:"accesspoint_id,omitempty"`
 
 	// The number of nodes in the cluster. You can get the minimum and step of a node quantity from the response of [List the cloud providers, regions and available specifications](#tag/Cluster/operation/ListProviderRegions).
 	// Example: 3

@@ -126,11 +126,13 @@ func (o *UpdateImportTaskOK) Code() int {
 }
 
 func (o *UpdateImportTaskOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskOK %s", 200, payload)
 }
 
 func (o *UpdateImportTaskOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskOK %s", 200, payload)
 }
 
 func (o *UpdateImportTaskOK) GetPayload() interface{} {
@@ -192,11 +194,13 @@ func (o *UpdateImportTaskBadRequest) Code() int {
 }
 
 func (o *UpdateImportTaskBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskBadRequest %s", 400, payload)
 }
 
 func (o *UpdateImportTaskBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskBadRequest %s", 400, payload)
 }
 
 func (o *UpdateImportTaskBadRequest) GetPayload() *UpdateImportTaskBadRequestBody {
@@ -260,11 +264,13 @@ func (o *UpdateImportTaskUnauthorized) Code() int {
 }
 
 func (o *UpdateImportTaskUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateImportTaskUnauthorized) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateImportTaskUnauthorized) GetPayload() interface{} {
@@ -326,11 +332,13 @@ func (o *UpdateImportTaskForbidden) Code() int {
 }
 
 func (o *UpdateImportTaskForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskForbidden %s", 403, payload)
 }
 
 func (o *UpdateImportTaskForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskForbidden %s", 403, payload)
 }
 
 func (o *UpdateImportTaskForbidden) GetPayload() *UpdateImportTaskForbiddenBody {
@@ -394,11 +402,13 @@ func (o *UpdateImportTaskNotFound) Code() int {
 }
 
 func (o *UpdateImportTaskNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskNotFound %s", 404, payload)
 }
 
 func (o *UpdateImportTaskNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskNotFound %s", 404, payload)
 }
 
 func (o *UpdateImportTaskNotFound) GetPayload() *UpdateImportTaskNotFoundBody {
@@ -462,11 +472,13 @@ func (o *UpdateImportTaskTooManyRequests) Code() int {
 }
 
 func (o *UpdateImportTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateImportTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateImportTaskTooManyRequests) GetPayload() *UpdateImportTaskTooManyRequestsBody {
@@ -530,11 +542,13 @@ func (o *UpdateImportTaskInternalServerError) Code() int {
 }
 
 func (o *UpdateImportTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateImportTaskInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] updateImportTaskInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateImportTaskInternalServerError) GetPayload() *UpdateImportTaskInternalServerErrorBody {
@@ -602,11 +616,13 @@ func (o *UpdateImportTaskDefault) Code() int {
 }
 
 func (o *UpdateImportTaskDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] UpdateImportTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] UpdateImportTask default %s", o._statusCode, payload)
 }
 
 func (o *UpdateImportTaskDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] UpdateImportTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1beta/projects/{project_id}/clusters/{cluster_id}/imports/{import_id}][%d] UpdateImportTask default %s", o._statusCode, payload)
 }
 
 func (o *UpdateImportTaskDefault) GetPayload() *UpdateImportTaskDefaultBody {
@@ -689,7 +705,7 @@ type UpdateImportTaskBody struct {
 	// Currently, only `CANCEL` is supported when the import task is in the `PREPARING` or `IMPORTING` phase, meaning that the import task will be cancelled.
 	// Example: CANCEL
 	// Required: true
-	// Enum: [CANCEL]
+	// Enum: ["CANCEL"]
 	Action *string `json:"action"`
 }
 
@@ -891,6 +907,82 @@ type UpdateImportTaskDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// update import task default body details items0
+	UpdateImportTaskDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *UpdateImportTaskDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv UpdateImportTaskDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.UpdateImportTaskDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o UpdateImportTaskDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.UpdateImportTaskDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.UpdateImportTaskDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this update import task default body details items0

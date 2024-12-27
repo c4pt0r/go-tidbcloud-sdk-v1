@@ -453,6 +453,9 @@ type OpenapiImportItemSpecSource struct {
 	// aws key access
 	AwsKeyAccess *OpenapiImportItemSpecSourceAwsKeyAccess `json:"aws_key_access,omitempty"`
 
+	// azure token access
+	AzureTokenAccess *OpenapiImportItemSpecSourceAzureTokenAccess `json:"azure_token_access,omitempty"`
+
 	// format
 	// Required: true
 	Format *OpenapiImportItemSpecSourceFormat `json:"format"`
@@ -461,12 +464,12 @@ type OpenapiImportItemSpecSource struct {
 	//
 	// - `"S3"`: import data from Amazon S3
 	// - `"GCS"`: import data from Google Cloud Storage
-	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
+	// - `"LOCAL_FILE"`: import data from a local file (only available for [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) clusters). Before you import from a local file, you need to first upload the file using the [Upload a local file for an import task](#tag/Import/operation/UploadLocalFile) endpoint.
 	//
 	// **Note:** Currently, if this import spec is used for a [preview](#tag/Import/operation/PreviewImportData) request, only the `LOCAL_FILE` source type is supported.
 	// Example: S3
 	// Required: true
-	// Enum: [S3 GCS LOCAL_FILE]
+	// Enum: ["S3","GCS","LOCAL_FILE","AZBLOB"]
 	Type *string `json:"type"`
 
 	// The data source URI of an import task. The URI scheme must match the data source type. Here are the scheme of each source type:
@@ -491,6 +494,10 @@ func (m *OpenapiImportItemSpecSource) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAwsKeyAccess(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAzureTokenAccess(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -550,6 +557,25 @@ func (m *OpenapiImportItemSpecSource) validateAwsKeyAccess(formats strfmt.Regist
 	return nil
 }
 
+func (m *OpenapiImportItemSpecSource) validateAzureTokenAccess(formats strfmt.Registry) error {
+	if swag.IsZero(m.AzureTokenAccess) { // not required
+		return nil
+	}
+
+	if m.AzureTokenAccess != nil {
+		if err := m.AzureTokenAccess.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *OpenapiImportItemSpecSource) validateFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("spec"+"."+"source"+"."+"format", "body", m.Format); err != nil {
@@ -574,7 +600,7 @@ var openapiImportItemSpecSourceTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE","AZBLOB"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -592,6 +618,9 @@ const (
 
 	// OpenapiImportItemSpecSourceTypeLOCALFILE captures enum value "LOCAL_FILE"
 	OpenapiImportItemSpecSourceTypeLOCALFILE string = "LOCAL_FILE"
+
+	// OpenapiImportItemSpecSourceTypeAZBLOB captures enum value "AZBLOB"
+	OpenapiImportItemSpecSourceTypeAZBLOB string = "AZBLOB"
 )
 
 // prop value enum
@@ -634,6 +663,10 @@ func (m *OpenapiImportItemSpecSource) ContextValidate(ctx context.Context, forma
 	}
 
 	if err := m.contextValidateAwsKeyAccess(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAzureTokenAccess(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -681,6 +714,27 @@ func (m *OpenapiImportItemSpecSource) contextValidateAwsKeyAccess(ctx context.Co
 				return ve.ValidateName("spec" + "." + "source" + "." + "aws_key_access")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("spec" + "." + "source" + "." + "aws_key_access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OpenapiImportItemSpecSource) contextValidateAzureTokenAccess(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AzureTokenAccess != nil {
+
+		if swag.IsZero(m.AzureTokenAccess) { // not required
+			return nil
+		}
+
+		if err := m.AzureTokenAccess.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spec" + "." + "source" + "." + "azure_token_access")
 			}
 			return err
 		}
@@ -864,6 +918,65 @@ func (m *OpenapiImportItemSpecSourceAwsKeyAccess) UnmarshalBinary(b []byte) erro
 	return nil
 }
 
+// OpenapiImportItemSpecSourceAzureTokenAccess AzureTokenAccess
+//
+// The settings to access the Azblob data with an sas token. This field is only needed if you want to access the Azblob data with an sas token.
+//
+// swagger:model OpenapiImportItemSpecSourceAzureTokenAccess
+type OpenapiImportItemSpecSourceAzureTokenAccess struct {
+
+	// The sas token to access the data. This information will be redacted when it is retrieved to obtain the import task information.
+	// Example: YOUR_SAS_TOKEN
+	// Required: true
+	SasToken *string `json:"sas_token"`
+}
+
+// Validate validates this openapi import item spec source azure token access
+func (m *OpenapiImportItemSpecSourceAzureTokenAccess) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateSasToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OpenapiImportItemSpecSourceAzureTokenAccess) validateSasToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("spec"+"."+"source"+"."+"azure_token_access"+"."+"sas_token", "body", m.SasToken); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this openapi import item spec source azure token access based on context it is used
+func (m *OpenapiImportItemSpecSourceAzureTokenAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *OpenapiImportItemSpecSourceAzureTokenAccess) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *OpenapiImportItemSpecSourceAzureTokenAccess) UnmarshalBinary(b []byte) error {
+	var res OpenapiImportItemSpecSourceAzureTokenAccess
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
 // OpenapiImportItemSpecSourceFormat ImportSourceFormat
 //
 // The format settings of the import data source.
@@ -877,7 +990,7 @@ type OpenapiImportItemSpecSourceFormat struct {
 	// The format type of an import source.
 	// Example: CSV
 	// Required: true
-	// Enum: [CSV PARQUET SQL AURORA_SNAPSHOT]
+	// Enum: ["CSV","PARQUET","SQL","AURORA_SNAPSHOT"]
 	Type *string `json:"type"`
 }
 
@@ -1292,7 +1405,7 @@ type OpenapiImportItemStatus struct {
 	// The current phase that the import task is in.
 	// Example: IMPORTING
 	// Required: true
-	// Enum: [PREPARING IMPORTING COMPLETED FAILED CANCELING CANCELED]
+	// Enum: ["PREPARING","IMPORTING","COMPLETED","FAILED","CANCELING","CANCELED"]
 	Phase *string `json:"phase"`
 
 	// progress

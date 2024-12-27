@@ -7,6 +7,7 @@ package backup
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *CreateBackupOK) Code() int {
 }
 
 func (o *CreateBackupOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK %s", 200, payload)
 }
 
 func (o *CreateBackupOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupOK %s", 200, payload)
 }
 
 func (o *CreateBackupOK) GetPayload() *CreateBackupOKBody {
@@ -193,11 +196,13 @@ func (o *CreateBackupBadRequest) Code() int {
 }
 
 func (o *CreateBackupBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest %s", 400, payload)
 }
 
 func (o *CreateBackupBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupBadRequest %s", 400, payload)
 }
 
 func (o *CreateBackupBadRequest) GetPayload() *CreateBackupBadRequestBody {
@@ -261,11 +266,13 @@ func (o *CreateBackupUnauthorized) Code() int {
 }
 
 func (o *CreateBackupUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized %s", 401, payload)
 }
 
 func (o *CreateBackupUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupUnauthorized %s", 401, payload)
 }
 
 func (o *CreateBackupUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *CreateBackupForbidden) Code() int {
 }
 
 func (o *CreateBackupForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden %s", 403, payload)
 }
 
 func (o *CreateBackupForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupForbidden %s", 403, payload)
 }
 
 func (o *CreateBackupForbidden) GetPayload() *CreateBackupForbiddenBody {
@@ -395,11 +404,13 @@ func (o *CreateBackupNotFound) Code() int {
 }
 
 func (o *CreateBackupNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound %s", 404, payload)
 }
 
 func (o *CreateBackupNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupNotFound %s", 404, payload)
 }
 
 func (o *CreateBackupNotFound) GetPayload() *CreateBackupNotFoundBody {
@@ -463,11 +474,13 @@ func (o *CreateBackupTooManyRequests) Code() int {
 }
 
 func (o *CreateBackupTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBackupTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBackupTooManyRequests) GetPayload() *CreateBackupTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *CreateBackupInternalServerError) Code() int {
 }
 
 func (o *CreateBackupInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBackupInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] createBackupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBackupInternalServerError) GetPayload() *CreateBackupInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *CreateBackupDefault) Code() int {
 }
 
 func (o *CreateBackupDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default %s", o._statusCode, payload)
 }
 
 func (o *CreateBackupDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups][%d] CreateBackup default %s", o._statusCode, payload)
 }
 
 func (o *CreateBackupDefault) GetPayload() *CreateBackupDefaultBody {
@@ -861,6 +878,82 @@ type CreateBackupDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create backup default body details items0
+	CreateBackupDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateBackupDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateBackupDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateBackupDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateBackupDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateBackupDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateBackupDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create backup default body details items0

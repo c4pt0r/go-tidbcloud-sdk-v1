@@ -126,11 +126,13 @@ func (o *GetRestoreTaskOK) Code() int {
 }
 
 func (o *GetRestoreTaskOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskOK %s", 200, payload)
 }
 
 func (o *GetRestoreTaskOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskOK %s", 200, payload)
 }
 
 func (o *GetRestoreTaskOK) GetPayload() *GetRestoreTaskOKBody {
@@ -194,11 +196,13 @@ func (o *GetRestoreTaskBadRequest) Code() int {
 }
 
 func (o *GetRestoreTaskBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskBadRequest %s", 400, payload)
 }
 
 func (o *GetRestoreTaskBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskBadRequest %s", 400, payload)
 }
 
 func (o *GetRestoreTaskBadRequest) GetPayload() *GetRestoreTaskBadRequestBody {
@@ -262,11 +266,13 @@ func (o *GetRestoreTaskUnauthorized) Code() int {
 }
 
 func (o *GetRestoreTaskUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskUnauthorized %s", 401, payload)
 }
 
 func (o *GetRestoreTaskUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskUnauthorized %s", 401, payload)
 }
 
 func (o *GetRestoreTaskUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *GetRestoreTaskForbidden) Code() int {
 }
 
 func (o *GetRestoreTaskForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskForbidden %s", 403, payload)
 }
 
 func (o *GetRestoreTaskForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskForbidden %s", 403, payload)
 }
 
 func (o *GetRestoreTaskForbidden) GetPayload() *GetRestoreTaskForbiddenBody {
@@ -396,11 +404,13 @@ func (o *GetRestoreTaskNotFound) Code() int {
 }
 
 func (o *GetRestoreTaskNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskNotFound %s", 404, payload)
 }
 
 func (o *GetRestoreTaskNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskNotFound %s", 404, payload)
 }
 
 func (o *GetRestoreTaskNotFound) GetPayload() *GetRestoreTaskNotFoundBody {
@@ -464,11 +474,13 @@ func (o *GetRestoreTaskTooManyRequests) Code() int {
 }
 
 func (o *GetRestoreTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRestoreTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRestoreTaskTooManyRequests) GetPayload() *GetRestoreTaskTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *GetRestoreTaskInternalServerError) Code() int {
 }
 
 func (o *GetRestoreTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskInternalServerError %s", 500, payload)
 }
 
 func (o *GetRestoreTaskInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] getRestoreTaskInternalServerError %s", 500, payload)
 }
 
 func (o *GetRestoreTaskInternalServerError) GetPayload() *GetRestoreTaskInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *GetRestoreTaskDefault) Code() int {
 }
 
 func (o *GetRestoreTaskDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] GetRestoreTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] GetRestoreTask default %s", o._statusCode, payload)
 }
 
 func (o *GetRestoreTaskDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] GetRestoreTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/restores/{restore_id}][%d] GetRestoreTask default %s", o._statusCode, payload)
 }
 
 func (o *GetRestoreTaskDefault) GetPayload() *GetRestoreTaskDefaultBody {
@@ -798,6 +814,82 @@ type GetRestoreTaskDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// get restore task default body details items0
+	GetRestoreTaskDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *GetRestoreTaskDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv GetRestoreTaskDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.GetRestoreTaskDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o GetRestoreTaskDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.GetRestoreTaskDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.GetRestoreTaskDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this get restore task default body details items0
@@ -1014,7 +1106,7 @@ type GetRestoreTaskOKBody struct {
 
 	// The status of the restore task.
 	// Example: PENDING
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 }
 

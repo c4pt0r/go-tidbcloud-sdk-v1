@@ -126,11 +126,13 @@ func (o *ListProviderRegionsOK) Code() int {
 }
 
 func (o *ListProviderRegionsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsOK %s", 200, payload)
 }
 
 func (o *ListProviderRegionsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsOK %s", 200, payload)
 }
 
 func (o *ListProviderRegionsOK) GetPayload() *ListProviderRegionsOKBody {
@@ -194,11 +196,13 @@ func (o *ListProviderRegionsBadRequest) Code() int {
 }
 
 func (o *ListProviderRegionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsBadRequest %s", 400, payload)
 }
 
 func (o *ListProviderRegionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsBadRequest %s", 400, payload)
 }
 
 func (o *ListProviderRegionsBadRequest) GetPayload() *ListProviderRegionsBadRequestBody {
@@ -262,11 +266,13 @@ func (o *ListProviderRegionsUnauthorized) Code() int {
 }
 
 func (o *ListProviderRegionsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProviderRegionsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProviderRegionsUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *ListProviderRegionsForbidden) Code() int {
 }
 
 func (o *ListProviderRegionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsForbidden %s", 403, payload)
 }
 
 func (o *ListProviderRegionsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsForbidden %s", 403, payload)
 }
 
 func (o *ListProviderRegionsForbidden) GetPayload() *ListProviderRegionsForbiddenBody {
@@ -396,11 +404,13 @@ func (o *ListProviderRegionsNotFound) Code() int {
 }
 
 func (o *ListProviderRegionsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsNotFound %s", 404, payload)
 }
 
 func (o *ListProviderRegionsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsNotFound %s", 404, payload)
 }
 
 func (o *ListProviderRegionsNotFound) GetPayload() *ListProviderRegionsNotFoundBody {
@@ -464,11 +474,13 @@ func (o *ListProviderRegionsTooManyRequests) Code() int {
 }
 
 func (o *ListProviderRegionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProviderRegionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProviderRegionsTooManyRequests) GetPayload() *ListProviderRegionsTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *ListProviderRegionsInternalServerError) Code() int {
 }
 
 func (o *ListProviderRegionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProviderRegionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] listProviderRegionsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProviderRegionsInternalServerError) GetPayload() *ListProviderRegionsInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *ListProviderRegionsDefault) Code() int {
 }
 
 func (o *ListProviderRegionsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] ListProviderRegions default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] ListProviderRegions default %s", o._statusCode, payload)
 }
 
 func (o *ListProviderRegionsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] ListProviderRegions default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/clusters/provider/regions][%d] ListProviderRegions default %s", o._statusCode, payload)
 }
 
 func (o *ListProviderRegionsDefault) GetPayload() *ListProviderRegionsDefaultBody {
@@ -798,6 +814,82 @@ type ListProviderRegionsDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list provider regions default body details items0
+	ListProviderRegionsDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListProviderRegionsDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListProviderRegionsDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListProviderRegionsDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListProviderRegionsDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListProviderRegionsDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListProviderRegionsDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list provider regions default body details items0
@@ -1100,16 +1192,16 @@ type ListProviderRegionsOKBodyItemsItems0 struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// The cluster type.
-	// - `"DEVELOPER"`: a [TiDB Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-serverless) cluster
-	// - `"DEDICATED"`: a [TiDB Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#dedicated-tier) cluster
+	// - `"DEVELOPER"`: a [TiDB Cloud Serverless](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-serverless) cluster
+	// - `"DEDICATED"`: a [TiDB Cloud Dedicated](https://docs.pingcap.com/tidbcloud/select-cluster-tier#tidb-cloud-dedicated) cluster
 	//
-	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Serverless clusters.
+	// **Warning:** `"DEVELOPER"` will soon be changed to `"SERVERLESS"` to represent TiDB Cloud Serverless clusters.
 	// Example: DEDICATED
-	// Enum: [DEDICATED DEVELOPER]
+	// Enum: ["DEDICATED","DEVELOPER"]
 	ClusterType string `json:"cluster_type,omitempty"`
 
 	// The region in which your TiDB cluster is hosted.

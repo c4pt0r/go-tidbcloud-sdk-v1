@@ -38,6 +38,9 @@ const (
 
 	// ImportSourceImportSourceTypeLOCALFILE captures enum value "LOCAL_FILE"
 	ImportSourceImportSourceTypeLOCALFILE ImportSourceImportSourceType = "LOCAL_FILE"
+
+	// ImportSourceImportSourceTypeAZBLOB captures enum value "AZBLOB"
+	ImportSourceImportSourceTypeAZBLOB ImportSourceImportSourceType = "AZBLOB"
 )
 
 // for schema
@@ -45,7 +48,7 @@ var importSourceImportSourceTypeEnum []interface{}
 
 func init() {
 	var res []ImportSourceImportSourceType
-	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["S3","GCS","LOCAL_FILE","AZBLOB"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

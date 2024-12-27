@@ -126,11 +126,13 @@ func (o *GetBackupOfClusterOK) Code() int {
 }
 
 func (o *GetBackupOfClusterOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterOK %s", 200, payload)
 }
 
 func (o *GetBackupOfClusterOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterOK %s", 200, payload)
 }
 
 func (o *GetBackupOfClusterOK) GetPayload() *GetBackupOfClusterOKBody {
@@ -194,11 +196,13 @@ func (o *GetBackupOfClusterBadRequest) Code() int {
 }
 
 func (o *GetBackupOfClusterBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterBadRequest %s", 400, payload)
 }
 
 func (o *GetBackupOfClusterBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterBadRequest %s", 400, payload)
 }
 
 func (o *GetBackupOfClusterBadRequest) GetPayload() *GetBackupOfClusterBadRequestBody {
@@ -262,11 +266,13 @@ func (o *GetBackupOfClusterUnauthorized) Code() int {
 }
 
 func (o *GetBackupOfClusterUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterUnauthorized %s", 401, payload)
 }
 
 func (o *GetBackupOfClusterUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterUnauthorized %s", 401, payload)
 }
 
 func (o *GetBackupOfClusterUnauthorized) GetPayload() interface{} {
@@ -328,11 +334,13 @@ func (o *GetBackupOfClusterForbidden) Code() int {
 }
 
 func (o *GetBackupOfClusterForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterForbidden %s", 403, payload)
 }
 
 func (o *GetBackupOfClusterForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterForbidden %s", 403, payload)
 }
 
 func (o *GetBackupOfClusterForbidden) GetPayload() *GetBackupOfClusterForbiddenBody {
@@ -396,11 +404,13 @@ func (o *GetBackupOfClusterNotFound) Code() int {
 }
 
 func (o *GetBackupOfClusterNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterNotFound %s", 404, payload)
 }
 
 func (o *GetBackupOfClusterNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterNotFound %s", 404, payload)
 }
 
 func (o *GetBackupOfClusterNotFound) GetPayload() *GetBackupOfClusterNotFoundBody {
@@ -464,11 +474,13 @@ func (o *GetBackupOfClusterTooManyRequests) Code() int {
 }
 
 func (o *GetBackupOfClusterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetBackupOfClusterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetBackupOfClusterTooManyRequests) GetPayload() *GetBackupOfClusterTooManyRequestsBody {
@@ -532,11 +544,13 @@ func (o *GetBackupOfClusterInternalServerError) Code() int {
 }
 
 func (o *GetBackupOfClusterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterInternalServerError %s", 500, payload)
 }
 
 func (o *GetBackupOfClusterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] getBackupOfClusterInternalServerError %s", 500, payload)
 }
 
 func (o *GetBackupOfClusterInternalServerError) GetPayload() *GetBackupOfClusterInternalServerErrorBody {
@@ -604,11 +618,13 @@ func (o *GetBackupOfClusterDefault) Code() int {
 }
 
 func (o *GetBackupOfClusterDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] GetBackupOfCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] GetBackupOfCluster default %s", o._statusCode, payload)
 }
 
 func (o *GetBackupOfClusterDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] GetBackupOfCluster default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects/{project_id}/clusters/{cluster_id}/backups/{backup_id}][%d] GetBackupOfCluster default %s", o._statusCode, payload)
 }
 
 func (o *GetBackupOfClusterDefault) GetPayload() *GetBackupOfClusterDefaultBody {
@@ -798,6 +814,82 @@ type GetBackupOfClusterDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// get backup of cluster default body details items0
+	GetBackupOfClusterDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *GetBackupOfClusterDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv GetBackupOfClusterDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.GetBackupOfClusterDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o GetBackupOfClusterDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.GetBackupOfClusterDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.GetBackupOfClusterDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this get backup of cluster default body details items0
@@ -1009,12 +1101,12 @@ type GetBackupOfClusterOKBody struct {
 
 	// The status of backup.
 	// Example: SUCCESS
-	// Enum: [PENDING RUNNING FAILED SUCCESS]
+	// Enum: ["PENDING","RUNNING","FAILED","SUCCESS"]
 	Status string `json:"status,omitempty"`
 
 	// The type of backup. TiDB Cloud only supports manual and auto backup. For more information, see [TiDB Cloud Documentation](https://docs.pingcap.com/tidbcloud/backup-and-restore#backup).
 	// Example: MANUAL
-	// Enum: [MANUAL AUTO]
+	// Enum: ["MANUAL","AUTO"]
 	Type string `json:"type,omitempty"`
 }
 

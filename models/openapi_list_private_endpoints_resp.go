@@ -135,7 +135,7 @@ type OpenapiListPrivateEndpointsRespEndpointsItems0 struct {
 	// - `"AWS"`: the Amazon Web Services cloud provider
 	// - `"GCP"`: the Google Cloud cloud provider
 	// Example: AWS
-	// Enum: [AWS GCP]
+	// Enum: ["AWS","GCP"]
 	CloudProvider string `json:"cloud_provider,omitempty"`
 
 	// [Output Only] The ID of the cluster.
@@ -168,12 +168,12 @@ type OpenapiListPrivateEndpointsRespEndpointsItems0 struct {
 
 	// [Output Only] The status of the private endpoint service.
 	// Example: ACTIVE
-	// Enum: [CREATING ACTIVE DELETING]
+	// Enum: ["CREATING","ACTIVE","DELETING"]
 	ServiceStatus string `json:"service_status,omitempty"`
 
 	// [Output Only] The status of the private endpoint.
 	// Example: FAILED
-	// Enum: [PENDING ACTIVE DELETING FAILED]
+	// Enum: ["PENDING","ACTIVE","DELETING","FAILED"]
 	Status string `json:"status,omitempty"`
 }
 

@@ -7,12 +7,38 @@ package backup
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new backup API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new backup API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new backup API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -42,9 +68,9 @@ type ClientService interface {
 /*
 	CreateBackup creates a backup for a cluster
 
-	- For TiDB Dedicated clusters, you can create as many manual backups as you need.
+	- For TiDB Cloud Dedicated clusters, you can create as many manual backups as you need.
 
-- For TiDB Serverless clusters, you cannot create backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+- For TiDB Cloud Serverless clusters, you cannot create backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) CreateBackup(params *CreateBackupParams, opts ...ClientOption) (*CreateBackupOK, error) {
 	// TODO: Validate the params before sending
@@ -83,7 +109,7 @@ func (a *Client) CreateBackup(params *CreateBackupParams, opts ...ClientOption) 
 /*
 DeleteBackup deletes a backup for a cluster
 
-For TiDB Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For TiDB Cloud Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) DeleteBackup(params *DeleteBackupParams, opts ...ClientOption) (*DeleteBackupOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +148,7 @@ func (a *Client) DeleteBackup(params *DeleteBackupParams, opts ...ClientOption) 
 /*
 GetBackupOfCluster gets a backup for a cluster
 
-For TiDB Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For TiDB Cloud Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) GetBackupOfCluster(params *GetBackupOfClusterParams, opts ...ClientOption) (*GetBackupOfClusterOK, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +187,7 @@ func (a *Client) GetBackupOfCluster(params *GetBackupOfClusterParams, opts ...Cl
 /*
 ListBackUpOfCluster lists all backups for a cluster
 
-For TiDB Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
+For TiDB Cloud Serverless clusters, you cannot manage backups via API. You can use [Dumpling](https://docs.pingcap.com/tidb/stable/dumpling-overview) to export your data as backups.
 */
 func (a *Client) ListBackUpOfCluster(params *ListBackUpOfClusterParams, opts ...ClientOption) (*ListBackUpOfClusterOK, error) {
 	// TODO: Validate the params before sending

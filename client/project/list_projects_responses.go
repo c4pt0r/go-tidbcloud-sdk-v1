@@ -7,6 +7,7 @@ package project
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *ListProjectsOK) Code() int {
 }
 
 func (o *ListProjectsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK %s", 200, payload)
 }
 
 func (o *ListProjectsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsOK %s", 200, payload)
 }
 
 func (o *ListProjectsOK) GetPayload() *ListProjectsOKBody {
@@ -193,11 +196,13 @@ func (o *ListProjectsBadRequest) Code() int {
 }
 
 func (o *ListProjectsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest %s", 400, payload)
 }
 
 func (o *ListProjectsBadRequest) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsBadRequest %s", 400, payload)
 }
 
 func (o *ListProjectsBadRequest) GetPayload() *ListProjectsBadRequestBody {
@@ -261,11 +266,13 @@ func (o *ListProjectsUnauthorized) Code() int {
 }
 
 func (o *ListProjectsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProjectsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsUnauthorized %s", 401, payload)
 }
 
 func (o *ListProjectsUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *ListProjectsForbidden) Code() int {
 }
 
 func (o *ListProjectsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListProjectsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListProjectsForbidden) GetPayload() *ListProjectsForbiddenBody {
@@ -395,11 +404,13 @@ func (o *ListProjectsNotFound) Code() int {
 }
 
 func (o *ListProjectsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListProjectsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListProjectsNotFound) GetPayload() *ListProjectsNotFoundBody {
@@ -463,11 +474,13 @@ func (o *ListProjectsTooManyRequests) Code() int {
 }
 
 func (o *ListProjectsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProjectsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListProjectsTooManyRequests) GetPayload() *ListProjectsTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *ListProjectsInternalServerError) Code() int {
 }
 
 func (o *ListProjectsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProjectsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] listProjectsInternalServerError %s", 500, payload)
 }
 
 func (o *ListProjectsInternalServerError) GetPayload() *ListProjectsInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *ListProjectsDefault) Code() int {
 }
 
 func (o *ListProjectsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1beta/projects][%d] ListProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectsDefault) GetPayload() *ListProjectsDefaultBody {
@@ -797,6 +814,82 @@ type ListProjectsDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// list projects default body details items0
+	ListProjectsDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *ListProjectsDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv ListProjectsDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.ListProjectsDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o ListProjectsDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.ListProjectsDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.ListProjectsDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this list projects default body details items0

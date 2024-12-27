@@ -7,6 +7,7 @@ package restore
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -125,11 +126,13 @@ func (o *CreateRestoreTaskOK) Code() int {
 }
 
 func (o *CreateRestoreTaskOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskOK %s", 200, payload)
 }
 
 func (o *CreateRestoreTaskOK) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskOK %s", 200, payload)
 }
 
 func (o *CreateRestoreTaskOK) GetPayload() *CreateRestoreTaskOKBody {
@@ -193,11 +196,13 @@ func (o *CreateRestoreTaskBadRequest) Code() int {
 }
 
 func (o *CreateRestoreTaskBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskBadRequest %s", 400, payload)
 }
 
 func (o *CreateRestoreTaskBadRequest) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskBadRequest %s", 400, payload)
 }
 
 func (o *CreateRestoreTaskBadRequest) GetPayload() *CreateRestoreTaskBadRequestBody {
@@ -261,11 +266,13 @@ func (o *CreateRestoreTaskUnauthorized) Code() int {
 }
 
 func (o *CreateRestoreTaskUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskUnauthorized %s", 401, payload)
 }
 
 func (o *CreateRestoreTaskUnauthorized) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskUnauthorized %s", 401, payload)
 }
 
 func (o *CreateRestoreTaskUnauthorized) GetPayload() interface{} {
@@ -327,11 +334,13 @@ func (o *CreateRestoreTaskForbidden) Code() int {
 }
 
 func (o *CreateRestoreTaskForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskForbidden %s", 403, payload)
 }
 
 func (o *CreateRestoreTaskForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskForbidden %s", 403, payload)
 }
 
 func (o *CreateRestoreTaskForbidden) GetPayload() *CreateRestoreTaskForbiddenBody {
@@ -395,11 +404,13 @@ func (o *CreateRestoreTaskNotFound) Code() int {
 }
 
 func (o *CreateRestoreTaskNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskNotFound %s", 404, payload)
 }
 
 func (o *CreateRestoreTaskNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskNotFound %s", 404, payload)
 }
 
 func (o *CreateRestoreTaskNotFound) GetPayload() *CreateRestoreTaskNotFoundBody {
@@ -463,11 +474,13 @@ func (o *CreateRestoreTaskTooManyRequests) Code() int {
 }
 
 func (o *CreateRestoreTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRestoreTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRestoreTaskTooManyRequests) GetPayload() *CreateRestoreTaskTooManyRequestsBody {
@@ -531,11 +544,13 @@ func (o *CreateRestoreTaskInternalServerError) Code() int {
 }
 
 func (o *CreateRestoreTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRestoreTaskInternalServerError) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] createRestoreTaskInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRestoreTaskInternalServerError) GetPayload() *CreateRestoreTaskInternalServerErrorBody {
@@ -603,11 +618,13 @@ func (o *CreateRestoreTaskDefault) Code() int {
 }
 
 func (o *CreateRestoreTaskDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] CreateRestoreTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] CreateRestoreTask default %s", o._statusCode, payload)
 }
 
 func (o *CreateRestoreTaskDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] CreateRestoreTask default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1beta/projects/{project_id}/restores][%d] CreateRestoreTask default %s", o._statusCode, payload)
 }
 
 func (o *CreateRestoreTaskDefault) GetPayload() *CreateRestoreTaskDefaultBody {
@@ -939,6 +956,82 @@ type CreateRestoreTaskDefaultBodyDetailsItems0 struct {
 
 	// at type
 	AtType string `json:"@type,omitempty"`
+
+	// create restore task default body details items0
+	CreateRestoreTaskDefaultBodyDetailsItems0 map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (o *CreateRestoreTaskDefaultBodyDetailsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv CreateRestoreTaskDefaultBodyDetailsItems0
+
+	rcv.AtType = stage1.AtType
+	*o = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "@type")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		o.CreateRestoreTaskDefaultBodyDetailsItems0 = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (o CreateRestoreTaskDefaultBodyDetailsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// at type
+		AtType string `json:"@type,omitempty"`
+	}
+
+	stage1.AtType = o.AtType
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(o.CreateRestoreTaskDefaultBodyDetailsItems0) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(o.CreateRestoreTaskDefaultBodyDetailsItems0)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this create restore task default body details items0
@@ -1179,7 +1272,7 @@ type CreateRestoreTaskParamsBodyConfig struct {
 	// The TiDB port for connection. The port must be in the range of 1024-65535 except 10080.
 	//
 	// **Limitations**:
-	// - For a TiDB Serverless cluster, only port `4000` is available.
+	// - For a TiDB Cloud Serverless cluster, only port `4000` is available.
 	// Example: 4000
 	// Maximum: 65535
 	// Minimum: 1024
@@ -1383,8 +1476,8 @@ func (o *CreateRestoreTaskParamsBodyConfig) UnmarshalBinary(b []byte) error {
 CreateRestoreTaskParamsBodyConfigComponents The components of the cluster.
 //
 // **Limitations**:
-// - For a TiDB Dedicated cluster, the `components` parameter is **required**.
-// - For a TiDB Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
+// - For a TiDB Cloud Dedicated cluster, the `components` parameter is **required**.
+// - For a TiDB Cloud Serverless cluster, the `components` value is **ignored**. Setting this configuration does not have any effects.
 // Example: {"tidb":{"node_quantity":2,"node_size":"8C16G"},"tikv":{"node_quantity":3,"node_size":"8C32G","storage_size_gib":1024}}
 swagger:model CreateRestoreTaskParamsBodyConfigComponents
 */
